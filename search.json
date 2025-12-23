@@ -1,0 +1,990 @@
+[
+  {
+    "objectID": "pages/fzf/fzf.html",
+    "href": "pages/fzf/fzf.html",
+    "title": "Getting started with fzf command",
+    "section": "",
+    "text": "fzf is a general purpose command-line fuzzy finder written in go programming language. You can find it [here] (“https://github.com/junegunn/fzf”). The official website describes fzf as:\n\nIt’s an interactive Unix filter for command-line that can be used with any list; files, command history, processes, hostnames, bookmarks, git commits, etc."
+  },
+  {
+    "objectID": "pages/fzf/fzf.html#introduction",
+    "href": "pages/fzf/fzf.html#introduction",
+    "title": "Getting started with fzf command",
+    "section": "",
+    "text": "fzf is a general purpose command-line fuzzy finder written in go programming language. You can find it [here] (“https://github.com/junegunn/fzf”). The official website describes fzf as:\n\nIt’s an interactive Unix filter for command-line that can be used with any list; files, command history, processes, hostnames, bookmarks, git commits, etc."
+  },
+  {
+    "objectID": "pages/fzf/fzf.html#getting-started",
+    "href": "pages/fzf/fzf.html#getting-started",
+    "title": "Getting started with fzf command",
+    "section": "Getting started",
+    "text": "Getting started\nIf you run fzf without any argument then it will search all files in the current directory.\nfzf\n\nNote that fzf updates the matches dynamically while you type the search terms in any order.\n\n\nBecause fzf prints the selection into stdout, we can use this output as input for another command such as vim.\n\n\nPreview the file\nWe will use bat and fzf together.\nfzf --preview 'bat --color=always {}'\n\n\nConfiguration of fzf\nTo avoid typing this option every time, you can set the environment variable FZF_DEFAULT_OPTS to apply it automatically every time you run fzf:\nexport FZF_DEFAULT_OPTS=\"--preview 'bat --color~always {}'\"\nBy default fzf uses find command, but we want to use fd command.\nexport FZF_DEFAULT_COMMAND=\"fd --type f\""
+  },
+  {
+    "objectID": "pages/tmux/tmux.html",
+    "href": "pages/tmux/tmux.html",
+    "title": "Getting started with tmux",
+    "section": "",
+    "text": "This post covers tmux setup on MacOS and Linux."
+  },
+  {
+    "objectID": "pages/tmux/tmux.html#environment",
+    "href": "pages/tmux/tmux.html#environment",
+    "title": "Getting started with tmux",
+    "section": "Environment",
+    "text": "Environment\n\nTerminal: Alacritty\nShell: Fish\nOS: ArchLinux, Ubuntu 22.04, MacOSX (M2 chip), MacOSX (Intel chip)"
+  },
+  {
+    "objectID": "pages/tmux/tmux.html#installing-tmux",
+    "href": "pages/tmux/tmux.html#installing-tmux",
+    "title": "Getting started with tmux",
+    "section": "Installing tmux",
+    "text": "Installing tmux\nOn MacOSX:\nbrew install tmux\nOn ArchLinux:\nsudo pacman -S tmux\nOn Ubuntu:\nsudo apt-get install -y tmux"
+  },
+  {
+    "objectID": "pages/tmux/tmux.html#installing-tmux-package-manager",
+    "href": "pages/tmux/tmux.html#installing-tmux-package-manager",
+    "title": "Getting started with tmux",
+    "section": "Installing Tmux package manager",
+    "text": "Installing Tmux package manager\ngit clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
+  },
+  {
+    "objectID": "pages/tmux/tmux.html#configuration-settings",
+    "href": "pages/tmux/tmux.html#configuration-settings",
+    "title": "Getting started with tmux",
+    "section": "Configuration settings:",
+    "text": "Configuration settings:\nmkdir -pv ~/.config/tmux\ntouch ~/.config/tmux/tmux.conf\nOpen tmux.conf, and add following lines to it:\nset -g default-terminal \"tmux-256color\"\n# set -ga terminal-overrides \",*256col*:Tc\"\nset -ga terminal-overrides \",xterm-256color:Tc\"\nset -ga terminal-overrides '*:Ss=\\E[%p1%d q:Se=\\E[ q'\nset-environment -g COLORTERM \"truecolor\"\n\n\n## Mouse enable\nset -g mouse on\n\n## windows indexing\n\nset -g base-index 1\nset -g pane-base-index 1\nset-window-option -g pane-base-index 1\nset-option -g renumber-windows on\n\n\n## My kemaps\n\n### Prefix\n\nunbind C-b\nset -g prefix C-a\nbind C-a send-prefix\n\n### Reload config file\n\n### Windows related\n\nbind r source ~/.config/tmux/tmux.conf\n\nbind &lt; previous-window\nbind &gt; next-window\n\n### Pane related\n\nbind '\"' split-window -v -c \"#{pane_current_path}\"\nbind % split-window -h -c \"#{pane_current_path}\"\nbind Enter split-window -h -c \"#{pane_current_path}\"\n\n\n# List of plugins\nset -g @plugin 'tmux-plugins/tpm'\nset -g @plugin 'tmux-plugins/tmux-sensible'\nset -g @plugin 'catppuccin/tmux'\nset -g @catppuccin_flavour 'mocha' # or frappe, macchiato, mocha\n\n## This plugin is a repackaging of Mislav Marohnić's tmux-navigator configuration\n## described in this gist. When combined with a set of tmux key bindings,\n## the plugin will allow you to navigate seamlessly between vim and tmux splits\n## using a consistent set of hotkeys.\n## https://github.com/christoomey/vim-tmux-navigator\n\nset -g @plugin 'christoomey/vim-tmux-navigator'\nrun '~/.tmux/plugins/tpm/tpm'\n\n# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)\nrun '~/.tmux/plugins/tpm/tpm'"
+  },
+  {
+    "objectID": "pages/tmux/tmux.html#tmux-keybindings",
+    "href": "pages/tmux/tmux.html#tmux-keybindings",
+    "title": "Getting started with tmux",
+    "section": "Tmux keybindings",
+    "text": "Tmux keybindings\n\nPanes\n\n\n\nKey\nAction\n\n\n\n\nEnter\nHorizonal split\n\n\n%\nHorizonal split\n\n\n\"\nVertical split\n\n\nx\nClose the pane\n\n\nRight\nGo to the right pane\n\n\nLeft\nGo to the left pane\n\n\nTop\nGo to the top pane\n\n\nDown\nGo to the down pane\n\n\nz\nZoom the pane\n\n\nq\nShow pane number\n\n\nq+1\nGoto pane 2\n\n\n\n\n\nWindows\n\n\n\nKey\nAction\n\n\n\n\nc\nCreate new window\n\n\n,\nRename window\n\n\n&gt;\nGo to next window\n\n\n&lt;\nGo to previous window\n\n\n&\nClose window\n\n\nw\nList windows\n\n\np\nGo to previous window\n\n\nn\nGo to next window\n\n\n1, 2, ...\nGo to window 1, 2,\n\n\nl\nToggle last active window\n\n\n\n\n\nSessions\nStart new session.\ntmux new\n:new\nStart new session with a name hello_world.\ntmux new -s hello_world\n:new -s hello_world\nKill a session\ntmux kill-session -t hello_world\nKill all session but the current:\ntmux kill-session -a\nKill all session but hello_world\ntmux kill-session -a -t hello_world\nRename the Session\n&lt;prefix&gt; + $\nDetach from session.\n&lt;prefix&gt; + d\nor,\n:attach -d\nList all session:\ntmux ls\nShow all session:\n&lt;prefix&gt; + s\nAttach to a Session:\ntmux a -t hello_world\ntmux attach -t hello_world\ntmux attach-session -t hello_world\nGo to the next session\n&lt;prefix&gt; + )\nGo to the previous session\n&lt;prefix&gt; + ("
+  },
+  {
+    "objectID": "pages/github/github-cli.html",
+    "href": "pages/github/github-cli.html",
+    "title": "Getting started with Github CLI",
+    "section": "",
+    "text": "To install gh cli please follow the instruction given on official website of gh.\nTo create an issue we will use the following command.\ngh issue\nThis command has many options:\nWork with GitHub issues.\n\nUSAGE\n  gh issue &lt;command&gt; [flags]\n\nGENERAL COMMANDS\n  create:      Create a new issue\n  list:        List issues in a repository\n  status:      Show status of relevant issues\n\nTARGETED COMMANDS\n  close:       Close issue\n  comment:     Add a comment to an issue\n  delete:      Delete issue\n  develop:     Manage linked branches for an issue\n  edit:        Edit issues\n  lock:        Lock issue conversation\n  pin:         Pin a issue\n  reopen:      Reopen issue\n  transfer:    Transfer issue to another repository\n  unlock:      Unlock issue conversation\n  unpin:       Unpin a issue\n  view:        View an issue\n\nFLAGS\n  -R, --repo [HOST/]OWNER/REPO   Select another repository using the [HOST/]OWNER/REPO format\n\nINHERITED FLAGS\n  --help   Show help for command\n\nARGUMENTS\n  An issue can be supplied as argument in any of the following formats:\n  - by number, e.g. \"123\"; or\n  - by URL, e.g. \"https://github.com/OWNER/REPO/issues/123\".\n\nEXAMPLES\n  $ gh issue list\n  $ gh issue create --label bug\n  $ gh issue view 123 --web\n\nLEARN MORE\n  Use 'gh &lt;command&gt; &lt;subcommand&gt; --help' for more information about a command.\n  Read the manual at https://cli.github.com/manual\nWe will only focus here on gh issue create\nUSAGE\n  gh issue create [flags]\n\nFLAGS\n  -a, --assignee login   Assign people by their login. Use \"@me\" to self-assign.\n  -b, --body string      Supply a body. Will prompt for one otherwise.\n  -F, --body-file file   Read body text from file (use \"-\" to read from standard input)\n  -l, --label name       Add labels by name\n  -m, --milestone name   Add the issue to a milestone by name\n  -p, --project name     Add the issue to projects by name\n      --recover string   Recover input from a failed run of create\n  -T, --template name    Template name to use as starting body text\n  -t, --title string     Supply a title. Will prompt for one otherwise.\n  -w, --web              Open the browser to create an issue\n\nINHERITED FLAGS\n      --help                     Show help for command\n  -R, --repo [HOST/]OWNER/REPO   Select another repository using the [HOST/]OWNER/REPO format\n\nEXAMPLES\n  $ gh issue create --title \"I found a bug\" --body \"Nothing works\"\n  $ gh issue create --label \"bug,help wanted\"\n  $ gh issue create --label bug --label \"help wanted\"\n  $ gh issue create --assignee monalisa,hubot\n  $ gh issue create --assignee \"@me\"\n  $ gh issue create --project \"Roadmap\"\n\nLEARN MORE\n  Use 'gh &lt;command&gt; &lt;subcommand&gt; --help' for more information about a command.\n  Read the manual at https://cli.github.com/manual"
+  },
+  {
+    "objectID": "pages/pyvista/pyvista.html",
+    "href": "pages/pyvista/pyvista.html",
+    "title": "Getting Started with PyVista",
+    "section": "",
+    "text": "PyVista is a 3D data management and visualization software. PyVista extends the functionality of the open-source visualization platform the VTK by Kitware Inc.\nPyVista has two main modules:\n\nCore module, which deals with the fundamental data structures for spatially-referenced information\nPlotting module facilitates creating of 3D visualizations of the core data structures."
+  },
+  {
+    "objectID": "pages/pyvista/pyvista.html#what-is-pyvista",
+    "href": "pages/pyvista/pyvista.html#what-is-pyvista",
+    "title": "Getting Started with PyVista",
+    "section": "",
+    "text": "PyVista is a 3D data management and visualization software. PyVista extends the functionality of the open-source visualization platform the VTK by Kitware Inc.\nPyVista has two main modules:\n\nCore module, which deals with the fundamental data structures for spatially-referenced information\nPlotting module facilitates creating of 3D visualizations of the core data structures."
+  },
+  {
+    "objectID": "pages/pyvista/pyvista.html#data-structures",
+    "href": "pages/pyvista/pyvista.html#data-structures",
+    "title": "Getting Started with PyVista",
+    "section": "Data structures",
+    "text": "Data structures\n\nGeometry is the collection of points and cells\nTopology defines the structure of the dataset. It defines how the points are connected with each other.\nNode data and element data are attributes associated with the nodes and cells.\n\n\nPolyData\nPolydata consists of any 1D or 2D geometry to construct vertices, lines, polygons, and triangles.\nPolyData can represent:\n\npoint clouds\nDigital elevation models (DEMs)\nSparse data\nGeospatial line sets\nBounding sourfaces\n\n\n\nRectilinearGrid\nImplicit geometries along the x, y, and z directions that are rectangular and regular.\n\n\nUniformGrid\nImplicit geometries where cell sizes are uniformly assigned along each axis and the spatial reference is built out from an origin point.\n\n\nStructuredGrid\nA regular lattice of points aligned with an internal coordiante axes such that the connectivity can be defined by a grid ordering. Contains 2D quads or 3D hexahedrons.\n\n\nUnstructuredGrid\nThe most general dataset type that can hold any 1D, 2D, or 3D cell geometries. Typically generated by filtering routines ans contains subsets or combinations or the above data types."
+  },
+  {
+    "objectID": "pages/pyvista/pyvista.html#reading-polydata",
+    "href": "pages/pyvista/pyvista.html#reading-polydata",
+    "title": "Getting Started with PyVista",
+    "section": "Reading Polydata",
+    "text": "Reading Polydata\nimport pyvista as pv\nimport numpy as np\npv.set_jupyter_backend('trame')\n# from pyvista import themes\npv.set_plot_theme('paraview')\n\ndataset = [\n    [pv.read(\"equidistance-order-1.vtp\"), pv.read(\"equidistance-order-2.vtp\")],\n    [pv.read(\"equidistance-order-3.vtp\"), pv.read(\"equidistance-order-4.vtp\")],\n]\nfor row in dataset:\n    for cell in row:\n        cell[\"nodeNumber\"] = [f\"{i+1}\" for i in range(cell.n_points)]\n\ns = (2,2)\norder =[[1,2],[3,4]]\nfrom pdb import line_prefix\n\n\npl = pv.Plotter(shape=s, border=False, border_width=5)\n# pl.window_size=[1000, 1000]\n# pl.theme = themes.DarkTheme()\ni = -1\nfor row in dataset:\n    i = i + 1; j = -1\n    for cell in row:\n        j = j + 1\n        pl.subplot(i, j)\n        pl.add_text(\"order = \" + str(order[i][j] ),  font_size=14)\n        pl.add_point_labels(cell, \"nodeNumber\", point_size=10, font_size=16, fill_shape=False, point_color=\"red\", text_color=\"black\")\n        pl.add_points(cell, point_size=10, color=\"red\")\n        cube = pv.Cube(center=(0,0,0), x_length=2, y_length=2, z_length=2)\n        pl.add_mesh(cube, color=\"lightblue\", show_edges=True)\n        _ = pl.add_axes(line_width=3, labels_off=False)\n\npl.show()\npl.export_html(\"../../../../static/elements/hexahedron/equidistance.html\")\npl.save_graphic(\"../figures/equidistance.svg\", raster=False)\nResults"
+  },
+  {
+    "objectID": "pages/pyvista/pyvista.html#plotting-structured-data",
+    "href": "pages/pyvista/pyvista.html#plotting-structured-data",
+    "title": "Getting Started with PyVista",
+    "section": "Plotting structured data",
+    "text": "Plotting structured data\nfrom turtle import position\nimport pyvista as pv\nimport numpy as np\n\npv.set_jupyter_backend(\"trame\")\n# from pyvista import themes\npv.set_plot_theme(\"paraview\")\n\nmy_prefix = \"xyFacetBasis\"\nhtml_path = \"../../../../static/elements/hexahedron/\"\nfigure_path = \"../figures/\"\n\ndataset = pv.read(my_prefix + \".vts\")\n\nbounds = [0,1,0,1,0,1]\nclipped = dataset.clip_box(bounds)\n# dataset\n\ns = (1, 2)\npl = pv.Plotter(shape=s, border=False)\n# pl.window_size = [1000, 1000]\n\nk = 0\nfor i in np.arange(s[0]):\n    for j in np.arange(s[1]):\n        k += 1\n        pl.subplot(i, j)\n        pl.add_text(f\"facet={k}\", font_size=12)\n        # pl.add_mesh(\n        #     dataset.copy(),\n        #     scalars=f\"{k}\",\n        #     color=\"lightblue\",\n        #     show_edges=True,\n        #     show_scalar_bar=False,\n        # )\n\n        # pl.add_mesh(\n        #     dataset,\n        #     style=\"wireframe\",\n        #     color=\"silver\",\n        # )\n\n        pl.add_mesh(\n            clipped.copy(),\n            scalars=f\"{k}\",\n            show_scalar_bar=False,\n            show_edges=True,\n        )\n\n        _ = pl.add_axes(\n            interactive=True,\n            line_width=2,\n            labels_off=False,\n        )\n\n        pl.cpos = [\n            (107.0, 68.5, 204.0),\n            (128.0, 86.5, 223.5),\n            (0.45, 0.36, -0.8),\n        ]\n\n# pl.link_views()\n\n_ = pl.add_scalar_bar(\n    title=\"value\",\n    vertical=True,\n    position_x=0.8,\n    position_y=0.2,\n)\npl.show()\n\npl.export_html( html_path + f\"/{my_prefix}.html\")\npl.save_graphic( figure_path + f\"{my_prefix}.svg\", raster=False)\nResults"
+  },
+  {
+    "objectID": "pages/python/pypi.html",
+    "href": "pages/python/pypi.html",
+    "title": "Building and Deploying PyPI packages",
+    "section": "",
+    "text": "In this tutorial, we will build a Python package for easifem command line interface (easifem-CLI).\nIn case of Python there are several tools available for publishing our open source packages. For example, we can use the Python Package Index, also known as PyPI. We will be using PyPI for this tutorial.\nFirst of all we need to make an account at"
+  },
+  {
+    "objectID": "pages/python/pypi.html#creating-a-python-package",
+    "href": "pages/python/pypi.html#creating-a-python-package",
+    "title": "Building and Deploying PyPI packages",
+    "section": "Creating a Python package",
+    "text": "Creating a Python package\nI have created a command line interface for building, installing, uninstalling easifem components.\nBy using this CLI application we can install easifem as follows:\neasifem install easifem\neasifem update easifem\neasifem clean easifem\neasifem remove easifem\neasifem uninstall easifem"
+  },
+  {
+    "objectID": "pages/python/pypi.html#project-structure",
+    "href": "pages/python/pypi.html#project-structure",
+    "title": "Building and Deploying PyPI packages",
+    "section": "Project structure",
+    "text": "Project structure\n├── LICENSE.txt\n├── README.md\n├── pyproject.toml\n├── src\n│   └── easifem\n│       ├── __about__.py\n│       ├── __init__.py\n│       ├── __pycache__\n│       ├── clean.py\n│       ├── cmake.py\n│       ├── components.py\n│       ├── console.py\n│       ├── easifem.py\n│       ├── install.py\n│       ├── parsers.py\n│       ├── run.py\n│       ├── setenv.py\n│       ├── test.py\n│       ├── uninstall.py\n│       ├── utils_clean.py\n│       ├── utils_install.py\n│       ├── utils_run.py\n│       ├── utils_setenv.py\n│       └── utils_uninstall.py\n└── tests\n    ├── __init__.py\n    ├── hello.F90\n    ├── hello.md\n    ├── test2.F90\n    └── test2.md\nThe project has:\n\nA base folder named easifem-cli\nA module/library folder named easifem in src folder\neasifem folder contains several python files.\n\n\nMake sure that the module/library folder name is a unique name that is not used by an existing package in the Test Python Package Index test.pypi.org or the Python Package Index pypi.org. Make search queries to confirm the availability of the names you want to use.\n\nIn easifem directory create two files:\n\n__init__.py, keep this file empty.\n__about__.py, put the following lines in this file.\n\n__version__ = \"23.6.0\"\nIn the easifem directory easifem.py is the main file. Its contents are shown below:\n#!/usr/bin/env python3\n\nimport argparse\nfrom easifem.utils_run import easifem_run as run\nfrom easifem.utils_setenv import easifem_setenv as setenv\nfrom easifem.utils_install import easifem_install as install\nfrom easifem.utils_clean import easifem_clean as clean\nfrom easifem.utils_uninstall import easifem_uninstall as uninstall\nfrom easifem.parsers import *\nimport os\n\n_DESCRIPTION = \"\"\"\neasifem is a CLI (Command Line Interface) to libeasifem.\nIt contains some subcommands to help you work with libeasifem.\nIt can help you in building an application based on easifem components.\nIt can also build and install the easifem library.\n\nFor more information visit:\nwebsite: https://www.easifem.com:\n(c) Vikas Sharma, 2023\n\"\"\"\n\n## Some code goes here (not shown)\n\ndef main():\n    args = parser.parse_args()\n    if args.subcommand:\n        if args.subcommand == \"test\":\n            easifem_test(args)\n        elif args.subcommand == \"run\":\n            easifem_run(args)\n        elif args.subcommand == \"setenv\":\n            easifem_setenv(args)\n        elif args.subcommand == \"install\":\n            easifem_install(args)\n        elif args.subcommand == \"uninstall\":\n            easifem_uninstall(args)\n        elif args.subcommand == \"clean\":\n            easifem_clean(args)\n\n\nif __name__ == \"__main__\":\n    main()"
+  },
+  {
+    "objectID": "pages/python/pypi.html#install-hatch",
+    "href": "pages/python/pypi.html#install-hatch",
+    "title": "Building and Deploying PyPI packages",
+    "section": "Install hatch",
+    "text": "Install hatch\nTo build the PyPI package we will use Hatch, which is a modern, extensible Python project manager.\nInstall hatch:\n\npip\npython3 -m pip install hatch\n\n\npipx\npipx install hatch\n\n\nconda\nconda install -c conda-forge hatch"
+  },
+  {
+    "objectID": "pages/python/pypi.html#configuration",
+    "href": "pages/python/pypi.html#configuration",
+    "title": "Building and Deploying PyPI packages",
+    "section": "Configuration",
+    "text": "Configuration\nAll project-specific configuration recognized by Hatch can be defined in either the pyproject.toml file, or a file named hatch.toml where options are not contained within the tool.hatch table:\n[build-system]\nrequires = [\"hatchling\"]\nbuild-backend = \"hatchling.build\"\n\n[project]\nname = \"easifem\"\ndynamic = [\"version\"]\ndescription = \"easifem is a command line interface for using EASIFEM library. Expandable And Scalable Infrastructure for Finite Element Methods, EASIFEM, is Modern Fortran framework for solving partial differential equations (PDEs) using finite element methods.\"\nreadme = \"README.md\"\nrequires-python = \"&gt;=3.7\"\nlicense = \"MIT\"\nkeywords = [\"engineering\", \"application\", \"high performance computing\", \"scientific computations\", \"Modern Fortran\", \"Fortran\", \"scientific library\", \"FEM\", \"finite element method\", \"easifem\", \"command line interface\", \"cli\"]\nauthors = [\n  { name = \"Vikas Sharma\", email = \"Vickysharma0812@gmail.com\" },\n]\nclassifiers = [\n  \"Development Status :: 4 - Beta\",\n  \"Programming Language :: Python\",\n  \"Programming Language :: Python :: 3.7\",\n  \"Programming Language :: Python :: 3.8\",\n  \"Programming Language :: Python :: 3.9\",\n  \"Programming Language :: Python :: 3.10\",\n  \"Programming Language :: Python :: 3.11\",\n  \"Programming Language :: Python :: Implementation :: CPython\",\n  \"Programming Language :: Python :: Implementation :: PyPy\",\n]\ndependencies = [\n  \"rich&gt;=13\",\n]\n\n\n[project.scripts]\neasifem = \"easifem.easifem:main\"\n\n[project.urls]\nDocumentation = \"https://github.com/vickysharma0812/easifem#readme\"\nIssues = \"https://github.com/vickysharma0812/easifem/issues\"\nSource = \"https://github.com/vickysharma0812/easifem\"\n\n[tool.hatch.build]\nignore-vcs = false\n\n# include = [\n#   \"pkg/*.py\",\n#   \"/tests\",\n# ]\n# exclude = [\n#   \"*.json\",\n#   \"pkg/_compat.py\",\n# ]\n\n[tool.hatch.version]\npath = \"src/easifem/__about__.py\"\n\n[tool.hatch.envs.default]\ndependencies = [\n  \"coverage[toml]&gt;=6.5\",\n  \"pytest\",\n]\n[tool.hatch.envs.default.scripts]\ntest = \"pytest {args:tests}\"\ntest-cov = \"coverage run -m pytest {args:tests}\"\ncov-report = [\n  \"- coverage combine\",\n  \"coverage report\",\n]\ncov = [\n  \"test-cov\",\n  \"cov-report\",\n]\n\n[[tool.hatch.envs.all.matrix]]\npython = [\"3.7\", \"3.8\", \"3.9\", \"3.10\", \"3.11\"]\n\n[tool.hatch.envs.lint]\ndetached = true\ndependencies = [\n  \"black&gt;=23.1.0\",\n  \"mypy&gt;=1.0.0\",\n  \"ruff&gt;=0.0.243\",\n]\n[tool.hatch.envs.lint.scripts]\ntyping = \"mypy --install-types --non-interactive {args:src/easifem tests}\"\nstyle = [\n  \"ruff {args:.}\",\n  \"black --check --diff {args:.}\",\n]\nfmt = [\n  \"black {args:.}\",\n  \"ruff --fix {args:.}\",\n  \"style\",\n]\nall = [\n  \"style\",\n  \"typing\",\n]\n\n[tool.black]\ntarget-version = [\"py37\"]\nline-length = 120\nskip-string-normalization = true\n\n[tool.ruff]\ntarget-version = \"py37\"\nline-length = 120\nselect = [\n  \"A\",\n  \"ARG\",\n  \"B\",\n  \"C\",\n  \"DTZ\",\n  \"E\",\n  \"EM\",\n  \"F\",\n  \"FBT\",\n  \"I\",\n  \"ICN\",\n  \"ISC\",\n  \"N\",\n  \"PLC\",\n  \"PLE\",\n  \"PLR\",\n  \"PLW\",\n  \"Q\",\n  \"RUF\",\n  \"S\",\n  \"T\",\n  \"TID\",\n  \"UP\",\n  \"W\",\n  \"YTT\",\n]\nignore = [\n  # Allow non-abstract empty methods in abstract base classes\n  \"B027\",\n  # Allow boolean positional values in function calls, like `dict.get(... True)`\n  \"FBT003\",\n  # Ignore checks for possible passwords\n  \"S105\", \"S106\", \"S107\",\n  # Ignore complexity\n  \"C901\", \"PLR0911\", \"PLR0912\", \"PLR0913\", \"PLR0915\",\n]\nunfixable = [\n  # Don't touch unused imports\n  \"F401\",\n]\n\n[tool.ruff.isort]\nknown-first-party = [\"easifem\"]\n\n[tool.ruff.flake8-tidy-imports]\nban-relative-imports = \"all\"\n\n[tool.ruff.per-file-ignores]\n# Tests can use magic values, assertions, and relative imports\n\"tests/**/*\" = [\"PLR2004\", \"S101\", \"TID252\"]\n\n[tool.coverage.run]\nsource_pkgs = [\"easifem\", \"tests\"]\nbranch = true\nparallel = true\nomit = [\n  \"src/easifem/__about__.py\",\n]\n\n[tool.coverage.paths]\neasifem = [\"src/easifem\", \"*/easifem-cli/src/easifem\"]\ntests = [\"tests\", \"*/easifem-cli/tests\"]\n\n[tool.coverage.report]\nexclude_lines = [\n  \"no cov\",\n  \"if __name__ == .__main__.:\",\n  \"if TYPE_CHECKING:\",\n]"
+  },
+  {
+    "objectID": "pages/python/pypi.html#build",
+    "href": "pages/python/pypi.html#build",
+    "title": "Building and Deploying PyPI packages",
+    "section": "Build",
+    "text": "Build\nBuilds are configured using the tool.hatch.build table. Every target is defined by a section within tool.hatch.build.targets.\nInvoking the build command without any arguments will build the sdist and wheel targets:\nhatch build\nTo only build specific targets, use the -t/--target option:\nhatch build -t wheel"
+  },
+  {
+    "objectID": "pages/python/pypi.html#publishing",
+    "href": "pages/python/pypi.html#publishing",
+    "title": "Building and Deploying PyPI packages",
+    "section": "Publishing",
+    "text": "Publishing\nAfter your project is built, you can distribute it using the publish command.\nThe -p/--publisher option controls which publisher to use, with the default being index.\nBy default, the dist directory located at the root of your project will be used:\nhatch publish\n\nOnly files ending with .whl or .tar.gz will be published."
+  },
+  {
+    "objectID": "pages/python/pypi.html#verifying-using-pypi-api-token",
+    "href": "pages/python/pypi.html#verifying-using-pypi-api-token",
+    "title": "Building and Deploying PyPI packages",
+    "section": "Verifying using PyPI API token",
+    "text": "Verifying using PyPI API token\nAPI tokens provide an alternative way (instead of username and password) to authenticate when uploading packages to PyPI.\nYou can create a token for an entire PyPI account, in which case, the token will work for all projects associated with that account. Alternatively, you can limit a token’s scope to a specific project.\nIt is strongly recommend that we authenticate with an API token where possible.\nTo make an API token: - Verify your email address (check your account settings) - In your account settings, go to the API tokens section and select “Add API token”\nTo use this API token: Set your username to __token__ Set your password to the token value, including the pypi- prefix\nhatch publish -u __token__ -a pypi-&lt;your-api-token&gt;"
+  },
+  {
+    "objectID": "pages/python/pypi.html#result",
+    "href": "pages/python/pypi.html#result",
+    "title": "Building and Deploying PyPI packages",
+    "section": "Result",
+    "text": "Result\neasifem-cli"
+  },
+  {
+    "objectID": "pages/python/pypi.html#references",
+    "href": "pages/python/pypi.html#references",
+    "title": "Building and Deploying PyPI packages",
+    "section": "References:",
+    "text": "References:\n\nCircleCI.com"
+  },
+  {
+    "objectID": "pages/fem/steady-stokes-kernel.html",
+    "href": "pages/fem/steady-stokes-kernel.html",
+    "title": "Design of SteadyStokesKernel",
+    "section": "",
+    "text": "\\[\n\\nabla p-\\nabla\\cdot\\tau-\\rho\\mathbf{b}=\\mathbf{0},\n\\]\n\\[\n\\nabla\\cdot\\mathbf{v}=0\n\\]\n\\[\n-p{\\bf n}+\\tau\\cdot{\\bf n}={\\bf h}\\text{ on }\\Gamma_{h}\n\\]\n\\[\n\\tau=2\\mu\\mathbf{d}(\\mathbf{v})\n\\]\n\\[\nd_{ij}=\\frac{1}{2}\\left(\\frac{\\partial v_{i}}{\\partial x_{j}}+\\frac{\\partial v_{j}}{\\partial x_{i}}\\right)\n\\]"
+  },
+  {
+    "objectID": "pages/fem/steady-stokes-kernel.html#governing-equation",
+    "href": "pages/fem/steady-stokes-kernel.html#governing-equation",
+    "title": "Design of SteadyStokesKernel",
+    "section": "",
+    "text": "\\[\n\\nabla p-\\nabla\\cdot\\tau-\\rho\\mathbf{b}=\\mathbf{0},\n\\]\n\\[\n\\nabla\\cdot\\mathbf{v}=0\n\\]\n\\[\n-p{\\bf n}+\\tau\\cdot{\\bf n}={\\bf h}\\text{ on }\\Gamma_{h}\n\\]\n\\[\n\\tau=2\\mu\\mathbf{d}(\\mathbf{v})\n\\]\n\\[\nd_{ij}=\\frac{1}{2}\\left(\\frac{\\partial v_{i}}{\\partial x_{j}}+\\frac{\\partial v_{j}}{\\partial x_{i}}\\right)\n\\]"
+  },
+  {
+    "objectID": "pages/fem/steady-stokes-kernel.html#steadystokes111-kernel-in-easifem",
+    "href": "pages/fem/steady-stokes-kernel.html#steadystokes111-kernel-in-easifem",
+    "title": "Design of SteadyStokesKernel",
+    "section": "SteadyStokes111 Kernel in EASIFEM",
+    "text": "SteadyStokes111 Kernel in EASIFEM\n\nDeclare some variables\n#define _VTOP_ 1.0_DFP\n#define _MU_FLUID_ 0.01\n#define _RHO_FLUID_ 1.0\n#define _tDBC4P_ 1\n#define _REF_PRESSURE_NODE_ 90\n#define _STAB_PARAM_OPTION_ 1\n\nPROGRAM main\n  USE easifemBase\n  USE easifemClasses\n  USE easifemMaterials\n  USE easifemKernels\n  USE SteadyStokes111_Class\n  IMPLICIT NONE\n  !!\n  !!\n  !!\n  TYPE(SteadyStokes111_) :: obj\n  TYPE(ParameterList_) :: param\n  TYPE(HDF5File_) :: domainFile\n  TYPE( HDF5File_ ) :: outputfile\n  TYPE( VTKFile_ ) :: vtk_outputfile\n  TYPE(MeshSelection_) :: region\n  TYPE(Domain_), TARGET :: dom\n  CLASS(DirichletBC_), POINTER :: dbc =&gt; NULL()\n  CHARACTER(LEN=*), PARAMETER :: domainFileName = \"./mesh.h5\"\n  CHARACTER( LEN = * ), PARAMETER :: outputfilePrefix=\"./output\"\n  !!\n  !! LinSolver\n  !!\n  INTEGER(I4B), PARAMETER :: LinSolver_name = LIS_GMRES\n  INTEGER(I4B), PARAMETER :: KrylovSubspaceSize = 50\n  INTEGER(I4B), PARAMETER :: maxIter_LinSolver = -1\n  REAL(DFP), PARAMETER :: rtol_LinSolver=1.0D-6\n  REAL(DFP), PARAMETER :: atol_LinSolver=1.0D-10\n  INTEGER(I4B), PARAMETER :: preconditionOption = NO_PRECONDITION\n  INTEGER(I4B), PARAMETER :: convergenceIn_LinSolver = convergenceInRes\n  INTEGER(I4B), PARAMETER :: convergenceType_LinSolver = relativeConvergence\n  LOGICAL( LGT ), PARAMETER :: relativeToRHS = .FALSE.\n  !!\n  !! Iteration parameter\n  !!\n  INTEGER( I4B ), PARAMETER :: stabParamOption = _STAB_PARAM_OPTION_\n  LOGICAL( LGT ), PARAMETER :: resetIteration = .TRUE.\n  LOGICAL( LGT ), PARAMETER :: resetTimeStep = .TRUE.\n  INTEGER( I4B ), PARAMETER :: postProcessOpt = 1\n  !!\n  !! material and boundary condition\n  !!\n  INTEGER(I4B), PARAMETER :: tFluidMaterials = 1\n  INTEGER(I4B), PARAMETER :: tDirichletBCForVelocity = 3\n  INTEGER(I4B), PARAMETER :: tDirichletBCForPressure = _tDBC4P_\n  INTEGER( I4B ), PARAMETER :: refPressureNode = _REF_PRESSURE_NODE_\n  REAL(DFP), PARAMETER :: massdensity_fluid= _RHO_FLUID_\n  REAL(DFP), PARAMETER :: dynamicViscosity= _MU_FLUID_\n  REAL(DFP), PARAMETER :: V_TOP= _VTOP_\n  INTEGER( I4B ) :: debugNo = 0"
+  },
+  {
+    "objectID": "pages/fem/steady-stokes-kernel.html#preprocessing",
+    "href": "pages/fem/steady-stokes-kernel.html#preprocessing",
+    "title": "Design of SteadyStokesKernel",
+    "section": "Preprocessing",
+    "text": "Preprocessing\n!!\n  !! main\n  !!\n  CALL FPL_INIT(); CALL param%Initiate()\n  !!\n  !! Set SteadyStokes111 Param\n  !!\n  CALL SetSteadyStokes111Param( &\n    & param=param, &\n    & domainFile=domainFileName, &\n    & stabParamOption=stabParamOption, &\n    & tFluidMaterials=tFluidMaterials, &\n    & tDirichletBCForVelocity=tDirichletBCForVelocity, &\n    & tDirichletBCForPressure=tDirichletBCForPressure, &\n    & postProcessOpt = postProcessOpt )\n  !!\n  !! Set linear solver param\n  !!\n  CALL SetLinSolverParam( &\n    & param=param, &\n    & solverName=LinSolver_name,&\n    & preconditionOption=preconditionOption, &\n    & convergenceIn=convergenceIn_LinSolver, &\n    & convergenceType=convergenceType_LinSolver, &\n    & maxIter=maxIter_LinSolver, &\n    & relativeToRHS=relativeToRHS, &\n    & KrylovSubspaceSize=KrylovSubspaceSize, &\n    & rtol=rtol_LinSolver, &\n    & atol=atol_LinSolver )\n  !!\n  !! Domain for pressure and velocity field\n  !!\n  CALL domainFile%Initiate( filename=domainFileName, MODE=\"READ\")\n  CALL domainFile%Open()\n  CALL dom%Initiate(domainFile, \"\")\n  CALL domainFile%Deallocate()\n  !!\n  !! Initiate the SteadyStokes111 Solver\n  !!\n  CALL obj%Initiate(param=param, dom=dom)\n  !!\n  !! Add Fluid Material\n  !!\n  CALL region%Initiate(isSelectionByMeshID=.TRUE.)\n  CALL region%Add(dim=obj%nsd, meshID=[1,2])\n  !!\n  CALL SetFluidMaterialParam( &\n    & param=param, &\n    & name=\"fluidMaterial\", &\n    & massDensity=massdensity_fluid, &\n    & dynamicViscosity=dynamicViscosity, &\n    & stressStrainModel=\"NewtonianFluidModel\" )\n  CALL SetNewtonianFluidModelParam( &\n    & param = param, &\n    & dynamicViscosity = dynamicViscosity )\n  !!\n  CALL obj%AddFluidMaterial( &\n    & materialNo=1, &\n    & materialName=\"fluidMaterial\", &\n    & param=param, &\n    & region=region )\n  !!\n  CALL region%Deallocate()\n  !!\n  !! DirichletBC Vx=0\n  !!\n  CALL SetDirichletBCParam( &\n    & param=param, &\n    & name=\"Vx=0\", &\n    & idof=1, &\n    & nodalValueType=Constant, &\n    & useFunction=.FALSE.)\n  CALL region%Initiate( &\n    & isSelectionByMeshID=.TRUE., &\n    & isSelectionByNodeNum=.TRUE. )\n  CALL region%Add(dim=obj%nsd-1, meshID=[1,2,6])\n  CALL region%Add( &\n    & nodenum=dom%getInternalNptrs( dim=obj%nsd-1, entityNum=[3,5] ) )\n  CALL region%Set()\n  !!\n  CALL obj%AddVelocityDirichletBC(dbcNo=1, param=param, boundary=region)\n  CALL region%Deallocate()\n  dbc =&gt; obj%GetVelocityDirichletBCPointer(dbcNo=1)\n  CALL dbc%Set(ConstantNodalValue=0.0_DFP)\n  dbc =&gt; NULL()\n  !!\n  !! DirichletBC Vy=0\n  !!\n  CALL SetDirichletBCParam( &\n    & param=param, &\n    & name=\"Vy=0\", &\n    & idof=2, &\n    & nodalValueType=Constant, &\n    & useFunction=.FALSE.)\n  !!\n  CALL region%Initiate(isSelectionByMeshID=.TRUE.)\n  CALL region%Add(dim=obj%nsd-1, meshID=[1,2,3,4,5,6])\n  CALL region%Set()\n  !!\n  CALL obj%AddVelocityDirichletBC(dbcNo=2, param=param, boundary=region)\n  CALL region%Deallocate()\n  dbc =&gt; obj%GetVelocityDirichletBCPointer(dbcNo=2)\n  CALL dbc%Set(ConstantNodalValue=0.0_DFP)\n  dbc =&gt; NULL()\n  !!\n  !! DirichletBC Vx=Vtop\n  !!\n  CALL SetDirichletBCParam( &\n    & param=param, &\n    & name=\"Vx=V\", &\n    & idof=1, &\n    & nodalValueType=Constant, &\n    & useFunction=.FALSE.)\n  !!\n  CALL region%Initiate(isSelectionByMeshID=.TRUE.)\n  CALL region%Add(dim=obj%nsd-1, meshID=[4])\n  CALL region%Set()\n  !!\n  CALL obj%AddVelocityDirichletBC(dbcNo=3, param=param, boundary=region)\n  CALL region%Deallocate()\n  dbc =&gt; obj%GetVelocityDirichletBCPointer(dbcNo=3)\n  CALL dbc%Set(ConstantNodalValue=V_TOP)\n  dbc =&gt; NULL()\n  !!\n  !! DirichletBC P=0\n  !!\n  IF( tDirichletBCForPressure .GT. 0 ) THEN\n    CALL SetDirichletBCParam( &\n      & param=param, &\n      & name=\"P=0\", &\n      & idof=1, &\n      & nodalValueType=Constant, &\n      & useFunction=.FALSE.)\n    CALL region%Initiate( &\n      & isSelectionByNodeNum=.TRUE. )\n    CALL region%Add( nodenum=[refPressureNode])\n    CALL region%Set()\n    !!\n    CALL obj%AddPressureDirichletBC(dbcNo=1, param=param, boundary=region)\n    CALL region%Deallocate()\n    dbc =&gt; obj%GetPressureDirichletBCPointer(dbcNo=1)\n    CALL dbc%Set(ConstantNodalValue=0.0_DFP)\n    dbc =&gt; NULL()\n  END IF\nNow we are done with preprocessing, let us call set\nCALL obj%Set( )\nCALL outputfile%Initiate(outputfilePrefix//'.h5', \"NEW\")\nCALL outputfile%Open()\nCALL obj%Display( \"obj: \" )"
+  },
+  {
+    "objectID": "pages/fem/steady-stokes-kernel.html#processing",
+    "href": "pages/fem/steady-stokes-kernel.html#processing",
+    "title": "Design of SteadyStokesKernel",
+    "section": "Processing",
+    "text": "Processing\nCALL obj%run( param )"
+  },
+  {
+    "objectID": "pages/fem/steady-stokes-kernel.html#postprocessing",
+    "href": "pages/fem/steady-stokes-kernel.html#postprocessing",
+    "title": "Design of SteadyStokesKernel",
+    "section": "Postprocessing",
+    "text": "Postprocessing\n  CALL obj%WriteData(outputfile, \"\" )\n  CALL obj%WriteData(vtk_outputfile, \"\" )"
+  },
+  {
+    "objectID": "pages/fem/steady-stokes-kernel.html#cleanup",
+    "href": "pages/fem/steady-stokes-kernel.html#cleanup",
+    "title": "Design of SteadyStokesKernel",
+    "section": "Cleanup",
+    "text": "Cleanup\n  CALL outputfile%Deallocate()\n  CALL obj%Deallocate()\n  CALL dom%Deallocate()\n  CALL param%Deallocate(); CALL FPL_FINALIZE()"
+  },
+  {
+    "objectID": "pages/fem/steady-stokes-kernel.html#results",
+    "href": "pages/fem/steady-stokes-kernel.html#results",
+    "title": "Design of SteadyStokesKernel",
+    "section": "Results",
+    "text": "Results\nVelocity results:"
+  },
+  {
+    "objectID": "pages/docker/docker.html",
+    "href": "pages/docker/docker.html",
+    "title": "Getting started with Docker",
+    "section": "",
+    "text": "Docker is a tool which can easily encapsulate the process of creating a distributable artifact for any application, deploying it at scale into any environment."
+  },
+  {
+    "objectID": "pages/docker/docker.html#why-docker",
+    "href": "pages/docker/docker.html#why-docker",
+    "title": "Getting started with Docker",
+    "section": "Why Docker?",
+    "text": "Why Docker?\n\nDecreasing the gap between the developer team and packaging and distribution team.\nResolving dependencies of applications easily; bundling application software and required OS filesystems together in a single standardized image format."
+  },
+  {
+    "objectID": "pages/docker/docker.html#vm-vs-containers",
+    "href": "pages/docker/docker.html#vm-vs-containers",
+    "title": "Getting started with Docker",
+    "section": "VM vs Containers",
+    "text": "VM vs Containers\nVirtual machines are typically used for creating an virtualized layer (also known as hypervisor) between the physical hardware and the software applications that run on it. This approach provides very strong isolation between workloads and each VM hosts its own operating system kernel which is located in separate memory space.\n\nRemember that the hypervisors that manage the VMs and each VM’s running kernel use a percentage of the hardware system’s resources, which are then no longer available to the hosted applications.\n\nA container, on the other hand, is just another process that typically talks directly to the underlying Linux kernel and therefore can utilize more resources, up until the system or quota-based limits are reached. In other words, Linux containers are very lightweight wrappers around a single Unix process. This process can spawn other processes. The libcontainer README provides following definition of a container:\n\nA container is a self-contained execution environment that shares the kernel of the host system and is (optionally) isolated from other containers in the system."
+  },
+  {
+    "objectID": "pages/docker/docker.html#docker-architecture",
+    "href": "pages/docker/docker.html#docker-architecture",
+    "title": "Getting started with Docker",
+    "section": "Docker Architecture",
+    "text": "Docker Architecture\nDocker is a powerful technology, and under the hood it contains tools and processes that come with a high level of complexity. However, its client/server model hides most of the complexity from the user and makes things very simple for the users.\nIn this way, although, several components are involved in the Docker API, including containerd and runc, but the basic system interaction is a client talking over an API to a server.\nIn this way docker has two parts:\n\ndocker client\ndockerd server/daemon\n\n\nThe server does most of the work such as building, running, and managing our containers.\nWe just use the client to tell the server what to do.\nThe Docker daemon can run on any number of servers in the infrastructure, and a single client can address any number of servers\nClients drive all of the communication, but Docker servers can talk directly to image registries when told to do so by the client.\n\n\nIn summary, clients are responsible for telling servers what to do, and servers focus on hosting and managing containerized applications.\n\n\n\nDocker on Linux host\nDocker has traditionally been developed on the Ubuntu Linux distribution, but most Linux distributions and other major operating systems are now supported where possible.\n\nRed Hat has gone all in on containers, and all of its platforms have first-class support for Docker. With the near-ubiquity of containers in the Linux realm, we now have distributions like Red Hat’s Fedora CoreOS, which is built entirely for Linux container workloads.\n\n\n\nDocker on MacOS and Windows\nDocker has released easy-to-use implementations for macOS and Windows. Although, these appear to run natively but are still utilizing a small Linux virtual machine to provide the Docker server and Linux kernel.\nWhen we install docker on MacOS and Windows, a Linux virtual machine is also installed. Docker daemon (dockerd) runs on this Linux (VM) host."
+  },
+  {
+    "objectID": "pages/docker/docker.html#docker-client",
+    "href": "pages/docker/docker.html#docker-client",
+    "title": "Getting started with Docker",
+    "section": "Docker client",
+    "text": "Docker client\ndocker command is the client, which can talk to the server and docker repository.\nThe docker client is a Go program, which works on most major operating systems, and the server can run on Linux and Windows server."
+  },
+  {
+    "objectID": "pages/docker/docker.html#docker-server",
+    "href": "pages/docker/docker.html#docker-server",
+    "title": "Getting started with Docker",
+    "section": "Docker server",
+    "text": "Docker server\ndockerd command is used for starting the Docker server. Server does all the tasks instructed by the client.\nThe Docker server is a separate binary from the client and is used to manage most of the work for which Docker is typically used. Next we will explore the most common ways to manage the Docker server."
+  },
+  {
+    "objectID": "pages/docker/docker.html#docker-images",
+    "href": "pages/docker/docker.html#docker-images",
+    "title": "Getting started with Docker",
+    "section": "Docker images",
+    "text": "Docker images\n\nDocker and OCI images consist of one or more filesystem layers and some important metadata that represent all the files required to run a containerized application.\nA single image can be copied to numerous hosts.\nAn image typically has a repository address, a name, and a tag.\nThe tag is generally used to identify a particular release of an image.\nAn image can specify environment variables and arguments, which can be set by users for creating several containers from the same image."
+  },
+  {
+    "objectID": "pages/docker/docker.html#linux-container",
+    "href": "pages/docker/docker.html#linux-container",
+    "title": "Getting started with Docker",
+    "section": "Linux container",
+    "text": "Linux container\n\nThis is a container that has been instantiated from a Docker image.\nA specific container can exist only once; however, you can easily create multiple containers from the same image.\nThe term Docker container is a misnomer since Docker simply leverages the operating system’s container functionality."
+  },
+  {
+    "objectID": "pages/docker/docker.html#atomic-or-mutable-hosts",
+    "href": "pages/docker/docker.html#atomic-or-mutable-hosts",
+    "title": "Getting started with Docker",
+    "section": "Atomic or mutable hosts",
+    "text": "Atomic or mutable hosts\nAn atomic or immutable host is a small, finely tuned OS image, like Fedora CoreOS, that supports container hosting and atomic OS upgrades."
+  },
+  {
+    "objectID": "pages/docker/docker.html#further-readings-on-containers",
+    "href": "pages/docker/docker.html#further-readings-on-containers",
+    "title": "Getting started with Docker",
+    "section": "Further readings on containers",
+    "text": "Further readings on containers\n\nFedora project\nMicrosoft hyper-v"
+  },
+  {
+    "objectID": "pages/docker/docker.html#docker-images-1",
+    "href": "pages/docker/docker.html#docker-images-1",
+    "title": "Getting started with Docker",
+    "section": "Docker images",
+    "text": "Docker images\n\nTo launch a container, we must either download a public image or create your own.\nThe docker image can be considered as a single asset that mainly represents the filesystem for the container.\nDocker images are built up from individual layers. Each layer puts a special demands on the Linux kernel"
+  },
+  {
+    "objectID": "pages/docker/docker.html#anatomy-of-a-dockerfile",
+    "href": "pages/docker/docker.html#anatomy-of-a-dockerfile",
+    "title": "Getting started with Docker",
+    "section": "Anatomy of a Dockerfile",
+    "text": "Anatomy of a Dockerfile\nA typical Docker image running the node application looks like the following.\nFROM alpine:3.18\nUSER root\nENV EASIFEM_BUILD_DIR /easifem/build\nENV EASIFEM_SOURCE_DIR /easifem/src\nENV EASIFEM_INSTALL_DIR /easifem/install\nENV EASIFEM_TEST_DIR /easifem/tests\n\nRUN apk update && apk add --no-cache gfortran musl-dev\n\nCOPY ./tests/* $EASIFEM_TEST_DIR/\n\nWORKDIR $EASIFEM_TEST_DIR\n\nRUN gfortran -o main.out main.F90 && ./main.out\n\nARG email=\"vickysharma0812@gmail.com\"\nLABEL \"maintainer\"=$email\nLet understand the above file line by line.\nFROM alpine:3.18\nThis line indicates the base image for our image. In this case it is Alpine linux version3.18. You can read about this project here.\n\nAlpine Linux is a Linux distribution built around musl libc and BusyBox. The image is only 5 MB in size and has access to a package repository that is much more complete than other BusyBox based images. This makes Alpine Linux a great image base for utilities and even production applications. Read more about Alpine Linux here and you can see how their mantra fits in right at home with Docker images.\n\nARG email=\"vickysharma0812@gmail.com\"\nThis line defines an argument (a variable) in the Dockerfile. This variable can be specified by the user while running the container.\nLABEL \"maintainer\"=$email\nThis line defines a label for the image that we are building.\n\nApplying labels to images and containers allows us to add metadata via key/value pairs that can later be used to search for and identify Docker images and containers.\n\nUSER root\nBy default, Docker runs all processes as root within the container, the above line describes the USER.\n\nEven though containers provide some isolation from the underlying operating system, they still run on the host kernel. Due to potential security risks, production containers should almost always be run in the context of an unprivileged user.\n\nENV EASIFEM_BUILD_DIR /easifem/build\nENV EASIFEM_SOURCE_DIR /easifem/src\nENV EASIFEM_INSTALL_DIR /easifem/install\nENV EASIFEM_TEST_DIR /easifem/tests\nThe above lines define the shell environment variables.\nRUN apk update && apk add --no-cache gfortran musl-dev\nThe above lines run the commands. Here, it is worth remembering that every instruction creates a new Docker image layer, so it often makes sense to combine a few logically grouped commands onto a single line.\nCOPY ./tests/* $EASIFEM_TEST_DIR/\nThis command moves the file from the tests directory of host to /easifem/tests/ directory of the image.\nWORKDIR $EASIFEM_TEST_DIR\nWith the WORKDIR instruction, we can change the working directory in the image for the remaining build instructions.\n\nThe order of commands in a Dockerfile can have a very significant impact on ongoing build times. You should try to order commands so that things that change between every single build are closer to the bottom. This means that adding your code and similar steps should be held off until the end. When you rebuild an image, every single layer after the first introduced change will need to be rebuilt."
+  },
+  {
+    "objectID": "pages/docker/docker.html#building-an-image",
+    "href": "pages/docker/docker.html#building-an-image",
+    "title": "Getting started with Docker",
+    "section": "Building an image",
+    "text": "Building an image\nBefore we build the image, we need to add .dockerignore file to the same location as Dockerfile. Add following entries to it.\n.git\n*.out\n*.o\nbuild\n*/build/*\nTo build the image run the following command:\ndocker image build -t  vickysharma0812/fortran-hello-world-alpine:latest\n\nUsing docker image build is functionally the same as using docker build.\n\nTo improve the speed of builds, Docker will use a local cache when it thinks it is safe. This can sometimes lead to unexpected issues because it doesn’t always notice that something changed in a lower layer. You can disable the cache for a build by using the --no-cache argument to the docker image build command.\nEach step identified in the following output maps directly to a line in the Dockerfile, and each step creates a new image layer based on the previous step. The first build that you run will take a few minutes because you have to download the base node image. Subsequent builds should be much faster unless a new version of our base image tag has been released."
+  },
+  {
+    "objectID": "pages/docker/docker.html#running-image",
+    "href": "pages/docker/docker.html#running-image",
+    "title": "Getting started with Docker",
+    "section": "Running Image",
+    "text": "Running Image\nWe run the above image by using following command.\ndocker container run --rm -d vickysharma0812/fortran-hello-world-alpine:latest"
+  },
+  {
+    "objectID": "pages/docker/docker.html#setting-environment-variables",
+    "href": "pages/docker/docker.html#setting-environment-variables",
+    "title": "Getting started with Docker",
+    "section": "Setting environment variables",
+    "text": "Setting environment variables\nWhile running the container, we can set the environment variables by using --env or -e flag.\ndocker container run --rm -d \\\n--env EASIFEM_SOURCE_DIR=/easifem/source/ \\\nvickysharma0812/fortran-hello-world-alpine:latest"
+  },
+  {
+    "objectID": "pages/docker/docker.html#storing-images-on-dockerhub",
+    "href": "pages/docker/docker.html#storing-images-on-dockerhub",
+    "title": "Getting started with Docker",
+    "section": "Storing images on Dockerhub",
+    "text": "Storing images on Dockerhub\nCreate account at Docker hub.\n\nThe first step required to push the image is to ensure that you are logged in to the Docker repository you intend to use.\n\nFirst we need to change the tag of the image that we have build. We need to add the host name docker.io.\ndocker image tag vickysharma0812/fortran-hello-world-alpine:latest \\\n    docker.io/vickysharma0812/fortran-hello-world-alpine:latest\nHere vickysharma0812 is my account name on hub.docker.com.\nNow we push this image to docker cloud.\ndocker image push vickysharma0812/fortran-hello-world-alpine:latest\nAfter that anyone who has access to internet can pull out image and run the containers.\ndocker image pull vickysharma0812/fortran-hello-world-alpine:latest"
+  },
+  {
+    "objectID": "pages/docker/docker.html#getting-info-on-build-images",
+    "href": "pages/docker/docker.html#getting-info-on-build-images",
+    "title": "Getting started with Docker",
+    "section": "Getting info on build images",
+    "text": "Getting info on build images\nWe can dive into the build images by using dive and using following command.\ndive vickysharma0812/fortran-hello-world-alpine:latest\n┃ ● Layers ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ \nCmp   Size  Command                                                                                 \n    7.7 MB  FROM de8b86e33ae69ac                                                                    \n    172 MB  RUN |1 email=vickysharma0812@gmail.com /bin/sh -c apk update && apk add --no-cache gfor \n      71 B  COPY ./tests/* /easifem/tests/ # buildkit                                               \n       0 B  WORKDIR /easifem/tests                                                                  \n     73 kB  RUN |1 email=vickysharma0812@gmail.com /bin/sh -c gfortran -o main.out main.F90 && ./ma \n                                                                                        \nImage name: vickysharma0812/fortran-hello-world-alpine:latest                                       \nTotal Image size: 179 MB                                                                           \nPotential wasted space: 1.5 MB                                                                     \nImage efficiency score: 99 %                                                                       \n                                                                                                    \nCount   Total Space  Path                                                                           \n    2        1.3 MB  /lib/ld-musl-aarch64.so.1                                                      \n    2         94 kB  /lib/apk/db/installed                                                          \n    2         68 kB  /usr/bin/strings                                                               \n    2         22 kB  /lib/apk/db/scripts.tar                                                        \n    2         152 B  /lib/apk/db/triggers\nAs you can see, most of the space in our image is taken by gfortran and gcc compilers."
+  },
+  {
+    "objectID": "pages/docker/docker.html#multistage-builds",
+    "href": "pages/docker/docker.html#multistage-builds",
+    "title": "Getting started with Docker",
+    "section": "Multistage builds",
+    "text": "Multistage builds\n\nMulti-stage builds are useful to optimize Dockerfiles while keeping them easy to read and maintain.\n\nBy using multistage build technique we can reduce the size of our docker image. The key point to is that we do not need to worry much about bringing in extra resources to build our application, and we can still run a lean production container. Multistage containers also encourage doing builds inside Docker, which is a great pattern for repeatability in your build system.\nIn the past, it was common practice to have one Dockerfile for development, and another, slimmed-down one to use for production. The development version contained everything needed to build your application. The production version only contained your application and the dependencies needed to run it.\nTo write a truly efficient Dockerfile, you had to come up with shell tricks and arcane solutions to keep the layers as small as possible. All to ensure that each layer contained only the artifacts it needed, and nothing else.\nYou can read about the multistage here.\n\nWith multi-stage builds, we can use multiple FROM statements in the Dockerfile.\nEach FROM instruction can use a different base, and each of them begins a new stage of the build.\nYou can selectively copy artifacts from one stage to another, leaving behind everything you don’t want in the final image.\n\n# syntax=docker/dockerfile:1\nFROM ubuntu:22.04 as system_builder\nUSER root\nRUN apt-get update && \\\napt-get install -y --no-install-recommends gfortran gcc libomp-dev curl git \\\npython3 python3-pip cmake ninja-build \\\nliblapack-dev libopenblas-dev libhdf5-dev \\\nlibplplot-dev plplot-driver-cairo libboost-all-dev \\\ngnuplot doxygen libgtk-4-dev && apt-get clean\n\nFROM system_builder\nENV EASIFEM_BUILD_DIR /easifem/build\nENV EASIFEM_SOURCE_DIR /easifem/src\nENV EASIFEM_INSTALL_DIR /easifem/install\nENV EASIFEM_TEST_DIR /easifem/tests\n\nCOPY ./tests/* $EASIFEM_TEST_DIR/\n\nWORKDIR $EASIFEM_TEST_DIR\n\nRUN gfortran -o main.out main.F90 && ./main.out\nThe first line\n# syntax=docker/dockerfile:1\ntells Docker that we are going to use a newer version of the Dockerfile frontend which will require BuildKit’s new features.\nWe can stop the build at particular stage. For example, in the following example, we stop only build the system_builder image.\nDOCKER_BUILDKIT=1 docker image build --target system_builder -t vickysharma0812/easifem-system:latest .\n\nNote that we have enable BuiltKit by specifying DOCKER_BUILDKIT=1.\n\nIn the line\nFROM system_builder\nwe are using previous stage as new stage.\nYou can read more about multistage build at official website of docker."
+  },
+  {
+    "objectID": "pages/docker/docker.html#directory-caching",
+    "href": "pages/docker/docker.html#directory-caching",
+    "title": "Getting started with Docker",
+    "section": "Directory caching",
+    "text": "Directory caching\nThe BuildKit plugin provides the option for directory caching, which is an incredibly useful tool for speeding up build times without saving a lot of files that are unnecessary for the runtime into your image. It allows us to save the contents of a directory inside the image in a special layer that can be bind-mounted at build time and then unmounted before the image snapshot is made. This is often used to handle directories where tools like Linux software installers (apt, apk, dnf, etc.), and language dependency managers (npm, bundler, pip, etc.), download their databases and archive files.\nThe docker file is given below:\n# syntax=docker/dockerfile:1\nFROM ubuntu:22.04 as system_builder\nUSER root\nRUN --mount=type=cache,target=/root/.cache apt-get update && \\\napt-get install -y --no-install-recommends gfortran gcc libomp-dev curl git \\\npython3 python3-pip cmake ninja-build \\\nliblapack-dev libopenblas-dev libhdf5-dev \\\nlibplplot-dev plplot-driver-cairo libboost-all-dev \\\ngnuplot doxygen libgtk-4-dev && apt-get clean\n\nFROM system_builder\nENV EASIFEM_BUILD_DIR /easifem/build\nENV EASIFEM_SOURCE_DIR /easifem/src\nENV EASIFEM_INSTALL_DIR /easifem/install\nENV EASIFEM_TEST_DIR /easifem/tests\n\nCOPY ./tests/* $EASIFEM_TEST_DIR/\n\nWORKDIR $EASIFEM_TEST_DIR\n\nRUN gfortran -o main.out main.F90 && ./main.out\nBy using\nRUN --mount=type=cache,target=/root/.cache apt-get update && \\\nwe tell BuildKit to mount a caching layer into the container at /root/.cache for the duration of this build step. In this way, we remove the contents of .cache directory from the resulting image, and it will be remounted and available to apt-get in consecutive builds."
+  },
+  {
+    "objectID": "pages/docker/docker.html#creating-a-container",
+    "href": "pages/docker/docker.html#creating-a-container",
+    "title": "Getting started with Docker",
+    "section": "Creating a container",
+    "text": "Creating a container\nWhen we call\ndocker container run\nIt performs two tasks:\n\nCreating container\nStarting the container\n\nWe can create container by\ndocker container create\nWe can start container by\ndocker container start\nWhen we create container from an image, we can specify its configuration. It means we can specify the evironment variables, arguments, name, etc.\nUnderstanding the command run command:\ndocker container run --rm -it ubuntu:latest /bin/bash\n\n--rm this option tells docker to delete the container when it exits.\n-i option tells docker that the current session will be interactive and that we want to keep STDIN open.\n-t option tells docker to allocate a pseudo-TTY"
+  },
+  {
+    "objectID": "pages/docker/docker.html#container-configuration",
+    "href": "pages/docker/docker.html#container-configuration",
+    "title": "Getting started with Docker",
+    "section": "Container configuration",
+    "text": "Container configuration\n\nName\nTo give a container name use\ndocker container create --name=\"my-cool-container\" ubuntu:latest\n\n\nLabels\nLables are keyvalue pairs in Dockerfile (image).\nWe can specify label by using option flag -l or --label.\ndocker container run --rm -d --name=\"container-with-label\" \\\n-l deployer=Vikas -l tester=Vikas \\\nubuntu:latest\n\n\nHostname\nBy default the hostname is same as the container id.\nWe can set the hostname by\ndocker container run --rm --it \\\n--hostname=\"mycontainer\" ubuntu:latest /bin/bash\n\n\nDomain Name Server\nTODO\n\n\nStorage volumes\nWhen the default disk space allocated to a container is not appropriate for the job at hand, In these cases we need storage that can persist between container deployments.\nIn such case we use --mount or -v option. For example,\ndocker container run --rm --it \\\n--mount=type=bind,target=/mnt/session_data,source=/data \\\nubuntu:latest /bin/bash\n\nWhen you use a bind mount, a file or directory on the host machine is mounted into a container.\nThe file or directory is referenced by its absolute path on the host machine.\nNeither the host mount point nor the mount point in the container needs to preexist for this command to work properly. If the host mount point does not exists, then it will be created as a directory.\n\nYou can read more about the bind mount here.\nWhen the default disk space allocated to a container is not appropriate for the job at hand, In these cases we need storage that can persist between container deployments.\nIn such case we use --mount or -v option."
+  },
+  {
+    "objectID": "pages/docker/docker.html#volumes",
+    "href": "pages/docker/docker.html#volumes",
+    "title": "Getting started with Docker",
+    "section": "Volumes",
+    "text": "Volumes\nVolumes are the preferred mechanism for persisting data generated by and used by Docker containers.\nWhile bind mounts are dependent on the directory structure and OS of the host machine, volumes are completely managed by Docker.\nVolumes have several advantages over bind mounts:\n\nVolumes are easier to back up or migrate than bind mounts.\nYou can manage volumes using Docker CLI commands or the Docker API.\nVolumes work on both Linux and Windows containers.\nVolumes can be more safely shared among multiple containers.\nVolume drivers let you store volumes on remote hosts or cloud providers, to encrypt the contents of volumes, or to add other functionality.\nNew volumes can have their content pre-populated by a container.\nVolumes on Docker Desktop have much higher performance than bind mounts from Mac and Windows hosts.\n\nIn addition, volumes are often a better choice than persisting data in a container’s writable layer, because a volume doesn’t increase the size of the containers using it, and the volume’s contents exist outside the lifecycle of a given container.\nIf your container generates non-persistent state data, consider using a tmpfs mount to avoid storing the data anywhere permanently, and to increase the container’s performance by avoiding writing into the container’s writable layer.\nWe can specify the volume by using --volume or -v option.\n\nThis option consists of three fields, separated by colon characters (:). The fields must be in the correct order, and the meaning of each field isn’t immediately obvious.\nIn the case of named volumes, the first field is the name of the volume, and is unique on a given host machine. For anonymous volumes, the first field is omitted.\nThe second field is the path where the file or directory are mounted in the container.\nThe third field is optional, and is a comma-separated list of options, such as ro.\n\ndocker container run --rm -it --name alpine_linux --volume \"$(pwd)\"/tests:/tests ubuntu:latest /bin/bash\nRead only:\ndocker container run --rm -it --name alpine_linux --volume \"$(pwd)\"/tests:/tests:ro ubuntu:latest /bin/bash"
+  },
+  {
+    "objectID": "pages/docker/docker.html#backing-up-data",
+    "href": "pages/docker/docker.html#backing-up-data",
+    "title": "Getting started with Docker",
+    "section": "Backing up data",
+    "text": "Backing up data\ndocker run -v /dbdata --name dbstore ubuntu /bin/bash\nIn the next command:\n\nLaunch a new container and mount the volume from the dbstore container\nMount a local host directory as /backup\nPass a command that tars the contents of the dbdata volume to a backup.tar file inside our /backup directory.\n\ndocker run --rm --volumes-from dbstore -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /dbdata\nWhen the command completes and the container stops, it creates a backup of the dbdata volume.\nSee how to restore volume from backup"
+  },
+  {
+    "objectID": "pages/docker/docker.html#removing-volumes",
+    "href": "pages/docker/docker.html#removing-volumes",
+    "title": "Getting started with Docker",
+    "section": "Removing volumes",
+    "text": "Removing volumes\nA Docker data volume persists after you delete a container. There are two types of volumes to consider:\n\nNamed volumes have a specific source from outside the container, for example, awesome:/bar.\nAnonymous volumes have no specific source. Therefore, when the container is deleted, you can instruct the Docker Engine daemon to remove them.\n\nTo automatically remove anonymous volumes, use the --rm option. For example, this command creates an anonymous /foo volume. When you remove the container, the Docker Engine removes the /foo volume but not the awesome volume.\ndocker run --rm -v /foo -v awesome:/bar busybox top\n\nIf another container binds the volumes with --volumes-from, the volume definitions are copied and the anonymous volume also stays after the first container is removed.\n\nTo remove all unused volumes and free up space:\ndocker volume prune\nWhen the default disk space allocated to a container is not appropriate for the job at hand, In these cases we need storage that can persist between container deployments.\nIn such case we use --mount or -v option."
+  },
+  {
+    "objectID": "pages/docker/docker.html#volumes-1",
+    "href": "pages/docker/docker.html#volumes-1",
+    "title": "Getting started with Docker",
+    "section": "Volumes",
+    "text": "Volumes\nVolumes are the preferred mechanism for persisting data generated by and used by Docker containers.\nWhile bind mounts are dependent on the directory structure and OS of the host machine, volumes are completely managed by Docker.\nVolumes have several advantages over bind mounts:\n\nVolumes are easier to back up or migrate than bind mounts.\nYou can manage volumes using Docker CLI commands or the Docker API.\nVolumes work on both Linux and Windows containers.\nVolumes can be more safely shared among multiple containers.\nVolume drivers let you store volumes on remote hosts or cloud providers, to encrypt the contents of volumes, or to add other functionality.\nNew volumes can have their content pre-populated by a container.\nVolumes on Docker Desktop have much higher performance than bind mounts from Mac and Windows hosts.\n\nIn addition, volumes are often a better choice than persisting data in a container’s writable layer, because a volume doesn’t increase the size of the containers using it, and the volume’s contents exist outside the lifecycle of a given container.\nIf your container generates non-persistent state data, consider using a tmpfs mount to avoid storing the data anywhere permanently, and to increase the container’s performance by avoiding writing into the container’s writable layer.\nWe can specify the volume by using --volume or -v option.\n\nThis option consists of three fields, separated by colon characters (:). The fields must be in the correct order, and the meaning of each field isn’t immediately obvious.\nIn the case of named volumes, the first field is the name of the volume, and is unique on a given host machine. For anonymous volumes, the first field is omitted.\nThe second field is the path where the file or directory are mounted in the container.\nThe third field is optional, and is a comma-separated list of options, such as ro."
+  },
+  {
+    "objectID": "pages/docker/docker.html#bind-mounts",
+    "href": "pages/docker/docker.html#bind-mounts",
+    "title": "Getting started with Docker",
+    "section": "Bind mounts",
+    "text": "Bind mounts\ndocker container run --rm --it \\\n--mount=type=bind,target=/mnt/session_data,source=/data \\\nubuntu:latest /bin/bash\n\nWhen you use a bind mount, a file or directory on the host machine is mounted into a container.\nThe file or directory is referenced by its absolute path on the host machine.\nNeither the host mount point nor the mount point in the container needs to preexist for this command to work properly. If the host mount point does not exists, then it will be created as a directory.\n\nYou can read more about the bind mount here.\nAccording to official website:\n\nNew users should use the --mount syntax. Experienced users may be more familiar with the -v or --volume syntax, but are encouraged to use --mount, because research has shown it to be easier to use.\n\n\n--mount: Consists of multiple key-value pairs, separated by commas and each consisting of a &lt;key&gt;=&lt;value&gt; tuple.\nThe source of the mount. For bind mounts, this is the path to the file or directory on the Docker daemon host. May be specified as source or src.\nThe destination takes as its value the path where the file or directory is mounted in the container. May be specified as destination, dst, or target.\nThe readonly option, if present, causes the bind mount to be mounted into the container as read-only.\nThe bind-propagation option, if present, changes the bind propagation. May be one of rprivate, private, rshared, shared, rslave, slave.\nThe –mount flag does not support z or Z options for modifying selinux labels.\n\n\n\nIf you use --mount to bind-mount a file or directory that does not yet exist on the Docker host, Docker does not automatically create it for you, but generates an error.\nUse docker inspect &lt;container_name&gt; to verify that the bind mount was created correctly.\nIf you bind-mount a directory into a non-empty directory on the container, the directory’s existing contents are obscured by the bind mount. This can be beneficial, such as when you want to test a new version of your application without building a new image. However, it can also be surprising and this behavior differs from that of docker volumes.\n\n\nBy default bind-mount has read and write permission, but we can give the mount location read only access.\ndocker run -d \\\n  -it \\\n  --name devtest \\\n  --mount type=bind,source=\"$(pwd)\"/target,target=/app,readonly \\\n  nginx:latest"
+  },
+  {
+    "objectID": "linux/eza.html",
+    "href": "linux/eza.html",
+    "title": "EZA",
+    "section": "",
+    "text": "eza is a modern replacement for lsa. Official website is given here.\nsudo pacman -S eza\nif type -q eza\n    set fzf_preview_dir_cmd eza --all --color=always\nend\n\nif type -q eza\n    alias exa=\"eza --long --header --icons --git --sort=size\"\nend"
+  },
+  {
+    "objectID": "linux/markdown-oxide.html",
+    "href": "linux/markdown-oxide.html",
+    "title": "Markdown-oxide",
+    "section": "",
+    "text": "markdown-oxide: Robust, Minimalist, Unbundled PKM (Personal-Knowledge-Management System) for your favorite text-editor through the Language-Server-Protocol."
+  },
+  {
+    "objectID": "linux/gmsh.html",
+    "href": "linux/gmsh.html",
+    "title": "Gmsh",
+    "section": "",
+    "text": "Gmsh is a 3D finite element grid generator with a build-in CAD engine and post-processor. You can download it by using the following command.\nyay -Sy gmsh-bin"
+  },
+  {
+    "objectID": "linux/fonts.html",
+    "href": "linux/fonts.html",
+    "title": "Fonts",
+    "section": "",
+    "text": "To install all nerd fonts use the following.\nsudo pacman -S nerd-fonts\nTo install a specific fonts, go the nerd-font website and download the font.\nunpack the font archive.\ntar -xzvf xxx.tar.gz\nOn Linux systems, font binaries are generally installed in either the system font directory on the path\n\n/usr/share/fonts/\n\nor in a user font directory that is frequently on one of the following paths:\n\n~/.local/share/fonts/\n/usr/local/share/fonts.\n\nWe’ll use the ~/.local/share/fonts/ path in this example. If the directory does not exist, create it.\nMove your font binaries to the destination directory with mv.\nNext, clear and regenerate your font cache with the following command:\nfc-cache -f -v\nConfirm that the fonts are installed by displaying the paths and style definitions with the fc-list executable filtered on the font family name with grepConfirm that the fonts are installed by displaying the paths and style definitions with the fc-list executable filtered on the font family name with grep.\nfc-list | grep \"Hack\""
+  },
+  {
+    "objectID": "linux/latex.html",
+    "href": "linux/latex.html",
+    "title": "Latex",
+    "section": "",
+    "text": "TeX Live is a free software distribution for the TeX typesetting system that includes major TeX-related programs, macro packages, and fonts.\nsudo pacman -S texlive"
+  },
+  {
+    "objectID": "linux/latex.html#texlive",
+    "href": "linux/latex.html#texlive",
+    "title": "Latex",
+    "section": "",
+    "text": "TeX Live is a free software distribution for the TeX typesetting system that includes major TeX-related programs, macro packages, and fonts.\nsudo pacman -S texlive"
+  },
+  {
+    "objectID": "linux/latex.html#lyx",
+    "href": "linux/latex.html#lyx",
+    "title": "Latex",
+    "section": "Lyx",
+    "text": "Lyx\nyay -Sy lyx"
+  },
+  {
+    "objectID": "linux/latex.html#lyx-look",
+    "href": "linux/latex.html#lyx-look",
+    "title": "Latex",
+    "section": "Lyx look",
+    "text": "Lyx look\n# LyX 2.4.1 generated this file. If you want to make your own\n# modifications you should do them from inside LyX and save.\n\nFormat 38\n\n\n#\n# MISC SECTION ######################################\n#\n\n# The time interval between auto-saves in seconds.\n\\autosave 0\n\\user_name \"Vikas Sharma\"\n\\user_email \"vickysharma0812@gmail.com\"\n\\user_initials \"\"\n\n#\n# SCREEN & FONTS SECTION ############################\n#\n\n\\screen_zoom 400\n\\paragraph_markers true\n\\screen_font_roman \"STIX Two Text\"\n\\screen_font_sans \"STIX Two Text\"\n\\screen_font_typewriter \"VictorMono Nerd Font\"\n\\screen_font_sizes 5 7 8 9 10 12 14.4 17.26 20.74 24.88\n\\open_buffers_in_tabs true\n\\single_instance false\n\n#\n# COLOR SECTION ###################################\n#\n\n\\set_color \"cursor\" \"#cdd6f4\" \"#cdd6f4\"\n\\set_color \"background\" \"#11111b\" \"#11111b\"\n\\set_color \"foreground\" \"#cdd6f4\" \"#cdd6f4\"\n\\set_color \"selection\" \"#313244\" \"#313244\"\n\\set_color \"selectiontext\" \"#74c7ec\" \"#74c7ec\"\n\\set_color \"latex\" \"#94e2d5\" \"#94e2d5\"\n\\set_color \"preview\" \"#D8DEE9\" \"#D8DEE9\"\n\\set_color \"inlinecompletion\" \"#cdd6f4\" \"#cdd6f4\"\n\\set_color \"note\" \"#ECEFF4\" \"#ECEFF4\"\n\\set_color \"notebg\" \"#3B4252\" \"#3B4252\"\n\\set_color \"comment\" \"#4C566A\" \"#4C566A\"\n\\set_color \"commentbg\" \"#313244\" \"#313244\"\n\\set_color \"greyedout\" \"#6c7086\" \"#6c7086\"\n\\set_color \"greyedouttext\" \"#a6adc8\" \"#a6adc8\"\n\\set_color \"greyedoutbg\" \"#6c7086\" \"#6c7086\"\n\\set_color \"shaded\" \"#11111b\" \"#11111b\"\n\\set_color \"listingsbg\" \"#11111b\" \"#11111b\"\n\\set_color \"branchlabel\" \"#fab387\" \"#fab387\"\n\\set_color \"footlabel\" \"#b4befe\" \"#b4befe\"\n\\set_color \"indexlabel\" \"#a6e3a1\" \"#a6e3a1\"\n\\set_color \"marginlabel\" \"#cba6f7\" \"#cba6f7\"\n\\set_color \"urllabel\" \"#ebcb8b\" \"#ebcb8b\"\n\\set_color \"urltext\" \"#bf616a\" \"#bf616a\"\n\\set_color \"depthbar\" \"#ECEFF4\" \"#ECEFF4\"\n\\set_color \"language\" \"#ECEFF4\" \"#ECEFF4\"\n\\set_color \"command\" \"#bac2de\" \"#bac2de\"\n\\set_color \"commandbg\" \"#1e1e2e\" \"#1e1e2e\"\n\\set_color \"commandframe\" \"#1e1e2e\" \"#1e1e2e\"\n\\set_color \"special\" \"#ECEFF4\" \"#ECEFF4\"\n\\set_color \"graphicsbg\" \"#313244\" \"#313244\"\n\\set_color \"math\" \"#b4befe\" \"#b4befe\"\n\\set_color \"mathbg\" \"#181825\" \"#181825\"\n\\set_color \"mathmacrobg\" \"#11111b\" \"#11111b\"\n\\set_color \"mathmacroblend\" \"#181825\" \"#181825\"\n\\set_color \"mathframe\" \"#cba6f7\" \"#cba6f7\"\n\\set_color \"mathcorners\" \"#1e1e2e\" \"#1e1e2e\"\n\\set_color \"mathline\" \"#94e2d5\" \"#94e2d5\"\n\\set_color \"collapsible\" \"#cdd6f4\" \"#cdd6f4\"\n\\set_color \"collapsibleframe\" \"#313244\" \"#313244\"\n\\set_color \"insetbg\" \"#f5c2e7\" \"#f5c2e7\"\n\\set_color \"insetframe\" \"#f5c2e7\" \"#f5c2e7\"\n\\set_color \"error\" \"#f38ba8\" \"#f38ba8\"\n\\set_color \"eolmarker\" \"#f9e2af\" \"#f9e2af\"\n\\set_color \"added_space\" \"#f5e0dc\" \"#f5e0dc\"\n\\set_color \"appendix\" \"#74c7ec\" \"#74c7ec\"\n\\set_color \"changebar\" \"#88C0D0\" \"#88C0D0\"\n\\set_color \"deletedtext\" \"#eba0ac\" \"#eba0ac\"\n\\set_color \"addedtext\" \"#a3be8c\" \"#a3be8c\"\n\\set_color \"changedtextauthor1\" \"#bf616a\" \"#bf616a\"\n\\set_color \"changedtextauthor2\" \"#a3be8c\" \"#a3be8c\"\n\\set_color \"changedtextauthor3\" \"#f38ba8\" \"#f38ba8\"\n\\set_color \"changedtextauthor4\" \"#f2cdcd\" \"#f2cdcd\"\n\\set_color \"changedtextauthor5\" \"#cba6f7\" \"#cba6f7\"\n\\set_color \"deletedtextmodifier\" \"#f9e2af\" \"#f9e2af\"\n\\set_color \"tabularline\" \"#8fbcbb\" \"#8fbcbb\"\n\\set_color \"tabularonoffline\" \"#999999\" \"#999999\"\n\\set_color \"bottomarea\" \"#181825\" \"#181825\"\n\\set_color \"newpage\" \"#89b4fa\" \"#89b4fa\"\n\\set_color \"pagebreak\" \"#88C0D0\" \"#88C0D0\"\n\\set_color \"buttonframe\" \"#b4befe\" \"#b4befe\"\n\\set_color \"buttonbg\" \"#313244\" \"#313244\"\n\\set_color \"buttonhoverbg\" \"#45475a\" \"#45475a\"\n\n\\completion_inline_text true\n\\completion_popup_text true\n\\make_backup false\n\n\\language_custom_package \"\"\n\n\\default_view_format \\spellcheck_continuously"
+  },
+  {
+    "objectID": "linux/ssh.html",
+    "href": "linux/ssh.html",
+    "title": "SSH",
+    "section": "",
+    "text": "SSH stands for simple secured shell. The ssh command contains of 3-parts\nOpenSSH provides a server daemon and client tools to facilitate secure remote control and file transfer operation.\nInstall openssh by using"
+  },
+  {
+    "objectID": "linux/ssh.html#openssh-client-side",
+    "href": "linux/ssh.html#openssh-client-side",
+    "title": "SSH",
+    "section": "OpenSSH Client-Side",
+    "text": "OpenSSH Client-Side\nOpenSSH provides several client tools to facilitate secure remote control and file transfer operation. I OpenSSH has a client side component, it is called ssh, which will connect a client to the server.\nssh {user}@{host}\nHere user is the name of the account that you want to access and host is the IP address or the Domain name of the server.\nWe want to access the server by using the ssh-key.\nGenerating key using Ed25519 algorithm\nssh-keygen -t ed25519 -C \"your_email@example.com\"\nIf you are using a legacy system that doesn’t support the Ed25519 algorithm, then Generate key using RSA on client.\nssh-keygen -t rsa  -b 4096 -C \"your_email@example.com\"\nThis creates a new SSH key, using the provided email as a label.\nJust follow the instruction given in the terminal.\n\nThe key will be stored at ~/.ssh\n\nIf you overwrite the previously generated RSA key, then the applications which use that key will not work properly. Therefore, I always name the RSA key according to the purpose of generating it.\n|-- config\n|-- config_bk\n|-- easifem_dev_rsa\n|-- easifem_dev_rsa.pub\n|-- github_easifem_rsa\n|-- github_easifem_rsa.pub\n|-- id_rsa\n|-- id_rsa.pub\n|-- known_hosts\nEvery time we generate RSA key, we get two files named XXX_rsa and XXX_rsa.pub. The former is a private key, and the latter is a public key.\nPlacing public key to hosting server\nThe easiest way to copy your public key from client the hosting server is to use a CLT called ssh-copy-id.\nIn this method, we need to specify the remote server that we would like to connect to. Therefore, in this method we should have the credentials to access the server. The syntax is\nssh-copy-id username@remote_host\nSubsequently, follow the instruction on the screen. This process will copy the content of id_rsa.pub to the remote server at ~/.ssh/authorized_keys. After this step you will be able to access the remote server using\nssh username@remote_host -p PORT_NUMBER\nIf you do not ssh-copy-id then use the following process to copy the content of id_rsa.pub from local machine (client) to the remote server’s ~/.ssh/authorized_keys.\ncat ~/.ssh/id_rsa.pub | ssh username@remote_host \"mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && chmod -R go= ~/.ssh && cat &gt;&gt; ~/.ssh/authorized_keys\"\nLastly, if you do not have access to remote, then you have to manually copy the content of id_rsa.pub from client to authorized_keys of remote server.\nMake sure that on the server side ~/.ssh and authorized_keys have correct permission set:\nchmod -R go ~/.ssh\nssh-configuration\nIn ~/.ssh directory you will see a file named config, if this file is not present then create it. Then open it in a text editor and add following lines to it.\n# connecting to my ubuntu-server\nHost linux\n  HostName 192.168.1.15\n  User vikassharma\n  Port 2222\n  IdentityFile ~/.ssh/easifem_linux_rsa\nNow we can connect to the server using ssh linux.\nThere are several ways to define IP in hostname\n\n192.168.1.* matches 192.168.1.0 to 192.168.1.24\n192.168.1.? matches excatly one character, i.e. 192.168.1.0 to 192.168.1.9."
+  },
+  {
+    "objectID": "linux/ssh.html#openssh-server-side",
+    "href": "linux/ssh.html#openssh-server-side",
+    "title": "SSH",
+    "section": "OpenSSH Server-side",
+    "text": "OpenSSH Server-side\nOpenSSH provides a server daemon and client tools to facilitate secure remote control and file transfer operation. The server component is called sshd (d for daemon) which listens continuously for client connections from any of the client tools.\nTo install sshd we need to install openssh-server on the server.\nsudo apt install openssh-server\nCONFIGURATION file is located /etc/ssh/sshd_config. Note that there are many directives in the sshd_config file. Before editing this file make a copy of sshd_config.\nsudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bk\nsudo chmod a-w /etc/ssh/sshd_config.bk\nNow check the configuration file before restarting ssh.\nsudo sshd -t -f /etc/ssh/sshd_config\nLISTEN TO THE PORT sshd by default listens to the TCP port 22. To change this default setting search for PORT in sshd_config file.\nPort 2222\nBanner\nBanner /etc/issue.net\nRead more about banner here.\nActivating modifications\nsudo systemclt status ssh\nsudo systemclt restart sshd.service\nsudo ufw allow ssh\nsudo systemclt enable ssh\nStop and disable ssh\nsudo systemctl stop ssh\nThis will stop the service until you restart it or until the system rebooted. To restart it you can type\nsudo systemctl start ssh\nIf you want to disable it from starting during system boot, use\nsudo systemctl disable ssh\nThis will not stop the service from running during the current session, just from loading during startup. If you want to start again during system boot, type:\nsudo systemctl enable ssh\nGetting IP address\nip address\n1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000\n    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00\n    inet 127.0.0.1/8 scope host lo\n       valid_lft forever preferred_lft forever\n    inet6 ::1/128 scope host\n       valid_lft forever preferred_lft forever\n2: enp3s0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000\n    link/ether 2c:d4:44:ae:a1:3a brd ff:ff:ff:ff:ff:ff\n3: wlp4s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000\n    link/ether c0:d9:62:0b:c2:02 brd ff:ff:ff:ff:ff:ff\n    inet 192.168.1.15/24 brd 192.168.1.255 scope global dynamic noprefixroute wlp4s0\n       valid_lft 64284sec preferred_lft 64284sec\n    inet6 fe80::f53a:7745:52fc:1573/64 scope link noprefixroute\n       valid_lft forever preferred_lft forever\nThe ip-address of my system is inet 192.168.1.15. In this way, from the client side we will use ssh vikassharma@192.168.1.15 to connect to the remote server."
+  },
+  {
+    "objectID": "linux/fish.html",
+    "href": "linux/fish.html",
+    "title": "Fish",
+    "section": "",
+    "text": "fish is a smart and user-friendly command line shell for Linux, macOS, and the rest of the family.fish is a smart and user-friendly command line shell for Linux, macOS, and the rest of the family.\nAfter installation run fish command in your terminal. It will create ~/.config/fish directory."
+  },
+  {
+    "objectID": "linux/fish.html#setting-fish-as-default-shell",
+    "href": "linux/fish.html#setting-fish-as-default-shell",
+    "title": "Fish",
+    "section": "Setting fish as default shell",
+    "text": "Setting fish as default shell\nTo list the installed shell run\nchsh -l\nAnd to set one as default for your user do:\nchsh -s /full/path/to/shell\nYou should restart the system."
+  },
+  {
+    "objectID": "linux/fish.html#fisher-fish-framework",
+    "href": "linux/fish.html#fisher-fish-framework",
+    "title": "Fish",
+    "section": "Fisher (fish framework)",
+    "text": "Fisher (fish framework)\nfisher is the plugin manager for fish. Fisher lets you install, update, and remove plugins like a boss.\ncurl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
+  },
+  {
+    "objectID": "linux/fish.html#fzf-plugin-for-fish",
+    "href": "linux/fish.html#fzf-plugin-for-fish",
+    "title": "Fish",
+    "section": "fzf plugin for fish",
+    "text": "fzf plugin for fish\nInstall using fisher.\nfisher install PatrickF1/fzf.fish\nOfficial site: https://github.com/PatrickF1/fzf.fish"
+  },
+  {
+    "objectID": "linux/python.html",
+    "href": "linux/python.html",
+    "title": "Python",
+    "section": "",
+    "text": "Python is by default installed on your system. You can check the version of python by using the following command."
+  },
+  {
+    "objectID": "linux/python.html#python-package-manager",
+    "href": "linux/python.html#python-package-manager",
+    "title": "Python",
+    "section": "Python package manager",
+    "text": "Python package manager\nInstalling pip\nsudo pacman -Sy python-pip \nInstalling pipx\nsudo pacman -Sy python-pipx"
+  },
+  {
+    "objectID": "linux/docusaurus.html",
+    "href": "linux/docusaurus.html",
+    "title": "Docusaurus",
+    "section": "",
+    "text": "Docusaurus will help you ship a beautiful documentation site in no time.\nTo preview your changes as you edit the files, you can run a local development server that will serve your website and reflect the latest changes.\ncd my-website\npnpm run start\nDocusaurus is a modern static website generator so we need to build the website into a directory of static contents and put it on a web server so that it can be viewed. To build the website:\npnpm run build\nThere are many ways to update your Docusaurus version. One guaranteed way is to manually change the version number in package.json to the desired version. Note that all @docusaurus/-namespaced packages should be using the same version.\n# package.json\n{\n  \"dependencies\": {\n    \"@docusaurus/core\": \"3.7.0\",\n    \"@docusaurus/preset-classic\": \"3.7.0\",\n    // ...\n  }\n}\nThen, in the directory containing package.json, run your package manager’s install command:\npnpm install"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Dr. Vikas Sharma",
+    "section": "",
+    "text": "Dr. Vikas Sharma, is currently working as an assistant professor at Graduate School of Agriculture, Kyoto University, Japan. He has obtained B.Tech. degree in Civil Engineering with Honours from Indian Institute of Technology Bombay (IIT Bombay), India. Subsequently, he obtained Ph.D. degree in Agriculture Sciences from Kyoto University. His current research focuses on developing Multi-scale Finite Element Methods to investigate fluid behavior near the fluid-soil interface. This method is based on the theory of homogenization and variational multi-scale methods. This research can connect the microscopic and macroscopic phenomena in a porous medium. I am also developing the space-time finite element method for soil dynamics and earthquake engineering.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Dr. Vikas Sharma",
+    "section": "",
+    "text": "Dr. Vikas Sharma, is currently working as an assistant professor at Graduate School of Agriculture, Kyoto University, Japan. He has obtained B.Tech. degree in Civil Engineering with Honours from Indian Institute of Technology Bombay (IIT Bombay), India. Subsequently, he obtained Ph.D. degree in Agriculture Sciences from Kyoto University. His current research focuses on developing Multi-scale Finite Element Methods to investigate fluid behavior near the fluid-soil interface. This method is based on the theory of homogenization and variational multi-scale methods. This research can connect the microscopic and macroscopic phenomena in a porous medium. I am also developing the space-time finite element method for soil dynamics and earthquake engineering.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#research-interests",
+    "href": "index.html#research-interests",
+    "title": "Dr. Vikas Sharma",
+    "section": "Research Interests",
+    "text": "Research Interests\n\nSurface-Subsurface coupled flow analysis\nHydromechanical behavior of geomaterials\nErosion in earth-structures\nFinite element method\nMultiscale methods in Geomechanics\nDynamics of soils and structure\nHigh performance computing\nOpen Sourced and Free Software development for Civil Engineering\nNumerical methods in geomechanics",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#education-qualification",
+    "href": "index.html#education-qualification",
+    "title": "Dr. Vikas Sharma",
+    "section": "Education Qualification",
+    "text": "Education Qualification\n\n\n\n\n\n\n\n\n\n\n\n\n\nDegree\nDoctor of Agriculture\n\n\nDate of certificate\n25/09/2018\n\n\nPeriod\n1/10/2015 - 30/09/2018\n\n\nUniversity\nKyoto University, Kyoto, Japan\n\n\nThesis Title\nDevelopment of Space-Time Finite Element Method for Seismic Analysis of Hydraulic Structures\n\n\nContact\nKyoto University, Yoshida-honmachi, Sakyo-ku, Kyoto, 606-8501 Japan (email: agri-kyoumu2@mail2.adm.kyoto-u.ac.jp; Ph: +81-774-38-3347)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDegree\nBachelor of Technology\n\n\nDate of certificate\n10/08/2013\n\n\nPeriod\n01/06/2009 - 30/04/2013\n\n\nMajor\nCivil Engineering (with honours)\n\n\nCPI\n8.59/10\n\n\nUniversity\nIndian Institute of Technology Bombay, Mumbai, India\n\n\nContact\nIIT Bombay, Powai, Mumbai, Maharashtra, India, 400-076 Ph: +91 22 2572 2545\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDegree\nHigh School\n\n\nDate of certificate\n23/05/2008\n\n\nPeriod\n01/06/2007 - 31/05/2008\n\n\nMajor\nScience and Mathematics\n\n\nCPI\n85.54 %\n\n\nSchool\nMaheshwari Senior Secondary School (State Board of Rajasthan)\n\n\nContact\nMPS TILAK NAGAR JAIPUR, Vijay Path, Tilak Nagar, Jaipur-302004 (Rajasthan) India, Ph: +91 141 2624400, 2620541, email: mpstilaknagarjpr@gmail.com",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#professional-experience",
+    "href": "index.html#professional-experience",
+    "title": "Dr. Vikas Sharma",
+    "section": "Professional Experience",
+    "text": "Professional Experience\n\n\n\n\n\n\n\n\n\n\n\n\n\nDesignation\nProgram specific assistant professor\n\n\nPeriod\n01/1/2025 – Present\n\n\nEmployer\nGraduate School of Agriculture, Kyoto University, Kyoto, Japan\n\n\nContact\nKyoto University, Yoshida-honmachi, Sakyo-ku, Kyoto, 606-8501 Japan\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDesignation\nAdjunct professor (part-time Lecturer)\n\n\nCourse name\n“Science on Water, Soil and Ecosystems-E2” in Institute of Liberal Arts and Sciences (ILAS) at Kyoto University\n\n\nPeriod\n01/11/2024 – 31/12/2024\n\n\nEmployer\nGraduate School of Agriculture, Kyoto University, Kyoto, Japan\n\n\nContact\nKyoto University, Yoshida-honmachi, Sakyo-ku, Kyoto, 606-8501 Japan\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDesignation\nAdjunct professor (part-time Lecturer)\n\n\nPeriod\n01/10/2023 – 31/12/2024\n\n\nCourse name\n“Seminar in Data Processing” in Division of Environmental Science and Technology, Graduate School of Agriculture\n\n\nEmployer\nGraduate School of Agriculture, Kyoto University, Kyoto, Japan\n\n\nContact\nKyoto University, Yoshida-honmachi, Sakyo-ku, Kyoto, 606-8501 Japan\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDesignation\nPostdoctoral research fellow\n\n\nFunds\nKAKENHI 22K18352 & 21H02304（代表：藤澤和謙（京都大学））\n\n\nPeriod\n01/04/2023 – 31/12/2024\n\n\nEmployer\nGraduate School of Agriculture, Kyoto University, Kyoto, Japan\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDesignation\nPostdoctoral project associate\n\n\nFunds\n河川砂防技術研究開発公募「一部自立型構造を有する河川堤防の増水～越水～引水時性能評価に関する技術研究開発」（代表：高橋章浩（東京工業大学））\n\n\nPeriod\n01/04/2022 – 31/03/2023\n\n\nEmployer\nGraduate School of Agriculture, Kyoto University, Kyoto, Japan\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDesignation\nPostdoctoral project associate\n\n\nFunds\n河川砂防技術研究開発公募「一部自立型構造を有する河川堤防の増水～越水～引水時性能評価に関する技術研究開発」（代表：高橋章浩（東京工業大学））\n\n\nPeriod\n01/04/2021 – 31/03/2022\n\n\nEmployer\nGraduate School of Agriculture, Kyoto University, Kyoto, Japan\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDesignation\nPostdoctoral research fellow\n\n\nFunds\nIIT Bombay Postdoctoral Fellowship\n\n\nPeriod\n01/02/2019 – 26/02/2021\n\n\nEmployer\nDepartment of Civil Engineering, Indian Institute of Technology (IIT) Bombay, Mumbai, India\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDesignation\nPostdoctoral research fellow\n\n\nFunds\nKAKENHI 18H03967（代表：村上 章（京都大学））\n\n\nPeriod\n01/10/2018 – 30/01/2019\n\n\nEmployer\nGraduate School of Agriculture, Kyoto University, Kyoto, Japan\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDesignation\nResearch Assistant\n\n\nPeriod\n01/05/2013 – 21/09/2015\n\n\nEmployer\nDepartment of Civil Engineering, Indian Institute of Technology (IIT) Bombay, Mumbai, India\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDesignation\nPhysics teacher\n\n\nPeriod\n01/05/2013 – 30/08/2015\n\n\nEmployer\nPace Junior Science College, Mumbai, India",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "logseq/bak/blog/2025-12-23T04_15_05.567Z.Desktop.html",
+    "href": "logseq/bak/blog/2025-12-23T04_15_05.567Z.Desktop.html",
+    "title": "Blog",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "logseq/bak/blog/2025-12-23T04_22_46.892Z.Desktop.html",
+    "href": "logseq/bak/blog/2025-12-23T04_22_46.892Z.Desktop.html",
+    "title": "Blog",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "publication.html",
+    "href": "publication.html",
+    "title": "Publication",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "archlinux.html",
+    "href": "archlinux.html",
+    "title": "Archlinux",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "logseq/bak/blog/2025-12-23T04_22_44.544Z.Desktop.html",
+    "href": "logseq/bak/blog/2025-12-23T04_22_44.544Z.Desktop.html",
+    "title": "Blog",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGetting Started with PyVista\n\n\nThis post presents some cool features of PyVista library.\n\n\n\n\n\nMar 30, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nGetting started with fzf command\n\n\n\n\n\n\n\n\nMar 25, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nGetting started with Github CLI\n\n\n\n\n\n\n\n\nNov 4, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nGetting started with tmux\n\n\n\n\n\n\n\n\nAug 14, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nGetting started with Docker\n\n\n\n\n\n\n\n\nJul 29, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nInstalling Ruby on Mac\n\n\n\n\n\n\n\n\nJul 29, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nGetting started with conda\n\n\n\nprogramming\n\npython\n\n\n\n\n\n\n\n\n\nJul 17, 2023\n\n\nVikas Sharma\n\n\n\n\n\n\n\n\n\n\n\n\nBuilding and Deploying PyPI packages\n\n\n\n\n\n\n\n\nJul 15, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nDesign of SteadyStokesKernel\n\n\n\n\n\n\n\n\nMay 10, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nMixed finite element method for stokes flow\n\n\n\n\n\n\n\n\nApr 22, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nSimple Secure Shell (SSH)\n\n\n\n\n\n\n\n\nOct 30, 2021\n\n\nVikas Sharma, Ph.D.\n\n\n\n\n\n\n\n\n\n\n\n\nUsing PLPLOT with Fortran\n\n\n\n\n\n\n\n\nOct 5, 2021\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "linux/zoxide.html",
+    "href": "linux/zoxide.html",
+    "title": "Zoxide",
+    "section": "",
+    "text": "zoxide is a smarter cd command, inspired by z and autojump. It remembers which directories you use most frequently, so you can “jump” to them in just a few keystrokes. zoxide works on all major shells.\nTo install zoxide\nsudo pacman -S zoxide\nfish configuration.\nif type -q zoxide\n    zoxide init fish | source\nend"
+  },
+  {
+    "objectID": "linux/go.html",
+    "href": "linux/go.html",
+    "title": "Go lang",
+    "section": "",
+    "text": "Go is an open source programming language supported by Google.\nInstall go by using following command. Install the go package, which includes the standard Go compiler and other development tools.\nsudo pacman -S go\nConfiguration.\nThe go install command installs Go executables in the directory named by the GOBIN environment variable. GOBIN defaults to $GOPATH/bin, or ~/go/bin if the GOPATH environment variable is not set.\n## GO related\nset GOPATH $HOME/go\nset PATH $PATH \"$GOPATH/bin\""
+  },
+  {
+    "objectID": "linux/lazygit.html",
+    "href": "linux/lazygit.html",
+    "title": "Lazygit",
+    "section": "",
+    "text": "Lazygit is a terminal application for git. You can download it by using the following command."
+  },
+  {
+    "objectID": "linux/lazygit.html#configuration",
+    "href": "linux/lazygit.html#configuration",
+    "title": "Lazygit",
+    "section": "Configuration",
+    "text": "Configuration\nmkdir -p ~/.config/lazygit\ncd ~/.config/lazygit\ntouch config.yml\nContents of config.yml\n# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json\ngui:\n  nerdFontsVersion: \"3\"\n  showIcons: true\n  showFileTree: true\n  scrollHeight: 10\n  scrollPastBottom: true\n  mouseEvents: true\n  skipDiscardChangeWarning: false\n  skipStashWarning: true\n  sidePanelWidth: 0.3333\n  expandFocusedSidePanel: false\n  mainPanelSplitMode: flexible\n  theme:\n    activeBorderColor:\n      - \"#89ddff\"\n      - bold\n    inactiveBorderColor:\n      - \"#565f89\"\n    optionsTextColor:\n      - \"#3d59a1\"\n    selectedLineBgColor:\n      - \"#292e42\"\n      - bold\n  commitLength:\n    show: true\n  skipNoStagedFilesWarning: false"
+  },
+  {
+    "objectID": "linux/rust.html",
+    "href": "linux/rust.html",
+    "title": "Rust",
+    "section": "",
+    "text": "Rust is a multi-paradigm, general-purpose programming language that emphasizes performance, type safety, and concurrency.\nTo install rust use the following command.\ncurl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\nSet the path in fish config.\nset PATH $PATH \"$HOME/.cargo/bin\"\nset PATH $PATH \"$HOME/.local/bin\""
+  },
+  {
+    "objectID": "linux/node.html",
+    "href": "linux/node.html",
+    "title": "Node",
+    "section": "",
+    "text": "Node.js is a JavaScript runtime environment combined with useful libraries. It uses Google’s V8 engine to execute code outside of the browser. Due to its event-driven, non-blocking I/O model, it is suitable for real-time web applications.\nCheck the version."
+  },
+  {
+    "objectID": "linux/node.html#installing-node-version-manager",
+    "href": "linux/node.html#installing-node-version-manager",
+    "title": "Node",
+    "section": "Installing node version manager",
+    "text": "Installing node version manager\nnvm allows you to quickly install and use different versions of node via the command line.\nTo install or update nvm, you should run the install script. To do that, you may either download and run the script manually, or use the following cURL or Wget command:\ncurl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash\nRunning either of the above commands downloads a script and runs it. The script clones the nvm repository to ~/.nvm, and attempts to add the source lines from the snippet below to the correct profile file (~/.bash_profile, ~/.zshrc, ~/.profile, or ~/.bashrc)\nRead more about nvm on the official website https://github.com/nvm-sh/nvmhttps://github.com/nvm-sh/nvm."
+  },
+  {
+    "objectID": "linux/node.html#installing-package-manager",
+    "href": "linux/node.html#installing-package-manager",
+    "title": "Node",
+    "section": "Installing package manager",
+    "text": "Installing package manager\nnpm is the official package manager for node.js. It can be installed with the npm package.\nsudo pacman -S npm\nWe will also install pnpm, which is fast and disk space efficient package manager.\nsudo pacman -S pnpm\nWe want to install packages locally. I use fish shell, so I have added following lines to fishconfig.\n# installing npm packages locally\nset -gx NPM_CONFIG_PREFIX \"$HOME/.npm-packages\"\nset -gx NPM_PACKAGES \"$HOME/.npm-packages\"\nset -gx NODE_PATH \"$NPM_PACKAGES/lib/node_modules\" $NODE_PATH\nset PATH $PATH $NPM_PACKAGES/bin\nset MANPATH $NPM_PACKAGES/share/man $MANPATH\n\n# from pnpm setup\n# Next configuration changes were made:\nset -gx PNPM_HOME \"$HOME/.local/share/pnpm\"\nif not string match -q -- $PNPM_HOME $PATH\n    set -gx PATH \"$PNPM_HOME\" $PATH\nend"
+  },
+  {
+    "objectID": "linux/fortran.html",
+    "href": "linux/fortran.html",
+    "title": "Fortran",
+    "section": "",
+    "text": "This note explains how to setup Fortran environment on ArchLinux."
+  },
+  {
+    "objectID": "linux/fortran.html#fortran-language-server",
+    "href": "linux/fortran.html#fortran-language-server",
+    "title": "Fortran",
+    "section": "Fortran language server",
+    "text": "Fortran language server"
+  },
+  {
+    "objectID": "linux/fortran.html#fortran-formatter",
+    "href": "linux/fortran.html#fortran-formatter",
+    "title": "Fortran",
+    "section": "Fortran formatter",
+    "text": "Fortran formatter"
+  },
+  {
+    "objectID": "linux/fortran.html#neovim-setup",
+    "href": "linux/fortran.html#neovim-setup",
+    "title": "Fortran",
+    "section": "Neovim setup",
+    "text": "Neovim setup"
+  },
+  {
+    "objectID": "linux/alacritty.html",
+    "href": "linux/alacritty.html",
+    "title": "Alacritty",
+    "section": "",
+    "text": "Alacritty is a modern terminal emulator that comes with sensible defaults, but allows for extensive configuration. By integrating with other applications, rather than reimplementing their functionality, it manages to provide a flexible set of features with high performance. The supported platforms currently consist of BSD, Linux, macOS and Windows.\nTo install alacritty on archlinux, run the following command:\nsudo pacman -S alacritty\nThe configuration file for alacrittiy is located at ~/.config/alacritty/alacritty.toml.\n[general]\n\nimport = [ \"./themes/tokyo-night.toml\" ]\n\n[env]\nTERM = \"xterm-256color\"\n\n[font]\nbuiltin_box_drawing = true\nsize = 16.0\n\n[font.bold]\nfamily = \"FiraCode Nerd Font Mono\"\nstyle = \"Bold\"\n\n[font.bold_italic]\nfamily = \"FiraCode Nerd Font Mono\"\nstyle = \"Bold Italic\"\n\n[font.italic]\nfamily = \"FiraCode Nerd Font Mono\"\nstyle = \"Italic\"\n\n[font.normal]\nfamily = \"FiraCode Nerd Font Mono\"\nstyle = \"Regular\"\n\n[[keyboard.bindings]]\naction = \"Paste\"\nkey = \"V\"\nmods = \"Control|Shift\"\n\n[[keyboard.bindings]]\naction = \"Copy\"\nkey = \"C\"\nmods = \"Control|Shift\"\n\n[[keyboard.bindings]]\naction = \"PasteSelection\"\nkey = \"Insert\"\nmods = \"Shift\"\n\n[[keyboard.bindings]]\naction = \"ToggleFullscreen\"\nkey = \"F11\"\nmods = \"None\"\n\n[[keyboard.bindings]]\naction = \"Paste\"\nkey = \"Paste\"\nmods = \"None\"\n\n[[keyboard.bindings]]\naction = \"Copy\"\nkey = \"Copy\"\nmods = \"None\"\n\n[[keyboard.bindings]]\naction = \"ClearLogNotice\"\nkey = \"L\"\nmods = \"Control\"\n\n[[keyboard.bindings]]\nchars = \"\\f\"\nkey = \"L\"\nmods = \"Control\"\n\n[[keyboard.bindings]]\naction = \"ScrollPageUp\"\nkey = \"PageUp\"\nmode = \"~Alt\"\nmods = \"None\"\n\n[[keyboard.bindings]]\naction = \"ScrollPageDown\"\nkey = \"PageDown\"\nmode = \"~Alt\"\nmods = \"None\"\n\n[[keyboard.bindings]]\naction = \"ScrollToTop\"\nkey = \"Home\"\nmode = \"~Alt\"\nmods = \"Shift\"\n\n[[keyboard.bindings]]\naction = \"ScrollToBottom\"\nkey = \"End\"\nmode = \"~Alt\"\nmods = \"Shift\"\n\n[[keyboard.bindings]]\naction = \"CreateNewWindow\"\nkey = \"Return\"\nmods = \"Control|Shift\"\n\n[[keyboard.bindings]]\naction = \"SpawnNewInstance\"\nkey = \"N\"\nmods = \"Control|Shift\"\n\n[[keyboard.bindings]]\naction = \"IncreaseFontSize\"\nkey = \"Plus\"\nmods = \"Control|Shift\"\n\n[[keyboard.bindings]]\naction = \"IncreaseFontSize\"\nkey = \"Semicolon\"\nmods = \"Control|Shift\"\n\n[[keyboard.bindings]]\naction = \"DecreaseFontSize\"\nkey = \"NumpadSubtract\"\nmods = \"Control\"\n\n[[keyboard.bindings]]\naction = \"DecreaseFontSize\"\nkey = \"Equals\"\nmods = \"Control|Shift\"\n\n[[keyboard.bindings]]\naction = \"ResetFontSize\"\nkey = \"Key0\"\nmods = \"Control|Shift\"\n\n[[keyboard.bindings]]\naction = \"ToggleViMode\"\nkey = \"Space\"\nmode = \"~Search\"\nmods = \"Shift|Control\"\n\n[[keyboard.bindings]]\naction = \"ScrollToBottom\"\nkey = \"Space\"\nmode = \"Vi|~Search\"\nmods = \"Shift|Control\"\n\n[[keyboard.bindings]]\naction = \"ToggleViMode\"\nkey = \"I\"\nmode = \"Vi|~Search\"\n\n[[keyboard.bindings]]\naction = \"ClearSelection\"\nkey = \"Escape\"\nmode = \"Vi|~Search\"\n\n[[keyboard.bindings]]\naction = \"ScrollToBottom\"\nkey = \"G\"\nmode = \"Vi|~Search\"\n\n[scrolling]\nhistory = 5000\n\n[window]\ndecorations = \"full\"\ndynamic_padding = false\ndynamic_title = true\nopacity = 1.0\n# option_as_alt = \"Both\"\ntitle = \"Alacritty\"\n\n[window.class]\ngeneral = \"Alacritty\"\ninstance = \"Alacritty\"\n\n[window.padding]\nx = 0\ny = 0"
+  },
+  {
+    "objectID": "linux/mystmd.html",
+    "href": "linux/mystmd.html",
+    "title": "MyST",
+    "section": "",
+    "text": "MyST is an ecosystem of open-source, community-driven tools designed to revolutionize scientific communication. Our powerful authoring framework supports blogs, online books, scientific papers, reports and journals articles.\nYou can read more about it on official site\nWe will install myst command line interface by using node. Therefore, first install node on your system.\n\n:link: ./node.md Click here to read instruction for installing node.\n\nnpm install -g mystmd\nCheck myst version by\nmyst --version"
+  },
+  {
+    "objectID": "linux/tmux.html",
+    "href": "linux/tmux.html",
+    "title": "Tmux",
+    "section": "",
+    "text": "tmux is a “terminal multiplexer: it enables a number of terminals (or windows), each running a separate program, to be created, accessed, and controlled from a single screen. tmux may be detached from a screen and continue running in the background, then later reattached.”\nTo install tmux on archlinux use the following command."
+  },
+  {
+    "objectID": "linux/tmux.html#installing-tmux-package-manager",
+    "href": "linux/tmux.html#installing-tmux-package-manager",
+    "title": "Tmux",
+    "section": "Installing Tmux package manager",
+    "text": "Installing Tmux package manager\ngit clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
+  },
+  {
+    "objectID": "linux/tmux.html#configuration-settings",
+    "href": "linux/tmux.html#configuration-settings",
+    "title": "Tmux",
+    "section": "Configuration settings:",
+    "text": "Configuration settings:\nmkdir -pv ~/.config/tmux\ntouch ~/.config/tmux/tmux.conf\nOpen tmux.conf, and add following lines to it:\nset -g default-terminal \"tmux-256color\"\n# set -ga terminal-overrides \",*256col*:Tc\"\nset -ga terminal-overrides \",xterm-256color:Tc\"\nset -ga terminal-overrides '*:Ss=\\E[%p1%d q:Se=\\E[ q'\nset-environment -g COLORTERM \"truecolor\"\n\n## Mouse enable\nset -g mouse on\n\n## windows indexing\n\nset -g base-index 1\nset -g pane-base-index 1\nset-window-option -g pane-base-index 1\nset-option -g renumber-windows on\n\n## My kemaps\n\n### Prefix\n\nunbind C-b\nset -g prefix C-a\nbind C-a send-prefix\n\n### Reload config file\n\n### Windows related\n\nbind r source ~/.config/tmux/tmux.conf\n\nbind &lt; previous-window\nbind &gt; next-window\n\n### Pane related\n\nbind '\"' split-window -v -c \"#{pane_current_path}\"\nbind % split-window -h -c \"#{pane_current_path}\"\nbind Enter split-window -h -c \"#{pane_current_path}\"\n\n\n# List of plugins\nset -g @plugin 'tmux-plugins/tpm'\nset -g @plugin 'tmux-plugins/tmux-sensible'\nset -g @plugin 'catppuccin/tmux'\nset -g @catppuccin_flavour 'mocha' # or frappe, macchiato, mocha\n\n## This plugin is a repackaging of Mislav Marohnić's tmux-navigator configuration\n## described in this gist. When combined with a set of tmux key bindings,\n## the plugin will allow you to navigate seamlessly between vim and tmux splits\n## using a consistent set of hotkeys.\n## https://github.com/christoomey/vim-tmux-navigator\n\nset -g @plugin 'christoomey/vim-tmux-navigator'\nrun '~/.tmux/plugins/tpm/tpm'\n\n# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)\nrun '~/.tmux/plugins/tpm/tpm'"
+  },
+  {
+    "objectID": "linux/tmux.html#tmux-keybindings",
+    "href": "linux/tmux.html#tmux-keybindings",
+    "title": "Tmux",
+    "section": "Tmux keybindings",
+    "text": "Tmux keybindings\n\nPanes\n\n\n\nKey\nAction\n\n\n\n\nEnter\nHorizonal split\n\n\n%\nHorizonal split\n\n\n\"\nVertical split\n\n\nx\nClose the pane\n\n\nRight\nGo to the right pane\n\n\nLeft\nGo to the left pane\n\n\nTop\nGo to the top pane\n\n\nDown\nGo to the down pane\n\n\nz\nZoom the pane\n\n\nq\nShow pane number\n\n\nq+1\nGoto pane 2\n\n\n\n\n\nWindows\n\n\n\nKey\nAction\n\n\n\n\nc\nCreate new window\n\n\n,\nRename window\n\n\n&gt;\nGo to next window\n\n\n&lt;\nGo to previous window\n\n\n&\nClose window\n\n\nw\nList windows\n\n\np\nGo to previous window\n\n\nn\nGo to next window\n\n\n1, 2, ...\nGo to window 1, 2,\n\n\nl\nToggle last active window\n\n\n\n\n\nSessions\nStart new session.\ntmux new\n:new\nStart new session with a name hello_world.\ntmux new -s hello_world\n:new -s hello_world\nKill a session\ntmux kill-session -t hello_world\nKill all session but the current:\ntmux kill-session -a\nKill all session but hello_world\ntmux kill-session -a -t hello_world\nRename the Session\n&lt;prefix&gt; + $\nDetach from session.\n&lt;prefix&gt; + d\nor,\n:attach -d\nList all session:\ntmux ls\nShow all session:\n&lt;prefix&gt; + s\nAttach to a Session:\ntmux a -t hello_world\ntmux attach -t hello_world\ntmux attach-session -t hello_world\nGo to the next session\n&lt;prefix&gt; + )\nGo to the previous session\n&lt;prefix&gt; + ("
+  },
+  {
+    "objectID": "linux/fzf.html",
+    "href": "linux/fzf.html",
+    "title": "FZF",
+    "section": "",
+    "text": "fzf is a general-purpose command-line fuzzy finder.\nIt’s an interactive filter program for any kind of list; files, command history, processes, hostnames, bookmarks, git commits, etc. It implements a “fuzzy” matching algorithm, so you can quickly type in patterns with omitted characters and still get the results you want.It’s an interactive filter program for any kind of list; files, command history, processes, hostnames, bookmarks, git commits, etc. It implements a “fuzzy” matching algorithm, so you can quickly type in patterns with omitted characters and still get the results you want.\nTo install it use the following command.\nsudo pacman -S  fzf\nAdd following to config.fish\n# Set up fzf key bindings\nfzf --fish | source\n# https://github.com/PatrickF1/fzf.fish\nfzf_configure_bindings"
+  },
+  {
+    "objectID": "pages/plplot/plplot.html",
+    "href": "pages/plplot/plplot.html",
+    "title": "Using PLPLOT with Fortran",
+    "section": "",
+    "text": "PLplot is a software package for creating scientific plots . It is cross-platform ❤, which means it will work on Windows, Unix, and Linux system. The PLplot software is primarily licensed under the LGPL 🔥. It is written in C language, and it has bindings 🔗 for several other language including Fortran 🖥️ .\nThe PLplot core library can be used to create\n\n💥standard x-y plots\n🔥semi-log plots\n🚀log-log plots\n🌤contour plots\n🌹3D surface plots\n🌩mesh plots\n🦁bar charts\n🥧pie charts.\n\nYou can find more about PLPLOT ➡️🖱"
+  },
+  {
+    "objectID": "pages/plplot/plplot.html#introduction",
+    "href": "pages/plplot/plplot.html#introduction",
+    "title": "Using PLPLOT with Fortran",
+    "section": "",
+    "text": "PLplot is a software package for creating scientific plots . It is cross-platform ❤, which means it will work on Windows, Unix, and Linux system. The PLplot software is primarily licensed under the LGPL 🔥. It is written in C language, and it has bindings 🔗 for several other language including Fortran 🖥️ .\nThe PLplot core library can be used to create\n\n💥standard x-y plots\n🔥semi-log plots\n🚀log-log plots\n🌤contour plots\n🌹3D surface plots\n🌩mesh plots\n🦁bar charts\n🥧pie charts.\n\nYou can find more about PLPLOT ➡️🖱"
+  },
+  {
+    "objectID": "pages/plplot/plplot.html#historical-remark",
+    "href": "pages/plplot/plplot.html#historical-remark",
+    "title": "Using PLPLOT with Fortran",
+    "section": "Historical remark",
+    "text": "Historical remark\nA small history of PLPLOT taken from the official documentation is given below.\nPLplot was originally developed by Sze Tan of the University of Auckland in Fortran-77. Many of the underlying concepts used in the PLplot package are based on ideas used in Tim Pearson’s PGPLOT package. Sze Tan writes:\n\nI’m rather amazed how far PLPLOT has travelled given its origins etc. I first used PGPLOT on the Starlink VAX computers while I was a graduate student at the Mullard Radio Astronomy Observatory in Cambridge from 1983-1987. At the beginning of 1986, I was to give a seminar within the department at which I wanted to have a computer graphics demonstration on an IBM PC which was connected to a completely non-standard graphics card. Having about a week to do this and not having any drivers for the card, I started from the back end and designed PLPLOT to be such that one only needed to be able to draw a line or a dot on the screen in order to do arbitrary graphics. The application programmer’s interface was made as similar as possible to PGPLOT so that I could easily port my programs from the VAX to the PC. The kernel of PLPLOT was modelled on PGPLOT but the code is not derived from it.\n\nThe C version of PLplot was originally developed by Tony Richardson on a Commodore Amiga. That version has been improved and expanded ever since first by Geoffrey Furnish and Maurice Lebrun in the 1990’s and later (after the project was registered at SourceForge on 2000-02-23) with a much-expanded development team."
+  },
+  {
+    "objectID": "pages/plplot/plplot.html#installation-of-binary-packages",
+    "href": "pages/plplot/plplot.html#installation-of-binary-packages",
+    "title": "Using PLPLOT with Fortran",
+    "section": "Installation of binary packages",
+    "text": "Installation of binary packages\nUbuntu 🍻\nsudo apt-get install libplplot-dev libplplotfortran0\nMacOS 🍎\nbrew install plplot"
+  },
+  {
+    "objectID": "pages/plplot/plplot.html#building-from-source",
+    "href": "pages/plplot/plplot.html#building-from-source",
+    "title": "Using PLPLOT with Fortran",
+    "section": "Building from source",
+    "text": "Building from source\n\nDownload the source code\ngit clone https://git.code.sf.net/p/plplot/plplot plplot-plplot\nI have also installed some extra libraries, which are given below.\n\nlibcairo-dev\nlibglu1-mesa-dev\nfreeglut3-dev\nmesa-common-dev\npyqt5\npyqt5-tools\n\nsudo apt install libcairo-dev libglu1-mesa-dev freeglut3-dev mesa-common-dev\npip3 install pyqt5 pyqt5-tools\n\n\nBuilding 🪛\nAfter downloading the source code, run the following command inside of terminal\ncd plplot-plplot\ngit branch $(whoami)\ngit checkout $(whoami)\nWe will use -DCMAKE_INSTALL_PREFIX to specify the director wherein PLplot will be installed.\ncmake -S ./ -B ./build DCMAKE_INSTALL_PREFIX=~/.easifem/extpkgs  -G \"Unix Makefiles\"\ncmake --build ./build --target all\ncmake --build ./build --target install\nMy Configuration: In my case, I want to install PLplot in ~/.easifem/extpkgs. I have already set an environment variable export EASIFEM_EXTPKGS=~/.easifem/extpkgs, so I will use ${EASIFEM_EXTPKGS}, but you can specify the path explicitly.\n\n-DCMAKE_INSTALL_PREFIX:PATH=~/.easifem/extpkgs\n-DCMAKE_BUILD_TYPE:STRING=Release, other option is Debug\n-DBUILD_SHARED_LIBS:BOOL=ON, set OFF if shared lib are not desired\n-DBUILD_TEST:BOOL=ON, set OFF you dont want to build the tests\n-DENABLE_fortran:BOOL=ON, set OFF, if you dont want fortran bindings\n-DENABLE_lua:BOOL=ON, set OFF if you do not want Lua language bindings\n\ncmake -S ./ -B ~/temp/easifem-extpkgs/plplot/build -G \"Unix Makefiles\"  -DCMAKE_INSTALL_PREFIX=${EASIFEM_EXTPKGS} -DCMAKE_BUILD_TYPE:STRING=Release -DBUILD_SHARED_LIBS:BOOL=ON  -DBUILD_TEST:BOOL=ON -DENABLE_fortran:BOOL=ON -DENABLE_lua:BOOL=ON\n\ncmake --build ~/temp/easifem-extpkgs/plplot/build --target all\nNow you can go to $EASIFEM_EXTPKGS\n├── bin\n├── include/plplot\n├── lib\n├── man\n└── share\nContents of /bin 📁 is shown below\n/bin\n├── plserver\n├── pltcl\n└── pltek\nContents of /include/plplot 📁\n├── csadll.h\n├── csa.h\n├── disptab.h\n├── drivers.h\n├── pdf.h\n├── plConfig.h\n├── pldebug.h\n├── plDevs.h\n├── pldll.h\n├── plevent.h\n├── plplot.h\n├── plplotP.h\n├── plstream.h\n├── plstrm.h\n├── pltcl.h\n├── pltk.h\n├── plxwd.h\n├── qsastimedll.h\n├── qsastime.h\n├── qt.h\n└── tclMatrix.h\nContents of /lib 📁\n├── cmake\n├── fortran\n├── libcsirocsa.so -&gt; libcsirocsa.so.0\n├── libcsirocsa.so.0 -&gt; libcsirocsa.so.0.0.1\n├── libcsirocsa.so.0.0.1\n├── libplfortrandemolib.a\n├── libplplotcxx.so -&gt; libplplotcxx.so.15\n├── libplplotcxx.so.15 -&gt; libplplotcxx.so.15.0.0\n├── libplplotcxx.so.15.0.0\n├── libplplotfortran.so -&gt; libplplotfortran.so.0\n├── libplplotfortran.so.0 -&gt; libplplotfortran.so.0.2.0\n├── libplplotfortran.so.0.2.0\n├── libplplotqt.so -&gt; libplplotqt.so.2\n├── libplplotqt.so.2 -&gt; libplplotqt.so.2.0.3\n├── libplplotqt.so.2.0.3\n├── libplplot.so -&gt; libplplot.so.17\n├── libplplot.so.17 -&gt; libplplot.so.17.0.0\n├── libplplot.so.17.0.0\n├── libplplottcltk_Main.so -&gt; libplplottcltk_Main.so.1\n├── libplplottcltk_Main.so.1 -&gt; libplplottcltk_Main.so.1.0.1\n├── libplplottcltk_Main.so.1.0.1\n├── libplplottcltk.so -&gt; libplplottcltk.so.14\n├── libplplottcltk.so.14 -&gt; libplplottcltk.so.14.1.0\n├── libplplottcltk.so.14.1.0\n├── libqsastime.so -&gt; libqsastime.so.0\n├── libqsastime.so.0 -&gt; libqsastime.so.0.0.1\n├── libqsastime.so.0.0.1\n├── libtclmatrix.so -&gt; libtclmatrix.so.10\n├── libtclmatrix.so.10 -&gt; libtclmatrix.so.10.3.0\n├── libtclmatrix.so.10.3.0\n├── pkgconfig\n└── plplot5.15.0\n-plplot5.15.0\n└── drivers\n    ├── mem.driver_info\n    ├── mem.so\n    ├── ntk.driver_info\n    ├── ntk.so\n    ├── null.driver_info\n    ├── null.so\n    ├── ps.driver_info\n    ├── ps.so\n    ├── qt.driver_info\n    ├── qt.so\n    ├── svg.driver_info\n    ├── svg.so\n    ├── tk.driver_info\n    ├── tk.so\n    ├── tkwin.driver_info\n    ├── tkwin.so\n    ├── xfig.driver_info\n    ├── xfig.so\n    ├── xwin.driver_info\n    └── xwin.so\nThe lib/cmake directory 📁 contains files necessary for using PLplot with CMake. The contents of this directory are given below.\n├── export_csirocsa.cmake\n├── export_csirocsa-release.cmake\n├── export_mem.cmake\n├── export_mem-release.cmake\n├── export_ntk.cmake\n├── export_ntk-release.cmake\n├── export_null.cmake\n├── export_null-release.cmake\n├── export_plfortrandemolib.cmake\n├── export_plfortrandemolib-release.cmake\n├── export_plplot.cmake\n├── export_plplotcxx.cmake\n├── export_plplotcxx-release.cmake\n├── export_plplotfortran.cmake\n├── export_plplotfortran-release.cmake\n├── export_plplotqt.cmake\n├── export_plplotqt-release.cmake\n├── export_plplot-release.cmake\n├── export_plplottcltk.cmake\n├── export_plplottcltk_Main.cmake\n├── export_plplottcltk_Main-release.cmake\n├── export_plplottcltk-release.cmake\n├── export_plserver.cmake\n├── export_plserver-release.cmake\n├── export_pltcl.cmake\n├── export_pltcl-release.cmake\n├── export_pltek.cmake\n├── export_pltek-release.cmake\n├── export_ps.cmake\n├── export_ps-release.cmake\n├── export_qsastime.cmake\n├── export_qsastime-release.cmake\n├── export_qt.cmake\n├── export_qt-release.cmake\n├── export_svg.cmake\n├── export_svg-release.cmake\n├── export_tclmatrix.cmake\n├── export_tclmatrix-release.cmake\n├── export_tk.cmake\n├── export_tk-release.cmake\n├── export_tkwin.cmake\n├── export_tkwin-release.cmake\n├── export_xfig.cmake\n├── export_xfig-release.cmake\n├── export_xwin.cmake\n├── export_xwin-release.cmake\n├── plplotConfig.cmake\n├── plplotConfigVersion.cmake\n└── plplot_exports.cmake\nThe lib/pkgconfig directory contains files necessary for finding PLplot using pkgconfig in CMake projects. The contents of this directory are given below.\n├── plplot-c++.pc\n├── plplot-fortran.pc\n├── plplot.pc\n├── plplot-qt.pc\n├── plplot-tcl_Main.pc\n└── plplot-tcl.pc\nThe lib/fortran/modules/plplot directory contains Fortran module files as shown below.\n├── plfortrandemolib.mod\n├── plplot_double.mod\n├── plplot_graphics.mod\n├── plplot.mod\n├── plplot_private_exposed.mod\n├── plplot_private_utilities.mod\n├── plplot_single.mod\n└── plplot_types.mod\nAfter a successful build open your .bashrc or .zshrc and add following lines to it\nexport PKG_CONFIG_PATH=\"${PKG_CONFIG_PATH}:${EASIFEM_EXTPKGS}/lib/pkgconfig\"\nNote: You have to replace ${EASIFEM} with the PLplot installation path.\nSubsequently, run the following command inside terminal.\nsource ~/.bashrc #if bash if default SHELL\nor\nsource ~/.zshrc #if ZSH is default"
+  },
+  {
+    "objectID": "pages/plplot/plplot.html#running-examples",
+    "href": "pages/plplot/plplot.html#running-examples",
+    "title": "Using PLPLOT with Fortran",
+    "section": "Running examples",
+    "text": "Running examples\nCreate a directory test 📁\nmkdir test\ncd test\ncurl -o PLplot_example_1.F90 https://api.cacher.io/raw/ae828dbdfa2aebf3af0a/403d8f4836d78bddc387/PLplot_example_1.F90\ncurl -o CMakeLists.txt https://api.cacher.io/raw/3ca8ef3a43180dba7f35/cbb8263d9026e996d6ca/PLplot_CMakeLists.txt\ncmake -B ./build -DFILE_NAME:STRING=\"PLplot_example_1.F90\"\ncmake --build ./build\n./build/test\nThe content of CMakeLists.txt is given below\nCMAKE_MINIMUM_REQUIRED(VERSION 3.20.0 FATAL_ERROR)\nSET(PROJECT_NAME \"plplot\")\nPROJECT(${PROJECT_NAME})\nENABLE_LANGUAGE(Fortran C)\nSET(TARGET_NAME \"test\")\n\nSET(PLplot_INCLUDE_DIR \"$ENV{EASIFEM_EXTPKGS}/lib/fortran/modules/plplot\" )\nSET(PLplot_LIBRARY \"$ENV{EASIFEM_EXTPKGS}/lib/libplplot.so\" )\nSET(PLplot_Fortran_LIBRARY \"$ENV{EASIFEM_EXTPKGS}/lib/libplplotfortran.so\" )\nOPTION(FILE_NAME \"File name\")\nADD_EXECUTABLE(${TARGET_NAME} ${FILE_NAME})\n\nTARGET_LINK_LIBRARIES(\n  ${TARGET_NAME}\n  ${PLplot_LIBRARY}\n  ${PLplot_Fortran_LIBRARY} )\n\nTARGET_INCLUDE_DIRECTORIES( ${TARGET_NAME} PRIVATE ${PLplot_INCLUDE_DIR} )\nYou should see the following result.\n\n\n\nPLplot_example_1"
+  },
+  {
+    "objectID": "pages/plplot/plplot.html#example-0",
+    "href": "pages/plplot/plplot.html#example-0",
+    "title": "Using PLPLOT with Fortran",
+    "section": "Example 0",
+    "text": "Example 0\nPROGRAM main\n  USE easifemBase\n  IMPLICIT NONE\n  INTEGER, PARAMETER :: NSIZE = 101\n  REAL( DFP ), DIMENSION(NSIZE) :: x, y\n  REAL( DFP ) :: xmin = 0.0, xmax = 1.0, ymin = 0.0, ymax = 100.0\n  INTEGER :: ierr\n  ! Prepare data to be plotted.\n  x = arange(0, NSIZE-1) / REAL(NSIZE-1, DFP)\n  y = ymax * x**2\n  ! Parse and process command line arguments\n  ierr = PLPARSEOPTS( PL_PARSE_FULL )\n  IF(ierr .NE. 0) THEN\n    CALL Display( \"plparseopts error\" )\n    STOP\n  END IF\n  !&gt; Initiate the PLPLOT enviroment\n  CALL PLINIT\n  ! Create a labelled box to hold the plot.\n  ! we have specified the box dimension\n  CALL PLENV( xmin, xmax, ymin, ymax, 0, 0 )\n  CALL PLLAB( \"x\", \"y=100 x#u2#d\", \"Simple PLplot demo of a 2D line plot\" )\n  ! Plot the data that was prepared above.\n  CALL PLLINE( x, y )\n  ! Close PLplot library\n  CALL PLEND\nEND PROGRAM main"
+  },
+  {
+    "objectID": "pages/plplot/plplot.html#plinit",
+    "href": "pages/plplot/plplot.html#plinit",
+    "title": "Using PLPLOT with Fortran",
+    "section": "PLINIT",
+    "text": "PLINIT\nThis routine should be called before doing anything with PLPLOT. It is the main initialization routine for PLPLOT."
+  },
+  {
+    "objectID": "pages/plplot/plplot.html#plend",
+    "href": "pages/plplot/plplot.html#plend",
+    "title": "Using PLPLOT with Fortran",
+    "section": "PLEND",
+    "text": "PLEND\nAlways call plend to close any output plot files and to free up resources."
+  },
+  {
+    "objectID": "pages/plplot/plplot.html#plsdev",
+    "href": "pages/plplot/plplot.html#plsdev",
+    "title": "Using PLPLOT with Fortran",
+    "section": "PLSDEV",
+    "text": "PLSDEV\nThe output device can be a terminal, disk file, window system, pipe, or socket. If the output device has not already been specified when plinit is called, the output device will be taken from the value of the PLPLOT_DEV environment variable. If this variable is not set (or is empty), a list of valid output devices is given and the user is prompted for a choice.\n\nThe device can be specified BEFORE calling plinit by:\n\nCALL PLSDEV(STRING::devname)\n\nAn ASCII character string containing the device name keyword of the required output device. If devname is NULL or if the first character of the string is a ``?’’, the normal (prompted) start up is used.\n\nFollowing is the list of device name.\n  Plotting Options:\n      &lt; 1&gt; xwin       X-Window (Xlib)\n      &lt; 2&gt; tk         Tcl/TK Window\n      &lt; 3&gt; ps         PostScript File (monochrome)\n      &lt; 4&gt; psc        PostScript File (color)\n      &lt; 5&gt; xfig       Fig file\n      &lt; 6&gt; null       Null device\n      &lt; 7&gt; ntk        New tk driver\n      &lt; 8&gt; tkwin      New tk driver\n      &lt; 9&gt; mem        User-supplied memory device\n      &lt;10&gt; wxwidgets  wxWidgets Driver\n      &lt;11&gt; psttf      PostScript File (monochrome)\n      &lt;12&gt; psttfc     PostScript File (color)\n      &lt;13&gt; svg        Scalable Vector Graphics (SVG 1.1)\n      &lt;14&gt; pdf        Portable Document Format PDF\n      &lt;15&gt; bmpqt      Qt Windows bitmap driver\n      &lt;16&gt; jpgqt      Qt jpg driver\n      &lt;17&gt; pngqt      Qt png driver\n      &lt;18&gt; ppmqt      Qt ppm driver\n      &lt;19&gt; tiffqt     Qt tiff driver\n      &lt;20&gt; svgqt      Qt SVG driver\n      &lt;21&gt; qtwidget   Qt Widget\n      &lt;22&gt; epsqt      Qt EPS driver\n      &lt;23&gt; pdfqt      Qt PDF driver\n      &lt;24&gt; extqt      External Qt driver\n      &lt;25&gt; memqt      Memory Qt driver\n      &lt;26&gt; xcairo     Cairo X Windows Driver\n      &lt;27&gt; pdfcairo   Cairo PDF Driver\n      &lt;28&gt; pscairo    Cairo PS Driver\n      &lt;29&gt; epscairo   Cairo EPS Driver\n      &lt;30&gt; svgcairo   Cairo SVG Driver\n      &lt;31&gt; pngcairo   Cairo PNG Driver\n      &lt;32&gt; memcairo   Cairo Memory Driver\n      &lt;33&gt; extcairo   Cairo External Context Driver\nI prefer one of the following\nCALL PLSDEV(\"qtwidget\")\nCALL PLSDEV(\"xwin\")\nCALL PLSDEV(\"wxwidgets\")"
+  },
+  {
+    "objectID": "pages/plplot/plplot.html#plenv",
+    "href": "pages/plplot/plplot.html#plenv",
+    "title": "Using PLPLOT with Fortran",
+    "section": "PLENV",
+    "text": "PLENV\nThe function plenv is used to define the scales and axes for simple graphs."
+  },
+  {
+    "objectID": "pages/plplot/plplot.html#pllab",
+    "href": "pages/plplot/plplot.html#pllab",
+    "title": "Using PLPLOT with Fortran",
+    "section": "PLLAB",
+    "text": "PLLAB\nThe function pllab may be called after plenv to write labels on the x and y axes, and at the top of the graph."
+  },
+  {
+    "objectID": "pages/plplot/plplot.html#plpoin",
+    "href": "pages/plplot/plplot.html#plpoin",
+    "title": "Using PLPLOT with Fortran",
+    "section": "PLPOIN",
+    "text": "PLPOIN\nCALL PLPOIN(REAL::X(:),REAL::Y(:),INT::CODE)\n\nIf 0 &lt; code &lt; 32, then Hershey symbols is plotted. If 32 &lt;= code &lt;= 127 the corresponding printable ASCII character is plotted."
+  },
+  {
+    "objectID": "pages/plplot/plplot.html#plstring",
+    "href": "pages/plplot/plplot.html#plstring",
+    "title": "Using PLPLOT with Fortran",
+    "section": "PLSTRING",
+    "text": "PLSTRING\nCALL PLSTRING(REAL::X(:),REAL::Y(:),STRING::STRING)\nPlot a glyph at the specified points. The glyph is specified with a PLplot user string.\n## PLSYM\nTO BE ADDED LATER.\n## COLORS\n\nPLCOL0\nPLSCOL0\nPLCOLBG\n\n\nFollowing example will print black on white\nPROGRAM main\n USE easifemBase\n IMPLICIT NONE\n INTEGER, PARAMETER :: NSIZE = 101\n REAL( DFP ), DIMENSION(NSIZE) :: x, y\n REAL( DFP ) :: xmin = 0.0, xmax = 1.0, ymin = 0.0, ymax = 100.0\n INTEGER :: ierr\n ! Prepare data to be plotted.\n x = arange(0, NSIZE-1) / REAL(NSIZE-1, DFP)\n y = ymax * x**2\n ! Parse and process command line arguments\n ierr = PLPARSEOPTS( PL_PARSE_FULL )\n IF(ierr .NE. 0) THEN\n   CALL Display( \"plparseopts error\" )\n   STOP\n END IF\n !&gt; Initiate the PLPLOT enviroment\n CALL PLSDEV(\"qtwidget\")\n CALL PLSCOLBG(255,255,255)\n CALL PLINIT\n CALL PLSCOL0(0, 0,0,0)\n CALL PLCOL0(0)\n ! COLOR\n ! Create a labelled box to hold the plot.\n ! we have specified the box dimension\n CALL PLENV( xmin, xmax, ymin, ymax, 0, 0 )\n CALL PLLAB( \"x\", \"y=100 x#u2#d\", \"Simple PLplot demo of a 2D line plot\" )\n ! Plot the data that was prepared above.\n CALL PLPOIN( x, y, 4 )\n ! Close PLplot library\n CALL PLEND\nEND PROGRAM main"
+  },
+  {
+    "objectID": "pages/fem/stokes-flow-mixed-fem.html",
+    "href": "pages/fem/stokes-flow-mixed-fem.html",
+    "title": "Mixed finite element method for stokes flow",
+    "section": "",
+    "text": "Creeping flow\nConvective acceleration is negligible\nIncompressible\n\n\n\n\n\\[\n\\rho\\frac{\\partial\\mathbf{v}}{\\partial t}+\\nabla p-\\mu\\nabla^{2}\\mathbf{v}-\\rho\\mathbf{b}=\\mathbf{0},\n\\]\n\\[\n\\nabla \\cdot \\mathbf{v} = 0\n\\]\nEssential boundary condition:\n\\[\nv_{i} = v_{ig}, \\text{ on } \\Gamma_{i}^{g}\n\\]\nNeumann boundary condition:\n\\[\n-pn_{i}+\\mu \\frac{\\partial v_i}{\\partial x_j} n_{j}=h_i, \\text{ on } \\Gamma_{i}^{h}\n\\]\nhere, note that \\(h_{i}\\) is not the real traction, it is called the pseudo traction.\n\n\n\nFind \\(\\mathbf{v}\\) and \\(p\\) such that for all \\(\\delta \\mathbf{v}\\) and \\(\\delta p\\) following is true:\n\\[\nB_{G}\\left(\\delta\\mathbf{v},\\delta p;\\mathbf{v},p\\right)=L_{G}(\\delta\\mathbf{v},\\delta p)\n\\]\nwhere,\n\\[\nB_{G}\\left(\\delta\\boldsymbol{v},\\delta p;\\boldsymbol{v},p\\right)=\\int_{\\Omega}\\left(-\\frac{\\partial\\delta v_{i}}{\\partial x_{i}}p+\\frac{\\partial\\delta v_{i}}{\\partial x_{j}}\\mu\\frac{\\partial v_{i}}{\\partial x_{j}}+\\delta p\\frac{\\partial v_{j}}{\\partial x_{j}}\\right)d\\Omega\n\\]\n\\[\nL_{G}(\\delta\\mathbf{v},\\delta p)=\\int_{\\Omega}\\delta v_{i}\\rho b_{i}d\\Omega+\\int_{\\Gamma_{i}^{h}}\\delta v_{i}h_{i}d\\Omega\n\\]\n\n\n\nThe process of getting the above mentioned weak form is given below.\nFirst, multiple the residual of momentum equation with the test function \\(\\delta v\\) and the continuity equation with the \\(\\delta p\\), and integrate over the entire domain.\n\\[\n\\int_{\\Omega}\\delta v_{i}\\left\\{ \\frac{\\partial p}{\\partial x_{i}}-\\mu\\frac{\\partial^{2}v_{i}}{\\partial x_{j}\\partial x_{j}}-\\rho b_{i}\\right\\} d\\Omega+\\int_{\\Omega}\\delta p\\frac{\\partial v_{j}}{\\partial x_{j}}d\\Omega=0\n\\]\nNow we use integration by parts and Green’s divergence theorem to pressure and shear stress gradient terms. Then we obtain the following\n\\[\n\\begin{split}-\\int_{\\Omega}\\frac{\\partial\\delta v_{i}}{\\partial x_{i}}pd\\Omega+\\int_{\\Omega}\\frac{\\partial\\delta v_{i}}{\\partial x_{j}}\\mu\\frac{\\partial v_{i}}{\\partial x_{j}}d\\Omega\\\\ -\\int_{\\Gamma}\\delta v_{i}\\left(-pn_{i}+\\mu\\frac{\\partial v_{i}}{\\partial x_{j}}\\right)n_{j}d\\Omega\\\\ -\\int_{\\Omega}\\delta v_{i}\\rho b_{i}d\\Omega+\\int_{\\Omega}\\delta p\\frac{\\partial v_{j}}{\\partial x_{j}}d\\Omega\\\\ =0 \\end{split}\n\\]\nnow noting that\n\\[\n\\delta v_{i}=0 \\text{ on } \\Gamma_{i}^{g}\n\\]\nand\n\\[\n-pn_{i}+\\mu \\frac{\\partial v_i}{\\partial x_j} n_{j}=h_i, \\text{ on } \\Gamma_{i}^{h}\n\\]\nthen,\n\\[\n\\begin{split}-\\int_{\\Omega}\\frac{\\partial\\delta v_{i}}{\\partial x_{i}}pd\\Omega+\\int_{\\Omega}\\frac{\\partial\\delta v_{i}}{\\partial x_{j}}\\mu\\frac{\\partial v_{i}}{\\partial x_{j}}d\\Omega\\\\ +\\int_{\\Omega}\\delta p\\frac{\\partial v_{j}}{\\partial x_{j}}d\\Omega\\\\ -\\int_{\\Omega}\\delta v_{i}\\rho b_{i}d\\Omega-\\int_{\\Gamma_{i}^{h}}\\delta v_{i}h_{i}d\\Omega\\\\ =0 \\end{split}\n\\]\nor,\n\\[\n\\begin{aligned}\\int_{\\Omega}\\left(-\\frac{\\partial\\delta v_{i}}{\\partial x_{i}}p+\\frac{\\partial\\delta v_{i}}{\\partial x_{j}}\\mu\\frac{\\partial v_{i}}{\\partial x_{j}}+\\delta p\\frac{\\partial v_{j}}{\\partial x_{j}}\\right)d\\Omega\\\\ =\\int_{\\Omega}\\delta v_{i}\\rho b_{i}d\\Omega+\\int_{\\Gamma_{i}^{h}}\\delta v_{i}h_{i}d\\Omega \\end{aligned}\n\\]\nThis completes the proof.\n\n\n\nFor test and trial function of pressure field use the following finite element approximation:\n\\[\n\\delta p=\\sum_{I=1}^{n_{n}}\\delta p_{I}N_{p}^{I}\n\\]\n\\[\np=\\sum_{I=1}^{n_{n}} p_{I}N_{p}^{I}\n\\]\nwhere, \\(\\delta p_I\\) and \\(p_I\\) are the nodal values of \\(\\delta p\\) and \\(p\\), and \\(N^I_p\\) is the shape function.\nFor test and trial function of velocity field we use the following finite element approximation:\n\\[\n\\delta v_{iI}=\\sum_{I=1}^{n_{n}}\\delta v_{iI}N_{v}^{I}\n\\]\n\\[\nv_{iI}=\\sum_{I=1}^{n_{n}} v_{iI}N_{v}^{I}\n\\]\nwhere, \\(\\delta v_{iI}\\) and \\(v_{iI}\\) are the nodal value of \\(i\\)th component of velocity field, and \\(N_{v}^I\\) is the shape function of velocity field.\n\n\n\n\\[\n\\begin{aligned}\\int_{\\Omega}-\\frac{\\partial\\delta v_{i}}{\\partial x_{i}}pd\\Omega & =-\\delta v_{iI}\\left[\\int_{\\Omega}\\frac{\\partial N_{v}^{I}}{\\partial x_{i}}N_{p}^{J}d\\Omega\\right]p_{J}\\\\ & =\\delta v_{iI}\\left[G_{i1}^{IJ}\\right]p_{J} \\end{aligned}\n\\]\n\\[\n\\begin{aligned}\\int_{\\Omega}\\frac{\\partial\\delta v_{i}}{\\partial x_{j}}\\mu\\frac{\\partial v_{i}}{\\partial x_{j}}d\\Omega & =\\delta v_{iI}\\int_{\\Omega}\\frac{\\partial N_{v}^{I}}{\\partial x_{j}}\\mu\\frac{\\partial v_{i}}{\\partial x_{j}}d\\Omega\\\\ & =\\delta v_{iI}\\left[\\int_{\\Omega}\\frac{\\partial N_{v}^{I}}{\\partial x_{j}}\\mu\\frac{\\partial N_{v}^{J}}{\\partial x_{j}}d\\Omega\\right]v_{iJ}\\\\ & =\\delta v_{iI}\\left[K_{ij}^{IJ}\\right]v_{jJ} \\end{aligned}\n\\]\n\\[\n\\begin{aligned}\\int_{\\Omega}\\delta p\\frac{\\partial v_{i}}{\\partial x_{i}}d\\Omega & =\\delta p_{I}\\left[\\int_{\\Omega}N_{p}^{I}\\frac{\\partial N_{v}^{J}}{\\partial x_{i}}d\\Omega\\right]v_{iJ}\\\\ & =\\delta p_{I}\\left[-G_{1i}^{JI}\\right]v_{iJ} \\end{aligned}\n\\]\n\\[\n\\begin{aligned}\\int_{\\Omega}\\delta v_{i}\\rho b_{i}d\\Omega+\\int_{\\Gamma_{i}^{h}}\\delta v_{i}h_{i}d\\Omega & =\\delta v_{iI}\\left\\{ \\int_{\\Omega}N_{v}^{I}\\rho b_{i}d\\Omega+\\int_{\\Gamma_{i}^{h}}N_{v}^{I}h_{i}ds\\right\\} \\\\ & =\\delta v_{iI}\\left\\{ F_{iI}\\right\\} \\end{aligned}\n\\]\nwhere,\n\\[\nG_{i1}^{IJ}=-\\int_{\\Omega}\\frac{\\partial N_{v}^{I}}{\\partial x_{i}}N_{p}^{J}d\\Omega\n\\]\n\\[\nK_{ij}^{IJ}=\\delta_{ij}\\int_{\\Omega}\\frac{\\partial N_{v}^{I}}{\\partial x_{k}}\\mu\\frac{\\partial N_{v}^{J}}{\\partial x_{k}}d\\Omega\n\\]\n\\[\nF_{iI}=\\int_{\\Omega}N_{v}^{I}\\rho b_{i}d\\Omega+\\int_{\\Gamma_{i}^{h}}N_{v}^{I}h_{i}ds\n\\]\n\n\n\nThe system of linear equation is given by following. \\[\n\\left[\\begin{array}{cc} \\mathbf{K} & \\mathbf{G}\\\\ \\mathbf{G}^{T} & \\mathbf{0} \\end{array}\\right]\\left\\{ \\begin{array}{c} \\mathbf{V}\\\\ \\mathbf{P} \\end{array}\\right\\} =\\left\\{ \\begin{array}{c} \\mathbf{F}\\\\ \\mathbf{0} \\end{array}\\right\\}\n\\]"
+  },
+  {
+    "objectID": "pages/fem/stokes-flow-mixed-fem.html#flow-characteristics",
+    "href": "pages/fem/stokes-flow-mixed-fem.html#flow-characteristics",
+    "title": "Mixed finite element method for stokes flow",
+    "section": "",
+    "text": "Creeping flow\nConvective acceleration is negligible\nIncompressible"
+  },
+  {
+    "objectID": "pages/fem/stokes-flow-mixed-fem.html#strong-form",
+    "href": "pages/fem/stokes-flow-mixed-fem.html#strong-form",
+    "title": "Mixed finite element method for stokes flow",
+    "section": "",
+    "text": "\\[\n\\rho\\frac{\\partial\\mathbf{v}}{\\partial t}+\\nabla p-\\mu\\nabla^{2}\\mathbf{v}-\\rho\\mathbf{b}=\\mathbf{0},\n\\]\n\\[\n\\nabla \\cdot \\mathbf{v} = 0\n\\]\nEssential boundary condition:\n\\[\nv_{i} = v_{ig}, \\text{ on } \\Gamma_{i}^{g}\n\\]\nNeumann boundary condition:\n\\[\n-pn_{i}+\\mu \\frac{\\partial v_i}{\\partial x_j} n_{j}=h_i, \\text{ on } \\Gamma_{i}^{h}\n\\]\nhere, note that \\(h_{i}\\) is not the real traction, it is called the pseudo traction."
+  },
+  {
+    "objectID": "pages/fem/stokes-flow-mixed-fem.html#weak-form",
+    "href": "pages/fem/stokes-flow-mixed-fem.html#weak-form",
+    "title": "Mixed finite element method for stokes flow",
+    "section": "",
+    "text": "Find \\(\\mathbf{v}\\) and \\(p\\) such that for all \\(\\delta \\mathbf{v}\\) and \\(\\delta p\\) following is true:\n\\[\nB_{G}\\left(\\delta\\mathbf{v},\\delta p;\\mathbf{v},p\\right)=L_{G}(\\delta\\mathbf{v},\\delta p)\n\\]\nwhere,\n\\[\nB_{G}\\left(\\delta\\boldsymbol{v},\\delta p;\\boldsymbol{v},p\\right)=\\int_{\\Omega}\\left(-\\frac{\\partial\\delta v_{i}}{\\partial x_{i}}p+\\frac{\\partial\\delta v_{i}}{\\partial x_{j}}\\mu\\frac{\\partial v_{i}}{\\partial x_{j}}+\\delta p\\frac{\\partial v_{j}}{\\partial x_{j}}\\right)d\\Omega\n\\]\n\\[\nL_{G}(\\delta\\mathbf{v},\\delta p)=\\int_{\\Omega}\\delta v_{i}\\rho b_{i}d\\Omega+\\int_{\\Gamma_{i}^{h}}\\delta v_{i}h_{i}d\\Omega\n\\]"
+  },
+  {
+    "objectID": "pages/fem/stokes-flow-mixed-fem.html#proof-of-weak-form",
+    "href": "pages/fem/stokes-flow-mixed-fem.html#proof-of-weak-form",
+    "title": "Mixed finite element method for stokes flow",
+    "section": "",
+    "text": "The process of getting the above mentioned weak form is given below.\nFirst, multiple the residual of momentum equation with the test function \\(\\delta v\\) and the continuity equation with the \\(\\delta p\\), and integrate over the entire domain.\n\\[\n\\int_{\\Omega}\\delta v_{i}\\left\\{ \\frac{\\partial p}{\\partial x_{i}}-\\mu\\frac{\\partial^{2}v_{i}}{\\partial x_{j}\\partial x_{j}}-\\rho b_{i}\\right\\} d\\Omega+\\int_{\\Omega}\\delta p\\frac{\\partial v_{j}}{\\partial x_{j}}d\\Omega=0\n\\]\nNow we use integration by parts and Green’s divergence theorem to pressure and shear stress gradient terms. Then we obtain the following\n\\[\n\\begin{split}-\\int_{\\Omega}\\frac{\\partial\\delta v_{i}}{\\partial x_{i}}pd\\Omega+\\int_{\\Omega}\\frac{\\partial\\delta v_{i}}{\\partial x_{j}}\\mu\\frac{\\partial v_{i}}{\\partial x_{j}}d\\Omega\\\\ -\\int_{\\Gamma}\\delta v_{i}\\left(-pn_{i}+\\mu\\frac{\\partial v_{i}}{\\partial x_{j}}\\right)n_{j}d\\Omega\\\\ -\\int_{\\Omega}\\delta v_{i}\\rho b_{i}d\\Omega+\\int_{\\Omega}\\delta p\\frac{\\partial v_{j}}{\\partial x_{j}}d\\Omega\\\\ =0 \\end{split}\n\\]\nnow noting that\n\\[\n\\delta v_{i}=0 \\text{ on } \\Gamma_{i}^{g}\n\\]\nand\n\\[\n-pn_{i}+\\mu \\frac{\\partial v_i}{\\partial x_j} n_{j}=h_i, \\text{ on } \\Gamma_{i}^{h}\n\\]\nthen,\n\\[\n\\begin{split}-\\int_{\\Omega}\\frac{\\partial\\delta v_{i}}{\\partial x_{i}}pd\\Omega+\\int_{\\Omega}\\frac{\\partial\\delta v_{i}}{\\partial x_{j}}\\mu\\frac{\\partial v_{i}}{\\partial x_{j}}d\\Omega\\\\ +\\int_{\\Omega}\\delta p\\frac{\\partial v_{j}}{\\partial x_{j}}d\\Omega\\\\ -\\int_{\\Omega}\\delta v_{i}\\rho b_{i}d\\Omega-\\int_{\\Gamma_{i}^{h}}\\delta v_{i}h_{i}d\\Omega\\\\ =0 \\end{split}\n\\]\nor,\n\\[\n\\begin{aligned}\\int_{\\Omega}\\left(-\\frac{\\partial\\delta v_{i}}{\\partial x_{i}}p+\\frac{\\partial\\delta v_{i}}{\\partial x_{j}}\\mu\\frac{\\partial v_{i}}{\\partial x_{j}}+\\delta p\\frac{\\partial v_{j}}{\\partial x_{j}}\\right)d\\Omega\\\\ =\\int_{\\Omega}\\delta v_{i}\\rho b_{i}d\\Omega+\\int_{\\Gamma_{i}^{h}}\\delta v_{i}h_{i}d\\Omega \\end{aligned}\n\\]\nThis completes the proof."
+  },
+  {
+    "objectID": "pages/fem/stokes-flow-mixed-fem.html#finite-element-approximation",
+    "href": "pages/fem/stokes-flow-mixed-fem.html#finite-element-approximation",
+    "title": "Mixed finite element method for stokes flow",
+    "section": "",
+    "text": "For test and trial function of pressure field use the following finite element approximation:\n\\[\n\\delta p=\\sum_{I=1}^{n_{n}}\\delta p_{I}N_{p}^{I}\n\\]\n\\[\np=\\sum_{I=1}^{n_{n}} p_{I}N_{p}^{I}\n\\]\nwhere, \\(\\delta p_I\\) and \\(p_I\\) are the nodal values of \\(\\delta p\\) and \\(p\\), and \\(N^I_p\\) is the shape function.\nFor test and trial function of velocity field we use the following finite element approximation:\n\\[\n\\delta v_{iI}=\\sum_{I=1}^{n_{n}}\\delta v_{iI}N_{v}^{I}\n\\]\n\\[\nv_{iI}=\\sum_{I=1}^{n_{n}} v_{iI}N_{v}^{I}\n\\]\nwhere, \\(\\delta v_{iI}\\) and \\(v_{iI}\\) are the nodal value of \\(i\\)th component of velocity field, and \\(N_{v}^I\\) is the shape function of velocity field."
+  },
+  {
+    "objectID": "pages/fem/stokes-flow-mixed-fem.html#finite-element-discretization",
+    "href": "pages/fem/stokes-flow-mixed-fem.html#finite-element-discretization",
+    "title": "Mixed finite element method for stokes flow",
+    "section": "",
+    "text": "\\[\n\\begin{aligned}\\int_{\\Omega}-\\frac{\\partial\\delta v_{i}}{\\partial x_{i}}pd\\Omega & =-\\delta v_{iI}\\left[\\int_{\\Omega}\\frac{\\partial N_{v}^{I}}{\\partial x_{i}}N_{p}^{J}d\\Omega\\right]p_{J}\\\\ & =\\delta v_{iI}\\left[G_{i1}^{IJ}\\right]p_{J} \\end{aligned}\n\\]\n\\[\n\\begin{aligned}\\int_{\\Omega}\\frac{\\partial\\delta v_{i}}{\\partial x_{j}}\\mu\\frac{\\partial v_{i}}{\\partial x_{j}}d\\Omega & =\\delta v_{iI}\\int_{\\Omega}\\frac{\\partial N_{v}^{I}}{\\partial x_{j}}\\mu\\frac{\\partial v_{i}}{\\partial x_{j}}d\\Omega\\\\ & =\\delta v_{iI}\\left[\\int_{\\Omega}\\frac{\\partial N_{v}^{I}}{\\partial x_{j}}\\mu\\frac{\\partial N_{v}^{J}}{\\partial x_{j}}d\\Omega\\right]v_{iJ}\\\\ & =\\delta v_{iI}\\left[K_{ij}^{IJ}\\right]v_{jJ} \\end{aligned}\n\\]\n\\[\n\\begin{aligned}\\int_{\\Omega}\\delta p\\frac{\\partial v_{i}}{\\partial x_{i}}d\\Omega & =\\delta p_{I}\\left[\\int_{\\Omega}N_{p}^{I}\\frac{\\partial N_{v}^{J}}{\\partial x_{i}}d\\Omega\\right]v_{iJ}\\\\ & =\\delta p_{I}\\left[-G_{1i}^{JI}\\right]v_{iJ} \\end{aligned}\n\\]\n\\[\n\\begin{aligned}\\int_{\\Omega}\\delta v_{i}\\rho b_{i}d\\Omega+\\int_{\\Gamma_{i}^{h}}\\delta v_{i}h_{i}d\\Omega & =\\delta v_{iI}\\left\\{ \\int_{\\Omega}N_{v}^{I}\\rho b_{i}d\\Omega+\\int_{\\Gamma_{i}^{h}}N_{v}^{I}h_{i}ds\\right\\} \\\\ & =\\delta v_{iI}\\left\\{ F_{iI}\\right\\} \\end{aligned}\n\\]\nwhere,\n\\[\nG_{i1}^{IJ}=-\\int_{\\Omega}\\frac{\\partial N_{v}^{I}}{\\partial x_{i}}N_{p}^{J}d\\Omega\n\\]\n\\[\nK_{ij}^{IJ}=\\delta_{ij}\\int_{\\Omega}\\frac{\\partial N_{v}^{I}}{\\partial x_{k}}\\mu\\frac{\\partial N_{v}^{J}}{\\partial x_{k}}d\\Omega\n\\]\n\\[\nF_{iI}=\\int_{\\Omega}N_{v}^{I}\\rho b_{i}d\\Omega+\\int_{\\Gamma_{i}^{h}}N_{v}^{I}h_{i}ds\n\\]"
+  },
+  {
+    "objectID": "pages/fem/stokes-flow-mixed-fem.html#system-of-linear-equation",
+    "href": "pages/fem/stokes-flow-mixed-fem.html#system-of-linear-equation",
+    "title": "Mixed finite element method for stokes flow",
+    "section": "",
+    "text": "The system of linear equation is given by following. \\[\n\\left[\\begin{array}{cc} \\mathbf{K} & \\mathbf{G}\\\\ \\mathbf{G}^{T} & \\mathbf{0} \\end{array}\\right]\\left\\{ \\begin{array}{c} \\mathbf{V}\\\\ \\mathbf{P} \\end{array}\\right\\} =\\left\\{ \\begin{array}{c} \\mathbf{F}\\\\ \\mathbf{0} \\end{array}\\right\\}\n\\]"
+  },
+  {
+    "objectID": "pages/conda/conda.html",
+    "href": "pages/conda/conda.html",
+    "title": "Getting started with conda",
+    "section": "",
+    "text": "Conda is a package manager and environment manager."
+  },
+  {
+    "objectID": "pages/conda/conda.html#installing-conda",
+    "href": "pages/conda/conda.html#installing-conda",
+    "title": "Getting started with conda",
+    "section": "Installing conda",
+    "text": "Installing conda\nPlease follow the instruction given here."
+  },
+  {
+    "objectID": "pages/conda/conda.html#updating-conda",
+    "href": "pages/conda/conda.html#updating-conda",
+    "title": "Getting started with conda",
+    "section": "Updating conda",
+    "text": "Updating conda\nconda update conda"
+  },
+  {
+    "objectID": "pages/conda/conda.html#creating-environment",
+    "href": "pages/conda/conda.html#creating-environment",
+    "title": "Getting started with conda",
+    "section": "Creating environment",
+    "text": "Creating environment\nconda create -n easifem \nor\nconda create --name easifem \n\nHere, easifem is the name of virtual environment.\n\nThen we can activate the environment by\nconda activate easifem\nTo get list of all environment:\nconda info --envs\nWe can create an environment with specific python:\nconda create --name easifem_py39 python=3.9"
+  },
+  {
+    "objectID": "pages/conda/conda.html#searching-packages",
+    "href": "pages/conda/conda.html#searching-packages",
+    "title": "Getting started with conda",
+    "section": "Searching packages",
+    "text": "Searching packages\nconda search easifem"
+  },
+  {
+    "objectID": "pages/conda/conda.html#installing-packages",
+    "href": "pages/conda/conda.html#installing-packages",
+    "title": "Getting started with conda",
+    "section": "Installing packages",
+    "text": "Installing packages\nconda install easifem\nWe can check the installed packages by\nconda list"
+  },
+  {
+    "objectID": "pages/ssh/ssh.html",
+    "href": "pages/ssh/ssh.html",
+    "title": "Simple Secure Shell (SSH)",
+    "section": "",
+    "text": "SSH stands for simple secured shell. The ssh command contains of 3-parts\nOpenSSH provides a server daemon and client tools to facilitate secure remote control and file transfer operation.\nInstall openssh by using"
+  },
+  {
+    "objectID": "pages/ssh/ssh.html#openssh-client-side",
+    "href": "pages/ssh/ssh.html#openssh-client-side",
+    "title": "Simple Secure Shell (SSH)",
+    "section": "OpenSSH Client-Side",
+    "text": "OpenSSH Client-Side\nOpenSSH provides several client tools to facilitate secure remote control and file transfer operation. Install openssh using following command.\nsudo apt install openssh-client\nOpenSSH has a client side component, it is called ssh, which will connect a client to the server.\nssh {user}@{host}\nHere user is the name of the account that you want to access and host is the IP address or the Domain name of the server.\nWe want to access the server by using the ssh-key.\nGenerating RSA key pair on client.\nUse the ssh-keygen CLT for creating RSA key pair on the client machine (your local computer).\nssh-keygen -t rsa\nJust follow the instruction given in the terminal.\n\nThe key will be stored at ~/.ssh\n\nIf you overwrite the previously generated RSA key, then the applications which use that key will not work properly. Therefore, I always name the RSA key according to the purpose of generating it.\n|-- config\n|-- config_bk\n|-- easifem_dev_rsa\n|-- easifem_dev_rsa.pub\n|-- github_easifem_rsa\n|-- github_easifem_rsa.pub\n|-- id_rsa\n|-- id_rsa.pub\n|-- known_hosts\nEvery time we generate RSA key, we get two files named XXX_rsa and XXX_rsa.pub. The former is a private key, and the latter is a public key.\nPlacing public key to hosting server\nThe easiest way to copy your public key from client the hosting server is to use a CLT called ssh-copy-id.\nIn this method, we need to specify the remote server that we would like to connect to. Therefore, in this method we should have the credentials to access the server. The syntax is\nssh-copy-id username@remote_host\nSubsequently, follow the instruction on the screen. This process will copy the content of id_rsa.pub to the remote server at ~/.ssh/authorized_keys. After this step you will be able to access the remote server using\nssh username@remote_host -p PORT_NUMBER\nIf you do not ssh-copy-id then use the following process to copy the content of id_rsa.pub from local machine (client) to the remote server’s ~/.ssh/authorized_keys.\ncat ~/.ssh/id_rsa.pub | ssh username@remote_host \"mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && chmod -R go= ~/.ssh && cat &gt;&gt; ~/.ssh/authorized_keys\"\nLastly, if you do not have access to remote, then you have to manually copy the content of id_rsa.pub from client to authorized_keys of remote server.\nMake sure that on the server side ~/.ssh and authorized_keys have correct permission set:\nchmod -R go ~/.ssh\nssh-configuration\nIn ~/.ssh directory you will see a file named config, if this file is not present then create it. Then open it in a text editor and add following lines to it.\n# connecting to my ubuntu-server\nHost linux\n  HostName 192.168.1.15\n  User vikassharma\n  Port 2222\n  IdentityFile ~/.ssh/easifem_linux_rsa\nNow we can connect to the server using ssh linux.\nThere are several ways to define IP in hostname\n\n192.168.1.* matches 192.168.1.0 to 192.168.1.24\n192.168.1.? matches excatly one character, i.e. 192.168.1.0 to 192.168.1.9."
+  },
+  {
+    "objectID": "pages/ssh/ssh.html#openssh-server-side",
+    "href": "pages/ssh/ssh.html#openssh-server-side",
+    "title": "Simple Secure Shell (SSH)",
+    "section": "OpenSSH Server-side",
+    "text": "OpenSSH Server-side\nOpenSSH provides a server daemon and client tools to facilitate secure remote control and file transfer operation. The server component is called sshd (d for daemon) which listens continuously for client connections from any of the client tools.\nTo install sshd we need to install openssh-server on the server.\nsudo apt install openssh-server\nCONFIGURATION file is located /etc/ssh/sshd_config. Note that there are many directives in the sshd_config file. Before editing this file make a copy of sshd_config.\nsudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bk\nsudo chmod a-w /etc/ssh/sshd_config.bk\nNow check the configuration file before restarting ssh.\nsudo sshd -t -f /etc/ssh/sshd_config\nLISTEN TO THE PORT sshd by default listens to the TCP port 22. To change this default setting search for PORT in sshd_config file.\nPort 2222\nBanner\nBanner /etc/issue.net\nRead more about banner here.\nActivating modifications\nsudo systemclt status ssh\nsudo systemclt restart sshd.service\nsudo ufw allow ssh\nsudo systemclt enable ssh\nStop and disable ssh\nsudo systemctl stop ssh\nThis will stop the service until you restart it or until the system rebooted. To restart it you can type\nsudo systemctl start ssh\nIf you want to disable it from starting during system boot, use\nsudo systemctl disable ssh\nThis will not stop the service from running during the current session, just from loading during startup. If you want to start again during system boot, type:\nsudo systemctl enable ssh\nGetting IP address\nip address\n1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000\n    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00\n    inet 127.0.0.1/8 scope host lo\n       valid_lft forever preferred_lft forever\n    inet6 ::1/128 scope host\n       valid_lft forever preferred_lft forever\n2: enp3s0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000\n    link/ether 2c:d4:44:ae:a1:3a brd ff:ff:ff:ff:ff:ff\n3: wlp4s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000\n    link/ether c0:d9:62:0b:c2:02 brd ff:ff:ff:ff:ff:ff\n    inet 192.168.1.15/24 brd 192.168.1.255 scope global dynamic noprefixroute wlp4s0\n       valid_lft 64284sec preferred_lft 64284sec\n    inet6 fe80::f53a:7745:52fc:1573/64 scope link noprefixroute\n       valid_lft forever preferred_lft forever\nThe ip-address of my system is inet 192.168.1.15. In this way, from the client side we will use ssh vikassharma@192.168.1.15 to connect to the remote server."
+  },
+  {
+    "objectID": "pages/ruby/install-ruby.html",
+    "href": "pages/ruby/install-ruby.html",
+    "title": "Installing Ruby on Mac",
+    "section": "",
+    "text": "In this post I will demonstrate how to install ruby 3.1.3 on MacOS. I am currently using M2 chip.\nneofetch\n                    'c.          easifem@Vikass-MacBook-Pro.local\n                 ,xNMM.          --------------------------------\n               .OMMMMo           OS: macOS 13.4.1 22F82 arm64\n               OMMM0,            Host: Mac14,7\n     .;loddo:' loolloddol;.      Kernel: 22.5.0\n   cKMMMMMMMMMMNWMMMMMMMMMM0:    Uptime: 8 days, 12 hours, 25 mins\n .KMMMMMMMMMMMMMMMMMMMMMMMWd.    Packages: 116 (brew)\n XMMMMMMMMMMMMMMMMMMMMMMMX.      Shell: fish 3.6.1\n;MMMMMMMMMMMMMMMMMMMMMMMM:       Resolution: 1440x900\n:MMMMMMMMMMMMMMMMMMMMMMMM:       DE: Aqua\n.MMMMMMMMMMMMMMMMMMMMMMMMX.      WM: Quartz Compositor\n kMMMMMMMMMMMMMMMMMMMMMMMMWd.    WM Theme: Blue (Dark)\n .XMMMMMMMMMMMMMMMMMMMMMMMMMMk   Terminal: WarpTerminal\n  .XMMMMMMMMMMMMMMMMMMMMMMMMK.   CPU: Apple M2\n    kMMMMMMMMMMMMMMMMMMMMMMd     GPU: Apple M2\n     ;KMMMMMMMWXXWMMMMMMMk.      Memory: 2591MiB / 16384MiB\n       .cooc,.    .,coo:.\nI use Jekyll to manage this website. Recently, I have shifted to M2 chip. When I tried to install ruby:3.1.3 by using chruby and ruby-install package (as recommended by Jekyll website), I faced some difficulties which lead to ultimate failed installation.\nSo, I followed different approach, which works very smoothly and quickly.\nI use rbenv to manage ruby version on MacOS, which is located here.\n\nInstalling rbenv\nbrew install rbenv ruby-build\nThen please run the following command, and follow the instruction.\n# run this and follow the printed instructions:\nrbenv init\nI use fish shell, which gives me following instruction.\n# Load rbenv automatically by appending\n# the following to ~/.config/fish/config.fish:\n\nstatus --is-interactive; and rbenv init - fish | source\n\n\nInstalling Ruby version\nThe rbenv install command does not ship with rbenv out-of-the-box, but is provided by the ruby-build plugin.\nBefore attempting to install Ruby, check that your build environment has the necessary tools and libraries. Then:\n# list latest stable versions:\nrbenv install -l\n\n# list all local versions:\nrbenv install -L\n\n# install a Ruby version:\nrbenv install 3.1.3\nSet a Ruby version to finish installation and start using Ruby:\nrbenv global 3.1.3   # set the default Ruby version for this machine\nrbenv local 3.1.3   # set the Ruby version for this directory\nI do not want to set Ruby globally, therefore, I use the second command.\nNow go to the directory which contains your Ruby project. Then activate ruby to 3.1.3 by using\nrbenv local 3.1.3\nThen, we install jekyll.\ngem install jekyll bundler\nThen, build the site and make it available on a local server.\nbundle install\nbundle exec jekyll serve"
+  }
+]
