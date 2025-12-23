@@ -1,0 +1,70 @@
+project:
+  type: website
+  output-dir: /tmp/vickysharma0812.github.io
+
+website:
+  title: "Vikas Sharma"
+  reader-mode: true
+  search: true
+  repo-url: https://github.com/vickysharma0812/vickysharma0812.github.io/
+  site-url: https://vikas.easifem.com
+  repo-actions: [edit, source, issue]
+  favicon: ./figures/favicon.png
+  twitter-card: true
+  page-navigation: true
+  page-footer:
+    left: "Copyright 2025, Vikas Sharma"
+    right: 
+      - icon: github
+        href: https://github.com/vickysharma0812
+      - icon: twitter
+        href: https://twitter.com/vickysharma0812
+      - icon: linkedin
+        href: https://linkedin.com/in/vickysharma0812
+    border: false
+    background: primary
+  sidebar:
+      style: floating
+      background: white
+      search: true
+      contents:
+        - text: Home
+          href: index.md
+  navbar:
+    logo: ./figures/logo-wide.svg
+    background: white
+    # foreground: 
+    collapse: true
+    type: light
+    tools:
+      - icon: github
+        href: https://github.com/vickysharma0812
+      - icon: twitter
+        href: https://twitter.com/vickysharma0812
+      - icon: linkedin
+        href: https://linkedin.com/in/vickysharma0812
+    left: 
+      - href: index.md
+        text: Home
+      - href: publication.md
+        text: Publication
+      - href: blog.md
+        text: Blog
+      - href: archlinux.md
+        text: Archlinux
+
+bibliography: references.bib
+
+comments:
+  hypothesis: true
+
+execute:
+  freeze: auto
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+
+
+

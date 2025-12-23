@@ -1,0 +1,7 @@
+.ipynb_checkpoints
+_build
+.DS_Store
+/logseq/
+_site
+
+/.quarto/
