@@ -1,7 +1,7 @@
 ---
-title: "Archlinux"
+title: "Linux"
 listing:
-  contents: archlinux
+  contents: linux
   sort: "date desc"
   type: default
   categories: true

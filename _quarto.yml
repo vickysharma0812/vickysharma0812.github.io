@@ -50,8 +50,10 @@ website:
         text: Publication
       - href: blog.md
         text: Blog
-      - href: archlinux.md
-        text: Archlinux
+      - href: linux.md
+        text: Linux
+      - href: markdown-notes.md
+        text: "Quick Notes"
 
 bibliography: references.bib
 

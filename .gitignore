@@ -5,3 +5,8 @@ _build
 _site
 
 /.quarto/
+/markdown-notes/daily-notes/
+/markdown-notes/journals/
+/markdown-notes/journals/
+/markdown-notes/logseq/
+/markdown-notes/whiteboards/
