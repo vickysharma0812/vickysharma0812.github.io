@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Vikas Sharma, Ph.D.">
-<meta name="dcterms.date" content="2025-01-13">
 
-<title>SSH – Vikas Sharma</title>
+<title>linux-creating-groups – Vikas Sharma</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -113,8 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </script>
 
 
-<meta name="twitter:title" content="SSH – Vikas Sharma">
-<meta name="twitter:description" content="">
+<meta name="twitter:title" content="Vikas Sharma">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -151,8 +148,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../archlinux.html"> 
-<span class="menu-text">Archlinux</span></a>
+    <a class="nav-link" href="../linux.html"> 
+<span class="menu-text">Linux</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../markdown-notes.html"> 
+<span class="menu-text">Quick Notes</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -173,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">SSH</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -209,148 +210,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#openssh-client-side" id="toc-openssh-client-side" class="nav-link active" data-scroll-target="#openssh-client-side">OpenSSH Client-Side</a></li>
-  <li><a href="#openssh-server-side" id="toc-openssh-server-side" class="nav-link" data-scroll-target="#openssh-server-side">OpenSSH Server-side</a></li>
+  <li><a href="#managing-groups-in-linux" id="toc-managing-groups-in-linux" class="nav-link active" data-scroll-target="#managing-groups-in-linux">Managing Groups in Linux</a>
+  <ul class="collapse">
+  <li><a href="#creating-a-group" id="toc-creating-a-group" class="nav-link" data-scroll-target="#creating-a-group">Creating a group</a></li>
+  <li><a href="#deleting-a-group" id="toc-deleting-a-group" class="nav-link" data-scroll-target="#deleting-a-group">Deleting a group</a></li>
+  <li><a href="#adding-a-user-to-a-group" id="toc-adding-a-user-to-a-group" class="nav-link" data-scroll-target="#adding-a-user-to-a-group">Adding a user to a group</a></li>
+  <li><a href="#removing-a-user-from-a-group" id="toc-removing-a-user-from-a-group" class="nav-link" data-scroll-target="#removing-a-user-from-a-group">Removing a user from a group</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/archlinux/ssh.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/archlinux/ssh.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/markdown-notes/linux-creating-groups.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/markdown-notes/linux-creating-groups.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">SSH</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Vikas Sharma, Ph.D. </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 13, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>SSH stands for simple secured shell. The ssh command contains of 3-parts</p>
-<p>OpenSSH provides a server daemon and client tools to facilitate secure remote control and file transfer operation.</p>
-<p>Install openssh by using</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> openssh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="openssh-client-side" class="level2">
-<h2 class="anchored" data-anchor-id="openssh-client-side">OpenSSH Client-Side</h2>
-<p>OpenSSH provides several client tools to facilitate secure remote control and file transfer operation. I OpenSSH has a client side component, it is called <code>ssh</code>, which will connect a client to the server.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> {user}@{host}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Here <code>user</code> is the name of the account that you want to access and <code>host</code> is the <code>IP address</code> or the <code>Domain name</code> of the server.</p>
-<p>We want to access the server by using the ssh-key.</p>
-<p><strong>Generating key using Ed25519 algorithm</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"your_email@example.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If you are using a legacy system that doesn’t support the Ed25519 algorithm, then <strong>Generate key using RSA</strong> on client.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> rsa  <span class="at">-b</span> 4096 <span class="at">-C</span> <span class="st">"your_email@example.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This creates a new SSH key, using the provided email as a label.</p>
-<p>Just follow the instruction given in the terminal.</p>
-<blockquote class="blockquote">
-<p>The key will be stored at <code>~/.ssh</code></p>
-</blockquote>
-<p>If you overwrite the previously generated RSA key, then the applications which use that key will not work properly. Therefore, I always name the RSA key according to the purpose of generating it.</p>
-<pre class="text"><code>|-- config
-|-- config_bk
-|-- easifem_dev_rsa
-|-- easifem_dev_rsa.pub
-|-- github_easifem_rsa
-|-- github_easifem_rsa.pub
-|-- id_rsa
-|-- id_rsa.pub
-|-- known_hosts</code></pre>
-<p>Every time we generate RSA key, we get two files named <code>XXX_rsa</code> and <code>XXX_rsa.pub</code>. The former is a private key, and the latter is a public key.</p>
-<p><strong>Placing public key to hosting server</strong></p>
-<p>The easiest way to copy your public key from client the hosting server is to use a CLT called <code>ssh-copy-id</code>.</p>
-<p>In this method, we need to specify the remote server that we would like to connect to. Therefore, in this method we should have the credentials to access the server. The syntax is</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ssh-copy-id</span> username@remote_host</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Subsequently, follow the instruction on the screen. This process will copy the content of <code>id_rsa.pub</code> to the remote server at <code>~/.ssh/authorized_keys</code>. After this step you will be able to access the remote server using</p>
-<pre class="bashc"><code>ssh username@remote_host -p PORT_NUMBER</code></pre>
-<p>If you do not <code>ssh-copy-id</code> then use the following process to copy the content of <code>id_rsa.pub</code> from local machine (client) to the remote server’s <code>~/.ssh/authorized_keys</code>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_rsa.pub <span class="kw">|</span> <span class="fu">ssh</span> username@remote_host <span class="st">"mkdir -p ~/.ssh &amp;&amp; touch ~/.ssh/authorized_keys &amp;&amp; chmod -R go= ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Lastly, if you do not have access to remote, then you have to manually copy the content of <code>id_rsa.pub</code> from client to <code>authorized_keys</code> of remote server.</p>
-<p>Make sure that on the server side <code>~/.ssh</code> and <code>authorized_keys</code> have correct permission set:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> <span class="at">-R</span> go ~/.ssh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>ssh-configuration</strong></p>
-<p>In <code>~/.ssh</code> directory you will see a file named <code>config</code>, if this file is not present then create it. Then open it in a text editor and add following lines to it.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># connecting to my ubuntu-server</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Host</span> linux</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">HostName</span> 192.168.1.15</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">User</span> vikassharma</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Port</span> 2222</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">IdentityFile</span> ~/.ssh/easifem_linux_rsa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now we can connect to the server using <code>ssh linux</code>.</p>
-<p>There are several ways to define IP in hostname</p>
-<ul>
-<li><code>192.168.1.*</code> matches <code>192.168.1.0</code> to <code>192.168.1.24</code></li>
-<li><code>192.168.1.?</code> matches excatly one character, i.e.&nbsp;<code>192.168.1.0</code> to <code>192.168.1.9</code>.</li>
-</ul>
+<section id="managing-groups-in-linux" class="level1">
+<h1>Managing Groups in Linux</h1>
+<section id="creating-a-group" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-group">Creating a group</h2>
+<p>We can create a group using the <code>groupadd</code> command as shown below:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> groupadd groupname</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can change the properties of a group using the <code>groupmod</code> command. For example, to change the group name, you can use the following command:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> groupmod <span class="at">-n</span> newgroupname oldgroupname</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="openssh-server-side" class="level2">
-<h2 class="anchored" data-anchor-id="openssh-server-side">OpenSSH Server-side</h2>
-<p>OpenSSH provides a server daemon and client tools to facilitate secure remote control and file transfer operation. The server component is called <code>sshd</code> (d for daemon) which listens continuously for client connections from any of the client tools.</p>
-<p>To <strong>install</strong> <code>sshd</code> we need to install <code>openssh-server</code> on the server.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install openssh-server</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>CONFIGURATION</strong> file is located <code>/etc/ssh/sshd_config</code>. Note that there are many directives in the <code>sshd_config</code> file. Before editing this file make a copy of <code>sshd_config</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bk</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod a-w /etc/ssh/sshd_config.bk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now check the configuration file before restarting ssh.</p>
-<pre><code>sudo sshd -t -f /etc/ssh/sshd_config</code></pre>
-<p><strong>LISTEN TO THE PORT</strong> <code>sshd</code> by default listens to the TCP port 22. To change this default setting search for <code>PORT</code> in <code>sshd_config</code> file.</p>
-<pre><code>Port 2222</code></pre>
-<p><strong>Banner</strong></p>
-<pre><code>Banner /etc/issue.net</code></pre>
-<p>Read more about banner <a href="https://www.tecmint.com/ssh-warning-banner-linux/">here</a>.</p>
-<p><strong>Activating modifications</strong></p>
-<pre><code>sudo systemclt status ssh
-sudo systemclt restart sshd.service
-sudo ufw allow ssh
-sudo systemclt enable ssh</code></pre>
-<p><strong>Stop and disable ssh</strong></p>
-<pre><code>sudo systemctl stop ssh</code></pre>
-<p>This will stop the service until you restart it or until the system rebooted. To restart it you can type</p>
-<pre><code>sudo systemctl start ssh</code></pre>
-<p>If you want to disable it from starting during system boot, use</p>
-<pre><code>sudo systemctl disable ssh</code></pre>
-<p>This will not stop the service from running during the current session, just from loading during startup. If you want to start again during system boot, type:</p>
-<pre><code>sudo systemctl enable ssh</code></pre>
-<p><strong>Getting IP address</strong></p>
-<pre><code>ip address</code></pre>
-<pre><code>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host
-       valid_lft forever preferred_lft forever
-2: enp3s0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
-    link/ether 2c:d4:44:ae:a1:3a brd ff:ff:ff:ff:ff:ff
-3: wlp4s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
-    link/ether c0:d9:62:0b:c2:02 brd ff:ff:ff:ff:ff:ff
-    inet 192.168.1.15/24 brd 192.168.1.255 scope global dynamic noprefixroute wlp4s0
-       valid_lft 64284sec preferred_lft 64284sec
-    inet6 fe80::f53a:7745:52fc:1573/64 scope link noprefixroute
-       valid_lft forever preferred_lft forever</code></pre>
-<p>The ip-address of my system is inet <code>192.168.1.15</code>. In this way, from the client side we will use <code>ssh vikassharma@192.168.1.15</code> to connect to the remote server.</p>
+<section id="deleting-a-group" class="level2">
+<h2 class="anchored" data-anchor-id="deleting-a-group">Deleting a group</h2>
+<p>You can delete a group using the <code>groupdel</code> command as shown below:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> groupdel groupname</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="adding-a-user-to-a-group" class="level2">
+<h2 class="anchored" data-anchor-id="adding-a-user-to-a-group">Adding a user to a group</h2>
+<p>You can add a user to a group using the <code>usermod</code> command as shown below:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-a</span> <span class="at">-G</span> groupname username</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It is important to use the <code>-a</code> option (append) along with <code>-G</code> option to avoid removing the user from other groups.</p>
+</section>
+<section id="removing-a-user-from-a-group" class="level2">
+<h2 class="anchored" data-anchor-id="removing-a-user-from-a-group">Removing a user from a group</h2>
+<p>You can remove a user from a group using the <code>gpasswd</code> command as shown below:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> gpasswd <span class="at">-d</span> username groupname</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -761,7 +663,7 @@ sudo systemclt enable ssh</code></pre>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/archlinux/ssh.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/archlinux/ssh.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/markdown-notes/linux-creating-groups.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/markdown-notes/linux-creating-groups.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

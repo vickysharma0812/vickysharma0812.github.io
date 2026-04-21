@@ -80,9 +80,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -137,7 +137,10 @@ window.Quarto = {
 </script>
 
 <meta name="twitter:title" content="Publication – Vikas Sharma">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://vikas.easifem.com/publications/2025_jaee_tomobe_et_al/figures/thumbnail.png">
+<meta name="twitter:image-height" content="1172">
+<meta name="twitter:image-width" content="1172">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -173,8 +176,12 @@ window.Quarto = {
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./archlinux.html"> 
-<span class="menu-text">Archlinux</span></a>
+    <a class="nav-link" href="./linux.html"> 
+<span class="menu-text">Linux</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./markdown-notes.html"> 
+<span class="menu-text">Quick Notes</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -212,7 +219,7 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(20)</span></div><div class="category" data-category="Sm91cm5hbCUyMHBhcGVy">Journal paper <span class="quarto-category-count">(16)</span></div><div class="category" data-category="eWVhciUyMDIwMTU=">year 2015 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="eWVhciUyMDIwMTc=">year 2017 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="eWVhciUyMDIwMTg=">year 2018 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="eWVhciUyMDIwMTk=">year 2019 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="eWVhciUyMDIwMjE=">year 2021 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="eWVhciUyMDIwMjI=">year 2022 <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -226,13 +233,606 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-title" data-direction="asc">
+        Title
+      </option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-author" data-direction="asc">
+        Author
+      </option>
+    </select>
+  </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
 <div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Sm91cm5hbCUyMHBhcGVy" data-listing-date-sort="1767279600000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="105">
+<div class="thumbnail"><a href="./publications/2025_jaee_kimura_et_al/index.html" class="no-external">
 
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2025_jaee_kimura_et_al/index.html" class="no-external">A fundamental study on the application of energy-based overset finite element method to dynamic analysis</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbCUyMHBhcGVy'); return false;">Journal paper</div>
+
+</div>
+<div class="delink listing-description"><a href="./publications/2025_jaee_kimura_et_al/index.html" class="no-external">
+The preparation of a mesh is a costly procedure in finite element analyses. Energy-based overset finite element method (EbO-FEM) is a method that facilitates the creation of…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2025_jaee_kimura_et_al/index.html" class="no-external">
+<div class="listing-date">
+Jan 2, 2026
+</div>
+<div class="listing-author">
+Kimura et al.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Sm91cm5hbCUyMHBhcGVy" data-listing-date-sort="1739372400000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="152">
+<div class="thumbnail"><a href="./publications/2025_jaee_tomobe_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2025_jaee_tomobe_et_al/figures/thumbnail.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2025_jaee_tomobe_et_al/index.html" class="no-external">An energy-based overset finite element method for modal analysis on rigid frame bridges</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbCUyMHBhcGVy'); return false;">Journal paper</div>
+
+</div>
+<div class="delink listing-description"><a href="./publications/2025_jaee_tomobe_et_al/index.html" class="no-external">
+<p>This paper proposes a modal analysis method based on the energy-based overset finite element method (EbO-FEM) for rigid frame bridges. First, a modal analysis of the cantilever beam was performed to verify the accuracy, and the EbO-FEM solution agreed well with all of the conventional FEM solutions, experimental results, and exact solutions. Second, the natural vibration modes and frequencies estimated for a real rigid frame bridge under construction by microtremor observation records and the Frequency Domain Decomposition (FDD) method, and the EbO-FEM reproduced its natural vibration modes and frequencies with high accuracy.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2025_jaee_tomobe_et_al/index.html" class="no-external">
+<div class="listing-date">
+Feb 13, 2025
+</div>
+<div class="listing-author">
+Tomobe et al.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="Sm91cm5hbCUyMHBhcGVy" data-listing-date-sort="1720364400000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="207">
+<div class="thumbnail"><a href="./publications/2024_ijce_azhar_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2024_ijce_azhar_et_al/figures/thumbnail.jpg" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2024_ijce_azhar_et_al/index.html" class="no-external">Numerical investigation on the thermo-mechanical response of geothermal energy pile in East Indian Climatic Condition</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbCUyMHBhcGVy'); return false;">Journal paper</div>
+
+</div>
+<div class="delink listing-description"><a href="./publications/2024_ijce_azhar_et_al/index.html" class="no-external">
+In this study, geothermal energy has shown immense potential to be considered as one of the sustainable and renewable energy resources for space conditioning. However…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2024_ijce_azhar_et_al/index.html" class="no-external">
+<div class="listing-date">
+Jul 8, 2024
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="Sm91cm5hbCUyMHBhcGVy" data-listing-date-sort="1717426800000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="167">
+<div class="thumbnail"><a href="./publications/2024_ijmsd_sharma_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2024_ijmsd_sharma_et_al/figures/thumbnail.svg" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2024_ijmsd_sharma_et_al/index.html" class="no-external">Space–time finite element method with domain reduction techniques for dynamic soil–structure interaction problems</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbCUyMHBhcGVy'); return false;">Journal paper</div>
+
+</div>
+<div class="delink listing-description"><a href="./publications/2024_ijmsd_sharma_et_al/index.html" class="no-external">
+<p>Design of earth structures, such as dams, tunnels, and embankments, against the vibrational loading caused by high-speed trains, road traffic, underground explosions, and, more importantly, earthquake motion, demands solutions of the dynamic soil–structure Interaction (SSI) problem. This paper presents a velocity-based space–time finite element procedure, v-ST/finite element method (FEM), to solve dynamic SSI problems. The main goal of this study is to present the computation details of implementing viscous boundary conditions of Lysmer–Kuhlemeyer to truncate the unbounded soil domain. Furthermore, additional time-dependent boundary conditions, in terms of the free-field response, are included to facilitate energy flow from the far field to the computation domain at the vertical truncated boundaries. In the FEM, seismic input motion is applied to an effective nodal force vector, which can be obtained explicitly in the numerical simulations. Finally, the response of a concrete gravity dam resting on an elastic half-space to the horizontal component of earthquake motion is computed and successfully compared with the results of semidiscrete FEM using the Newmark-<span class="math inline">\(\beta\)</span> method.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2024_ijmsd_sharma_et_al/index.html" class="no-external">
+<div class="listing-date">
+Jun 4, 2024
+</div>
+<div class="listing-author">
+Sharma et al.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1710082800000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="263">
+<div class="thumbnail"><a href="./publications/2024_cm_sharma_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2024_cm_sharma_et_al/figures/thumbnail.svg" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2024_cm_sharma_et_al/index.html" class="no-external">Velocity-based space-time FEMs for solid dynamics problem generalized framework for linear basis functions in time</a>
+</h3>
+<div class="delink listing-description"><a href="./publications/2024_cm_sharma_et_al/index.html" class="no-external">
+Time discontinuous Galerkin Space-Time Finite Element Method (ST/FEM) can be used for developing arbitrary high-order accurate and unconditionally stable time integration…<span class="math inline"></span><span class="math inline"></span><span class="math inline"></span>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2024_cm_sharma_et_al/index.html" class="no-external">
+<div class="listing-date">
+Mar 11, 2024
+</div>
+<div class="listing-author">
+Sharma et al.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="Sm91cm5hbCUyMHBhcGVy" data-listing-date-sort="1694530800000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="219">
+<div class="thumbnail"><a href="./publications/2023_ijnme_shimizu_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2023_ijnme_shimizu_et_al/figures/thumbnail.svg" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2023_ijnme_shimizu_et_al/index.html" class="no-external">Arbitrary mesh‐moving velocity‐based space‐time finite element method for large deformation analysis of solids</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbCUyMHBhcGVy'); return false;">Journal paper</div>
+
+</div>
+<div class="delink listing-description"><a href="./publications/2023_ijnme_shimizu_et_al/index.html" class="no-external">
+This paper presents a new velocity-based space-time finite element method for computing the large deformation of solids over arbitrary Lagrange/Eulerian moving meshes. The…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2023_ijnme_shimizu_et_al/index.html" class="no-external">
+<div class="listing-date">
+Sep 13, 2023
+</div>
+<div class="listing-author">
+Shimizu et al.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1682607600000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="thumbnail"><a href="./publications/2023_jsces_shimizu_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2023_jsces_shimizu_et_al/figures/thumbnail.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2023_jsces_shimizu_et_al/index.html" class="no-external">Velocity-based space-time finite element method for large deformation analysis of solids incorporating arbitrary moving mesh and hypoelastic constitutive model</a>
+</h3>
+<div class="delink listing-description"><a href="./publications/2023_jsces_shimizu_et_al/index.html" class="no-external">
+<p>本論文は，任意のメッシュ移動を伴う固体の大変形解析を可能とする速度型Space-time有限要素法（v-ST/FEM）を提案するものである．v-ST/FEMの特徴は時空間領域での簡潔かつ厳密な定式法にあり，ここでは亜弾性構成式を導入した準静的問題を対象とする．移動メッシュ上で計算されるCauchy応力の更新には，メッシュと固体変形の相対速度による移流を考慮した微分形を利用することで，速度のみを未知数とする弱形式が得られる．離散化された方程式に対して，メッシュと応力を更新する繰り返し計算を行い，それにより幾何学的非線形性を考慮するアルゴリズムを提示する．提案手法を一様な引張変形，回転する円筒の圧縮変形，および非一様な引張変形の3つの問題に適用した結果，AMMを用いた場合であっても，ラグランジュ型のメッシュ更新を行う場合と同等の計算精度を示し，AMMを利用できる同手法の大回転／大変形問題への適用性を明らかにした．</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2023_jsces_shimizu_et_al/index.html" class="no-external">
+<div class="listing-date">
+Apr 28, 2023
+</div>
+<div class="listing-author">
+Shimizu et al.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="Sm91cm5hbCUyMHBhcGVy" data-listing-date-sort="1679670000000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="163">
+<div class="thumbnail"><a href="./publications/2023_sr_nakashima_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2023_sr_nakashima_et_al/figures/thumbnail.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2023_sr_nakashima_et_al/index.html" class="no-external">Non-destructive high-throughput measurement of elastic-viscous properties of maize using a novel ultra-micro sensor array and numerical validation</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbCUyMHBhcGVy'); return false;">Journal paper</div>
+
+</div>
+<div class="delink listing-description"><a href="./publications/2023_sr_nakashima_et_al/index.html" class="no-external">
+<p>Maize is the world’s most produced cereal crop, and the selection of maize cultivars with a high stem elastic modulus is an effective method to prevent cereal crop lodging. We developed an ultra-compact sensor array inspired by earthquake engineering and proposed a method for the high-throughput evaluation of the elastic modulus of maize cultivars. A natural vibration analysis based on the obtained Young’s modulus using finite element analysis (FEA) was performed and compared with the experimental results, which showed that the estimated Young’s modulus is representative of the individual Young’s modulus. FEA also showed the hotspot where the stalk was most deformed when the corn was vibrated by wind. The six tested cultivars were divided into two phenotypic groups based on the position and number of hotspots. In this study, we proposed a non-destructive high-throughput phenotyping technique for estimating the modulus of elasticity of maize stalks and successfully visualized which parts of the stalks should be improved for specific cultivars to prevent lodging.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2023_sr_nakashima_et_al/index.html" class="no-external">
+<div class="listing-date">
+Mar 25, 2023
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="Sm91cm5hbCUyMHBhcGVy" data-listing-date-sort="1674831600000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="174">
+<div class="thumbnail"><a href="./publications/2023_jsc_tomobe_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2023_jsc_tomobe_et_al/figures/thumbnail.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2023_jsc_tomobe_et_al/index.html" class="no-external">An Energy-based Overset Finite Element Method for Pseudo-static Structural Analysis</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbCUyMHBhcGVy'); return false;">Journal paper</div>
+
+</div>
+<div class="delink listing-description"><a href="./publications/2023_jsc_tomobe_et_al/index.html" class="no-external">
+<p>This paper addresses a simple energy-based overset finite element method (EbO-FEM) to solve pseudo-static deformation problems consisting of overlapped meshes based on the domain composition method (DCM). This scheme is a non-iterative equation-based method for enforcing the continuity of the displacement field. Hence, the scheme consumes possible minimal computational costs for deformation problems with non-conforming overlapping meshes. The system’s total energy is augmented with continuity constraint energy (CCE) which is a function of the gaps in the displacement field between two overlapping regions. Subsequently, two conventional integration schemes, the Gauss-point projection, and the point-to-point projection, are utilized to discretize the CCE. It is confirmed that both schemes can yield accurate and unique solutions in the overlapped region of the finite element meshes. Further, we proposed a dimensionless relative penalty parameter (DRP). We found that DRP ranging between 1 to 10 is appropriate to robustly obtain accurate solutions for a wide range of scales, stiffness, and geometries, which is supported by three numerical simulations without increasing computational costs after assembling the global matrices and vectors.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2023_jsc_tomobe_et_al/index.html" class="no-external">
+<div class="listing-date">
+Jan 28, 2023
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-categories="Sm91cm5hbCUyMHBhcGVy" data-listing-date-sort="1661785200000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="192">
+<div class="thumbnail"><a href="./publications/2022_ijog_sharma_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2022_ijog_sharma_et_al/figures/thumbnail.svg" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2022_ijog_sharma_et_al/index.html" class="no-external">Methodology to determine thermal properties of soils in cold regions from heat-pulse migration characteristics</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbCUyMHBhcGVy'); return false;">Journal paper</div>
+
+</div>
+<div class="delink listing-description"><a href="./publications/2022_ijog_sharma_et_al/index.html" class="no-external">
+<p>Accurate measurement of the thermal properties (viz., thermal conductivity, thermal resistivity, volumetric heat capacity, and thermal diffusivity) of soils in cold regions necessitates the development of techniques that are robust and efficient and that can incorporate different heat migration mechanisms under the influence of complex initial and boundary conditions. However, devices or the numerical procedures employed to determine them are scanty. In such a scenario, here, a methodology that facilitates the determination of thermal properties of soils in cold regions has been developed based on their heat-pulse migration characteristics (HPMC). To control the temperature of the soil specimen, a temperature-controlled environment chamber has been employed and HPMC was established by using the dual-probe heat-pulse sensor. Furthermore, a technique to estimate the thermal properties of the soil specimen by employing the measured HPMC, which facilitates solving an inverse transient heat conduction problem by using the conjugate gradient method, has been developed. Subsequently, the thermal properties of fine sands corresponding to different initial moisture contents and low temperatures have been determined and the results were compared with those predicted from the HPMC by utilizing interpretation techniques such as the single-point method and nonlinear fitting.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2022_ijog_sharma_et_al/index.html" class="no-external">
+<div class="listing-date">
+Aug 30, 2022
+</div>
+<div class="listing-author">
+Sharma et al.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-categories="Sm91cm5hbCUyMHBhcGVyJTJDeWVhciUyMDIwMjI=" data-listing-date-sort="1657724400000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="194">
+<div class="thumbnail"><a href="./publications/2022_ijnme_sharma_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2022_ijnme_sharma_et_al/figures/thumbnail.svg" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2022_ijnme_sharma_et_al/index.html" class="no-external">A methodology to control numerical dissipation characteristics of velocity based time discontinuous Galerkin space‐time finite element method</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbCUyMHBhcGVy'); return false;">Journal paper</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('eWVhciUyMDIwMjI='); return false;">year 2022</div>
+
+</div>
+<div class="delink listing-description"><a href="./publications/2022_ijnme_sharma_et_al/index.html" class="no-external">
+<p>Direct time integration schemes are an integral part of the FEM simulation of structural dynamics problems. Such schemes should be at least second-order accurate, unconditionally stable, and numerically dissipates the high-frequency components. To this end, this paper develops a time integration scheme, called modified v-ST/FEM, which is based on the time-discontinuous Galerkin method. The proposed method employs an unsymmetric triangular bubble function for relating the displacement field to the velocity field. The modified v-ST/FEM contains two-parameter <span class="math inline">\(\alpha \in (0, 0.5)\)</span> and <span class="math inline">\(\beta \in (-1, \beta_{c})\)</span> for controlling the dissipation of high-frequency components. A comprehensive study of the influence of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> on the numerical performance of the proposed method is conducted. It is found that the error in the solution increases when the value of <span class="math inline">\(\alpha\)</span> increases. However, for all practical purposes, <span class="math inline">\(\beta\)</span> has a negligible influence on the accuracy of the proposed method. The modified v-ST/FEM is second-order accurate for <span class="math inline">\(\alpha \ne 0.0\)</span>, and third-order accurate for <span class="math inline">\(\alpha=0.0\)</span>. The numerical efficacy of the modified v-ST/FEM is demonstrated by solving some benchmark problems and comparing its result to those obtained by other popular methods such as Trapezoidal rule, HHT-<span class="math inline">\(\alpha\)</span>, and Bathe’s scheme.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2022_ijnme_sharma_et_al/index.html" class="no-external">
+<div class="listing-date">
+Jul 14, 2022
+</div>
+<div class="listing-author">
+Sharma et al.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="11" data-categories="Sm91cm5hbCUyMHBhcGVyJTJDeWVhciUyMDIwMjE=" data-listing-date-sort="1637506800000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="189">
+<div class="thumbnail"><a href="./publications/2021_ijog_lijith_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2021_ijog_lijith_et_al/figures/thumbnail.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2021_ijog_lijith_et_al/index.html" class="no-external">Shear strength characteristics of frozen fine sands under direct shear testing conditions</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbCUyMHBhcGVy'); return false;">Journal paper</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('eWVhciUyMDIwMjE='); return false;">year 2021</div>
+
+</div>
+<div class="delink listing-description"><a href="./publications/2021_ijog_lijith_et_al/index.html" class="no-external">
+<p>Geomechanical properties such as shear strength, stiffness, and compressibility of soils subjected to subzero temperatures are of utmost importance for executing various projects related to infrastructure development and harnessing sustainable energy in cold regions. In this context, earlier researchers have employed sophisticated equipment such as triaxial equipment to establish these properties of the fine sands, which turns out to be quite expensive. To overcome this, a suitably modified low-cost temperature-controlled direct shear box apparatus has been fabricated. The setup’s utility and efficacy have been demonstrated by investigating the influence of the volumetric ice content, rate of shearing, and vertical stress on shear strength characteristics of the fine sands in their frozen state. In addition, the effect of (1) postfreezing shearing and the (2) confined-state freezing and shearing, the two methodologies that are generally adopted by earlier researchers on shear strength characteristics, have also been studied. Based on the extensive testing, it has been demonstrated that for frozen fine sands, the cohesion, secant modulus, and dilation angle increase with an increase in the rate of shearing and the volumetric ice content, and these variations can be expressed by power laws.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2021_ijog_lijith_et_al/index.html" class="no-external">
+<div class="listing-date">
+Nov 22, 2021
+</div>
+<div class="listing-author">
+Lijith et al.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="12" data-categories="Sm91cm5hbCUyMHBhcGVyJTJDeWVhciUyMDIwMjE=" data-listing-date-sort="1625497200000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="164">
+<div class="thumbnail"><a href="./publications/2021_fead_sharma_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2021_fead_sharma_et_al/figures/thumbnail.svg" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2021_fead_sharma_et_al/index.html" class="no-external">Space-Time Finite Element Method for Transient and Unconfined Seepage Flow Analysis</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbCUyMHBhcGVy'); return false;">Journal paper</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('eWVhciUyMDIwMjE='); return false;">year 2021</div>
+
+</div>
+<div class="delink listing-description"><a href="./publications/2021_fead_sharma_et_al/index.html" class="no-external">
+<p>This paper aims to develop a moving-mesh type Finite Element Method for the computation of the transient unconfined seepage flow through the porous medium. The proposed method is based on the time discontinuous Galerkin Space-Time Finite Element Method (ST/FEM). It solves the seepage problem in the saturated region. The primary unknown in ST/FEM is piezometric pressure. Fluid velocities are derived from the pressure using Darcy’s law. Further, an iterative algorithm has been proposed in this paper to implement the proposed method. In each iteration step, the computation domain is updated according to the flow velocity on the phreatic boundary. Subsequently, internal nodes are moved using the mesh moving technique to accommodate the newly updated computation domain. The mesh moving technique, which is discussed in this paper, is based on an elasticity problem. ST/FEM is employed to analyze several unconfined seepage flow problems, and results of steady state solutions are compared with those available in the literature to demonstrate the efficacy of the proposed scheme.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2021_fead_sharma_et_al/index.html" class="no-external">
+<div class="listing-date">
+Jul 6, 2021
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="13" data-listing-date-sort="1623682800000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="182">
+<div class="thumbnail"><a href="./publications/2021_crst_lijith_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2021_crst_lijith_et_al/figures/thumbnail.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2021_crst_lijith_et_al/index.html" class="no-external">A Methodology to Establish Freezing Characteristics of Partially Saturated Sands</a>
+</h3>
+<div class="delink listing-description"><a href="./publications/2021_crst_lijith_et_al/index.html" class="no-external">
+<p>The thermo-hydro-mechanical (THM) properties of frozen soils depend primarily on the parameters like volumetric ice content, unfrozen water content, dry density, mineralogy, temperature etc. However, establishing the influence of ice/unfrozen water content on the abovementioned properties of frozen soils becomes a challenging task owing to the dependency of ice/unfrozen water content on temperature. The relationship between unfrozen water content and temperature is conventionally referred to as the ‘Soil Freezing Characteristics Curve’, SFCC. With this in view, an easy and efficient capacitance-based technique has been utilized to determine the volumetric ice content of standard sands of varying initial volumetric moisture content (=6%, 12%, 18%, 25 % and 41%) by exposing them from room temperature to −15°C in a controlled manner. It was found that the SFCCs obtained from these experiments depend upon the initial volumetric moisture content of the soils. Further, existing analytical SFCC models were employed to fit the experimental results. It was found that the model parameters are highly dependent upon the initial volumetric moisture content, and models are incapable of including the effect of initial water content on the SFCC.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2021_crst_lijith_et_al/index.html" class="no-external">
+<div class="listing-date">
+Jun 15, 2021
+</div>
+<div class="listing-author">
+Lijith et al.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="14" data-listing-date-sort="1578236400000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="177">
+<div class="thumbnail"><a href="./publications/2020_sdee_sharma_et_al/index.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2020_sdee_sharma_et_al/index.html" class="no-external">Space–time FEM with Block-Iterative Algorithm for Nonlinear Dynamic Fracture Analysis of Concrete Gravity Dam</a>
+</h3>
+<div class="delink listing-description"><a href="./publications/2020_sdee_sharma_et_al/index.html" class="no-external">
+In this paper, space–time finite element method is developed for the dynamic fracture analysis of dam–reservoir (DR) system which is supported on a perfectly rigid…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2020_sdee_sharma_et_al/index.html" class="no-external">
+<div class="listing-date">
+Jan 6, 2020
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="15" data-categories="Sm91cm5hbCUyMHBhcGVyJTJDeWVhciUyMDIwMTk=" data-listing-date-sort="1559487600000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="174">
+<div class="thumbnail"><a href="./publications/2019_ijnme_sharma_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2019_ijnme_sharma_et_al/figures/thumbnail.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2019_ijnme_sharma_et_al/index.html" class="no-external">Space‐time finite element procedure with block‐iterative algorithm for dam‐reservoir‐soil interaction during earthquake loading</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbCUyMHBhcGVy'); return false;">Journal paper</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('eWVhciUyMDIwMTk='); return false;">year 2019</div>
+
+</div>
+<div class="delink listing-description"><a href="./publications/2019_ijnme_sharma_et_al/index.html" class="no-external">
+<p>This paper presents a time-discontinuous Galerkin space-time finite element method for the seismic analysis of dam-reservoir-soil system. For the reservoir domain an auxiliary variable q, a first-order time derivative of hydrodynamic pressure is introduced as the primary unknown. Similarly, velocity is taken as the primary unknown in the solid domain. In this approach, secondary unknowns (displacement and pressure) are computed in a postprocessing step by consistent time integration of the primary unknowns. This arrangement leads to a system of linearly coupled algebraic equations, which is solved with a block-iterative algorithm. In each iteration of the algorithm, two smaller linear systems, ie, one for velocity field and another for the auxiliary field, are solved separately and coupling between these two fields is enforced through iterations. Afterwards, numerical performance of the proposed scheme is demonstrated by solving some benchmark dam-reservoir interaction problems. It is shown that very few iterations are required for the convergence. Lastly, the method is employed to analyze the effects of dynamic interactions on the response of concrete dam to the earthquake loading.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2019_ijnme_sharma_et_al/index.html" class="no-external">
+<div class="listing-date">
+Jun 3, 2019
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="16" data-categories="Sm91cm5hbCUyMHBhcGVyJTJDeWVhciUyMDIwMTg=" data-listing-date-sort="1521644400000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="188">
+<div class="thumbnail"><a href="./publications/2018_sf_sharma_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2018_sf_sharma_et_al/figures/thumbnail.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2018_sf_sharma_et_al/index.html" class="no-external">Velocity-based time-discontinuous Galerkin space-time finite element method for elastodynamics</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbCUyMHBhcGVy'); return false;">Journal paper</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('eWVhciUyMDIwMTg='); return false;">year 2018</div>
+
+</div>
+<div class="delink listing-description"><a href="./publications/2018_sf_sharma_et_al/index.html" class="no-external">
+<p>A velocity-based single-field Space-Time Finite Element Method (v-ST/FEM) is devised within the framework of the time-discontinuous Galerkin method for an elastodynamics problem. The new method uses finite elements for both space and time domains, and reduces the size of the resulting linear system to be solved in each time step compared to the two-field formulation. In v-ST/FEM, the trial functions for the velocity field are continuous in space and discontinuous in time, while the test functions are continuous in both space and time. The displacement and stress fields are computed in a post-processing step using the time-integration process which explicitly includes the velocity field. Accordingly, the displacement-velocity compatibility condition and the continuity of the displacement field in time are strongly imposed in the displacement-velocity-based two-field formulation. In this way, a velocity-based single-field weak formulation is derived from the two-field formulation. The present method is found to be unconditionally stable and third-order accurate. Following a review of the space–time finite element literature, the general theoretical development and formulation aspects of the present methodology are demonstrated. Several numerical examples are given to show the computational performance of the proposed scheme.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2018_sf_sharma_et_al/index.html" class="no-external">
+<div class="listing-date">
+Mar 22, 2018
+</div>
+<div class="listing-author">
+Sharma et al.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="17" data-categories="Sm91cm5hbCUyMHBhcGVyJTJDeWVhciUyMDIwMTc=" data-listing-date-sort="1492009200000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="208">
+<div class="thumbnail"><a href="./publications/2017_ijog_somenath_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2017_ijog_somenath_et_al/figures/thumbnail.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2017_ijog_somenath_et_al/index.html" class="no-external">Determination of Thermal Regime in Sandy Soils, Mathematical Framework ATHERES</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbCUyMHBhcGVy'); return false;">Journal paper</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('eWVhciUyMDIwMTc='); return false;">year 2017</div>
+
+</div>
+<div class="delink listing-description"><a href="./publications/2017_ijog_somenath_et_al/index.html" class="no-external">
+<p>Estimation of the thermal regime in soil mass is a key issue in the realms of agronomy, forestry, ecology, micrometeorology, and geotechnical engineering. In this paper, the novel algorithm ATHERES (algorithm for thermal regime estimation in soils), which can be used for predicting thermal regime in sandy soil mass, is presented.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2017_ijog_somenath_et_al/index.html" class="no-external">
+<div class="listing-date">
+Apr 13, 2017
+</div>
+<div class="listing-author">
+Mondal et al.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="18" data-categories="Sm91cm5hbCUyMHBhcGVyJTJDeWVhciUyMDIwMTc=" data-listing-date-sort="1491318000000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="176">
+<div class="thumbnail"><a href="./publications/2017_gg_somenath_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2017_gg_somenath_et_al/figures/thumbnail.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2017_gg_somenath_et_al/index.html" class="no-external">Electrical analogy for modelling thermal regime and moisture distribution in sandy soils</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbCUyMHBhcGVy'); return false;">Journal paper</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('eWVhciUyMDIwMTc='); return false;">year 2017</div>
+
+</div>
+<div class="delink listing-description"><a href="./publications/2017_gg_somenath_et_al/index.html" class="no-external">
+<p>The soil mass is subjected to temperature variation due to several human activities (viz.&nbsp;tanks storing heated fluids, buried cables and pipelines, air-conditioning ducts, disposal of nuclear and thermal power plant wastes etc.), which result in heat-induced migration of the moisture in it. Though several studies have been conducted in the past to investigate the mechanism of heat migration through the soil mass, a methodology for ‘real-time measurement of the variations in temperature, flux and moving moisture front, in tandem, with respect to space’ has rarely been attempted. In this context, extensive laboratory investigations were conducted to measure real-time flux and temperature variations in the sandy soils, and the validation of results has been done by employing an equivalent electrical circuit programme, LTspice. Subsequently, a mathematical model PHITMDS (i.e.&nbsp;Prediction of Heat-Induced Temperature and Moisture Distribution in Soil) has been developed and its utility and efficacy, for predicting the depth-wise temperature and heat-induced moisture migration, due to evaporation, in terms of position of moving moisture front in the sandy soil has been critically discussed and demonstrated.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2017_gg_somenath_et_al/index.html" class="no-external">
+<div class="listing-date">
+Apr 5, 2017
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="19" data-categories="Sm91cm5hbCUyMHBhcGVyJTJDeWVhciUyMDIwMTU=" data-listing-date-sort="1427122800000" data-listing-file-modified-sort="1766435220000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="192">
+<div class="thumbnail"><a href="./publications/2016_gg_somenath_et_al/index.html" class="no-external">
+
+<img loading="lazy" src="./publications/2016_gg_somenath_et_al/figures/thumbnail.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./publications/2016_gg_somenath_et_al/index.html" class="no-external">A methodology to determine thermal conductivity of soils from flux measurement</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Sm91cm5hbCUyMHBhcGVy'); return false;">Journal paper</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('eWVhciUyMDIwMTU='); return false;">year 2015</div>
+
+</div>
+<div class="delink listing-description"><a href="./publications/2016_gg_somenath_et_al/index.html" class="no-external">
+<p>Determination of thermal properties of soils (viz., thermal resistivity, thermal conductivity, thermal diffusivity and heat capacity), which primarily influence heat migration through the soil mass, is essential in situations where geomaterials are relentlessly subjected to higher temperatures and temperature variations. In this paper, a methodology to determine thermal conductivity of soils by employing the concept of thermal flux measurement (TFM) has been developed and its details are presented in this paper. Results obtained from the TM and TFM have also been critically evaluated for the sake of validation and generating more confidence in the proposed methodology.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./publications/2016_gg_somenath_et_al/index.html" class="no-external">
+<div class="listing-date">
+Mar 24, 2015
+</div>
+<div class="listing-author">
+Sharma_et_al
+</div>
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->

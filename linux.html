@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Archlinux – Vikas Sharma</title>
+<title>Linux – Vikas Sharma</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,9 +80,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -136,7 +136,7 @@ window.Quarto = {
 };
 </script>
 
-<meta name="twitter:title" content="Archlinux – Vikas Sharma">
+<meta name="twitter:title" content="Linux – Vikas Sharma">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -173,8 +173,12 @@ window.Quarto = {
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./archlinux.html" aria-current="page"> 
-<span class="menu-text">Archlinux</span></a>
+    <a class="nav-link active" href="./linux.html" aria-current="page"> 
+<span class="menu-text">Linux</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./markdown-notes.html"> 
+<span class="menu-text">Quick Notes</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -195,7 +199,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
-      <h1 class="title">Archlinux</h1>
+      <h1 class="title">Linux</h1>
                       </div>
   </div>
     
@@ -212,7 +216,7 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(19)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -226,13 +230,506 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-title" data-direction="asc">
+        Title
+      </option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-author" data-direction="asc">
+        Author
+      </option>
+    </select>
+  </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
 <div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1737039600000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="33">
+<div class="thumbnail"><a href="./linux/python.html" class="no-external">
 
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/python.html" class="no-external">Python</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/python.html" class="no-external">
+Python is by default installed on your system. You can check the version of python by using the following command.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/python.html" class="no-external">
+<div class="listing-date">
+Jan 17, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1737039600000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="289">
+<div class="thumbnail"><a href="./linux/latex.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/latex.html" class="no-external">Latex</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/latex.html" class="no-external">
+TeX Live is a free software distribution for the TeX typesetting system that includes major TeX-related programs, macro packages, and fonts.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/latex.html" class="no-external">
+<div class="listing-date">
+Jan 17, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1737039600000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
+<div class="thumbnail"><a href="./linux/fortran.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/fortran.html" class="no-external">Fortran</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/fortran.html" class="no-external">
+This note explains how to setup Fortran environment on ArchLinux.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/fortran.html" class="no-external">
+<div class="listing-date">
+Jan 17, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1736953200000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="26">
+<div class="thumbnail"><a href="./linux/gmsh.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/gmsh.html" class="no-external">Gmsh</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/gmsh.html" class="no-external">
+Gmsh is a 3D finite element grid generator with a build-in CAD engine and post-processor. You can download it by using the following command.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/gmsh.html" class="no-external">
+<div class="listing-date">
+Jan 16, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1736780400000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="145">
+<div class="thumbnail"><a href="./linux/docusaurus.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/docusaurus.html" class="no-external">Docusaurus</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/docusaurus.html" class="no-external">
+Docusaurus will help you ship a beautiful documentation site in no time.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/docusaurus.html" class="no-external">
+<div class="listing-date">
+Jan 14, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1736780400000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="38">
+<div class="thumbnail"><a href="./linux/rust.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/rust.html" class="no-external">Rust</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/rust.html" class="no-external">
+Rust is a multi-paradigm, general-purpose programming language that emphasizes performance, type safety, and concurrency.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/rust.html" class="no-external">
+<div class="listing-date">
+Jan 14, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1736780400000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="155">
+<div class="thumbnail"><a href="./linux/fonts.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/fonts.html" class="no-external">Fonts</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/fonts.html" class="no-external">
+To install all nerd fonts use the following.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/fonts.html" class="no-external">
+<div class="listing-date">
+Jan 14, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1736780400000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="284">
+<div class="thumbnail"><a href="./linux/alacritty.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/alacritty.html" class="no-external">Alacritty</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/alacritty.html" class="no-external">
+Alacritty is a modern terminal emulator that comes with sensible defaults, but allows for extensive configuration. By integrating with other applications, rather than…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/alacritty.html" class="no-external">
+<div class="listing-date">
+Jan 14, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1736780400000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
+<div class="thumbnail"><a href="./linux/markdown-oxide.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/markdown-oxide.html" class="no-external">Markdown-oxide</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/markdown-oxide.html" class="no-external">
+markdown-oxide: Robust, Minimalist, Unbundled PKM (Personal-Knowledge-Management System) for your favorite text-editor through the Language-Server-Protocol.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/markdown-oxide.html" class="no-external">
+<div class="listing-date">
+Jan 14, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1736694000000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="53">
+<div class="thumbnail"><a href="./linux/zoxide.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/zoxide.html" class="no-external">Zoxide</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/zoxide.html" class="no-external">
+<code>zoxide</code> is a smarter cd command, inspired by z and autojump. It remembers which directories you use most frequently, so you can “jump” to them in just a few keystrokes. <code>zoxide</code>…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/zoxide.html" class="no-external">
+<div class="listing-date">
+Jan 13, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-listing-date-sort="1736694000000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="68">
+<div class="thumbnail"><a href="./linux/go.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/go.html" class="no-external">Go lang</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/go.html" class="no-external">
+Go is an open source programming language supported by Google.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/go.html" class="no-external">
+<div class="listing-date">
+Jan 13, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="11" data-listing-date-sort="1736694000000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="130">
+<div class="thumbnail"><a href="./linux/lazygit.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/lazygit.html" class="no-external">Lazygit</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/lazygit.html" class="no-external">
+Lazygit is a terminal application for git. You can download it by using the following command.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/lazygit.html" class="no-external">
+<div class="listing-date">
+Jan 13, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="12" data-listing-date-sort="1736694000000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="227">
+<div class="thumbnail"><a href="./linux/fish.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/fish.html" class="no-external">Fish</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/fish.html" class="no-external">
+fish is a smart and user-friendly command line shell for Linux, macOS, and the rest of the family.fish is a smart and user-friendly command line shell for Linux, macOS, and…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/fish.html" class="no-external">
+<div class="listing-date">
+Jan 13, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="13" data-listing-date-sort="1736694000000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="852">
+<div class="thumbnail"><a href="./linux/ssh.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/ssh.html" class="no-external">SSH</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/ssh.html" class="no-external">
+SSH stands for simple secured shell. The ssh command contains of 3-parts
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/ssh.html" class="no-external">
+<div class="listing-date">
+Jan 13, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="14" data-listing-date-sort="1736694000000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="247">
+<div class="thumbnail"><a href="./linux/node.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/node.html" class="no-external">Node</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/node.html" class="no-external">
+Node.js is a JavaScript runtime environment combined with useful libraries. It uses Google’s V8 engine to execute code outside of the browser. Due to its event-driven…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/node.html" class="no-external">
+<div class="listing-date">
+Jan 13, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="15" data-listing-date-sort="1736694000000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="67">
+<div class="thumbnail"><a href="./linux/mystmd.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/mystmd.html" class="no-external">MyST</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/mystmd.html" class="no-external">
+MyST is an ecosystem of open-source, community-driven tools designed to revolutionize scientific communication. Our powerful authoring framework supports blogs, online…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/mystmd.html" class="no-external">
+<div class="listing-date">
+Jan 13, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="16" data-listing-date-sort="1736694000000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="725">
+<div class="thumbnail"><a href="./linux/tmux.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/tmux.html" class="no-external">Tmux</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/tmux.html" class="no-external">
+tmux is a “terminal multiplexer: it enables a number of terminals (or windows), each running a separate program, to be created, accessed, and controlled from a single…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/tmux.html" class="no-external">
+<div class="listing-date">
+Jan 13, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="17" data-listing-date-sort="1736694000000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="39">
+<div class="thumbnail"><a href="./linux/eza.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/eza.html" class="no-external">EZA</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/eza.html" class="no-external">
+<code>eza</code> is a modern replacement for lsa. Official website is given here.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/eza.html" class="no-external">
+<div class="listing-date">
+Jan 13, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="18" data-listing-date-sort="1736694000000" data-listing-file-modified-sort="1766462027000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="107">
+<div class="thumbnail"><a href="./linux/fzf.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./linux/fzf.html" class="no-external">FZF</a>
+</h3>
+<div class="delink listing-description"><a href="./linux/fzf.html" class="no-external">
+fzf is a general-purpose command-line fuzzy finder.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./linux/fzf.html" class="no-external">
+<div class="listing-date">
+Jan 13, 2025
+</div>
+<div class="listing-author">
+Vikas Sharma, Ph.D.
+</div>
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
@@ -643,7 +1140,7 @@ window.Quarto = {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/archlinux.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/archlinux.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/linux.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/linux.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

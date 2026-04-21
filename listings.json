@@ -1,25 +1,5 @@
 [
   {
-    "listing": "/logseq/bak/blog/2025-12-23T04_15_05.567Z.Desktop.html",
-    "items": []
-  },
-  {
-    "listing": "/logseq/bak/blog/2025-12-23T04_22_46.892Z.Desktop.html",
-    "items": []
-  },
-  {
-    "listing": "/publication.html",
-    "items": []
-  },
-  {
-    "listing": "/archlinux.html",
-    "items": []
-  },
-  {
-    "listing": "/logseq/bak/blog/2025-12-23T04_22_44.544Z.Desktop.html",
-    "items": []
-  },
-  {
     "listing": "/blog.html",
     "items": [
       "/pages/contents.html",
@@ -35,6 +15,70 @@
       "/pages/fem/stokes-flow-mixed-fem.html",
       "/pages/ssh/ssh.html",
       "/pages/plplot/plplot.html"
+    ]
+  },
+  {
+    "listing": "/publication.html",
+    "items": [
+      "/publications/2025_jaee_kimura_et_al/index.html",
+      "/publications/2025_jaee_tomobe_et_al/index.html",
+      "/publications/2024_ijce_azhar_et_al/index.html",
+      "/publications/2024_ijmsd_sharma_et_al/index.html",
+      "/publications/2024_cm_sharma_et_al/index.html",
+      "/publications/2023_ijnme_shimizu_et_al/index.html",
+      "/publications/2023_jsces_shimizu_et_al/index.html",
+      "/publications/2023_sr_nakashima_et_al/index.html",
+      "/publications/2023_jsc_tomobe_et_al/index.html",
+      "/publications/2022_ijog_sharma_et_al/index.html",
+      "/publications/2022_ijnme_sharma_et_al/index.html",
+      "/publications/2021_ijog_lijith_et_al/index.html",
+      "/publications/2021_fead_sharma_et_al/index.html",
+      "/publications/2021_crst_lijith_et_al/index.html",
+      "/publications/2020_sdee_sharma_et_al/index.html",
+      "/publications/2019_ijnme_sharma_et_al/index.html",
+      "/publications/2018_sf_sharma_et_al/index.html",
+      "/publications/2017_ijog_somenath_et_al/index.html",
+      "/publications/2017_gg_somenath_et_al/index.html",
+      "/publications/2016_gg_somenath_et_al/index.html"
+    ]
+  },
+  {
+    "listing": "/markdown-notes.html",
+    "items": [
+      "/markdown-notes/linux-creating-user-account.html",
+      "/markdown-notes/static-linear-diffusion.html",
+      "/markdown-notes/linux-file-permission.html",
+      "/markdown-notes/linux-creating-groups.html",
+      "/markdown-notes/linux-setting-network.html",
+      "/markdown-notes/transient-linear-diffusion.html",
+      "/markdown-notes/todo-frequency-domain-elastodynamics.html",
+      "/markdown-notes/warewulf-setup.html",
+      "/markdown-notes/todo-rpm-packages.html",
+      "/markdown-notes/lecture-notes.html"
+    ]
+  },
+  {
+    "listing": "/linux.html",
+    "items": [
+      "/linux/python.html",
+      "/linux/latex.html",
+      "/linux/fortran.html",
+      "/linux/gmsh.html",
+      "/linux/docusaurus.html",
+      "/linux/rust.html",
+      "/linux/fonts.html",
+      "/linux/alacritty.html",
+      "/linux/markdown-oxide.html",
+      "/linux/zoxide.html",
+      "/linux/go.html",
+      "/linux/lazygit.html",
+      "/linux/fish.html",
+      "/linux/ssh.html",
+      "/linux/node.html",
+      "/linux/mystmd.html",
+      "/linux/tmux.html",
+      "/linux/eza.html",
+      "/linux/fzf.html"
     ]
   }
 ]

@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Vikas Sharma, Ph.D.">
-<meta name="dcterms.date" content="2025-01-13">
 
-<title>Fish – Vikas Sharma</title>
+<title>static-linear-diffusion – Vikas Sharma</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -112,8 +75,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta name="twitter:title" content="Fish – Vikas Sharma">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta name="twitter:title" content="Vikas Sharma">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -151,8 +143,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../archlinux.html"> 
-<span class="menu-text">Archlinux</span></a>
+    <a class="nav-link" href="../linux.html"> 
+<span class="menu-text">Linux</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../markdown-notes.html"> 
+<span class="menu-text">Quick Notes</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -173,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Fish</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -209,75 +205,168 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#setting-fish-as-default-shell" id="toc-setting-fish-as-default-shell" class="nav-link active" data-scroll-target="#setting-fish-as-default-shell">Setting fish as default shell</a></li>
-  <li><a href="#fisher-fish-framework" id="toc-fisher-fish-framework" class="nav-link" data-scroll-target="#fisher-fish-framework">Fisher (fish framework)</a></li>
-  <li><a href="#fzf-plugin-for-fish" id="toc-fzf-plugin-for-fish" class="nav-link" data-scroll-target="#fzf-plugin-for-fish">fzf plugin for fish</a></li>
+  <li><a href="#static-diffusion-problem" id="toc-static-diffusion-problem" class="nav-link active" data-scroll-target="#static-diffusion-problem">Static Diffusion Problem</a>
+  <ul class="collapse">
+  <li><a href="#dirichlet-problem" id="toc-dirichlet-problem" class="nav-link" data-scroll-target="#dirichlet-problem">Dirichlet problem</a></li>
+  <li><a href="#neumann-problem" id="toc-neumann-problem" class="nav-link" data-scroll-target="#neumann-problem">Neumann problem</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example 1</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example 2</a></li>
+  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example 3</a></li>
+  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example 4</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/archlinux/fish.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/archlinux/fish.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/markdown-notes/static-linear-diffusion.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/markdown-notes/static-linear-diffusion.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Fish</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Vikas Sharma, Ph.D. </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 13, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p><a href="https://fishshell.com/">fish</a> is a smart and user-friendly command line shell for Linux, macOS, and the rest of the family.fish is a smart and user-friendly command line shell for Linux, macOS, and the rest of the family.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> fish</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>After installation run <code>fish</code> command in your terminal. It will create <code>~/.config/fish</code> directory.</p>
+<section id="static-diffusion-problem" class="level1">
+<h1>Static Diffusion Problem</h1>
+<p>Strong form in terms of <span class="math inline">\(u\)</span>, where <span class="math inline">\(f\)</span> is the source density.</p>
+<p><span class="math display">\[
+-\nabla\cdot\mathbf{k}\nabla u=f
+\]</span></p>
+<p>The mixed form of the problem is given in the form of flux <span class="math inline">\(\mathbf{q}\)</span> and <span class="math inline">\(u\)</span>.</p>
+<p><span class="math display">\[
+\nabla\cdot\mathbf{q}=f
+\]</span></p>
+<p><span class="math display">\[
+\mathbf{q}=-\mathbf{k}\nabla u
+\]</span></p>
+<p>Dirichlet boundary condition is given as:</p>
+<p><span class="math display">\[
+u=u_{0}
+\]</span></p>
+<p>Neumann boundary condition in terms of outgoing flux given in by</p>
+<p><span class="math display">\[
+\mathbf{q}\cdot\mathbf{n}=h_{out}
+\]</span></p>
+<p>or</p>
+<p><span class="math display">\[
+-\mathbf{k}\nabla u\cdot\mathbf{n}=h_{out}
+\]</span></p>
+<p>Neumann boundary condition in terms of incoming flux is given by</p>
+<p><span class="math display">\[
+-\mathbf{q}\cdot\mathbf{n}=h_{in}
+\]</span></p>
+<p>or</p>
+<p><span class="math display">\[
+\mathbf{k}\nabla u\cdot\mathbf{n}=h_{in}
+\]</span></p>
+<p>Integral form</p>
+<p><span class="math display">\[\int_{\Omega}fd\Omega-\int_{\Omega}\nabla\cdot\mathbf{q}d\Omega=0\]</span></p>
+<p><span class="math display">\[\int_{\Omega}fd\Omega-\int_{\Gamma_{h}}\mathbf{q}\cdot\mathbf{n}ds=0\]</span></p>
+<section id="dirichlet-problem" class="level2">
+<h2 class="anchored" data-anchor-id="dirichlet-problem">Dirichlet problem</h2>
+<p>In the case of Dirichlet problem, the strong form is given as follows.</p>
+<p><span class="math display">\[-\nabla\cdot\mathbf{k}\nabla u=f\]</span></p>
+<p><span class="math display">\[u=u_{0}\text{ on }\partial\Omega\]</span></p>
+</section>
+<section id="neumann-problem" class="level2">
+<h2 class="anchored" data-anchor-id="neumann-problem">Neumann problem</h2>
+<p>In the case of Neumann problem, the strong form is given as follows:</p>
+<p><span class="math display">\[-\nabla\cdot\mathbf{k}\nabla u=f\]</span></p>
+<p><span class="math display">\[\mathbf{k}\nabla u\cdot\mathbf{n}=h_{in}\]</span></p>
+</section>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example 1</h2>
 <ul>
-<li>Here you will find <code>config.fish</code>. This is the configuration file for fish. The configuration file runs at every login and is located at ~/.config/fish/config.fish. Adding commands or functions to the file will execute/define them when opening a terminal, similar to .bashrc. Note that whenever a variable needs to be preserved, it should be set as universal rather than defined in the aforementioned configuration file.</li>
-<li>The user’s functions are located in the directory ~/.config/fish/functions under the filenames function_name.fish</li>
-<li>fish can generate autocompletions from man pages. Completions are written to ~/.local/share/fish/generated_completions/ and can be generated by calling: <code>fish_update_completions</code></li>
-<li>You can also define your own completions in ~/.config/fish/completions/</li>
+<li>Dirichlet problem</li>
+<li>Domain is unit square.</li>
+<li>Exact solution is given by<span class="math inline">\(u=x_{1}x_{2}\)</span></li>
+<li>Boundary condition:
+<ul>
+<li>Bottom, <span class="math inline">\(y_{1}=0\)</span>, u=0</li>
+<li>Right, <span class="math inline">\(x_{1}=1\)</span>, <span class="math inline">\(u=x_{2}\)</span></li>
+<li>Top, <span class="math inline">\(x_{2}=1\)</span>, <span class="math inline">\(u=x_{1}\)</span></li>
+<li>Left, <span class="math inline">\(x_{1}=0\)</span>, <span class="math inline">\(u=0\)</span></li>
+</ul></li>
 </ul>
-<section id="setting-fish-as-default-shell" class="level2">
-<h2 class="anchored" data-anchor-id="setting-fish-as-default-shell">Setting fish as default shell</h2>
-<p>To list the installed shell run</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chsh</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>And to set one as default for your user do:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chsh</span> <span class="at">-s</span> /full/path/to/shell</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You should restart the system.</p>
 </section>
-<section id="fisher-fish-framework" class="level2">
-<h2 class="anchored" data-anchor-id="fisher-fish-framework">Fisher (fish framework)</h2>
-<p><a href="https://github.com/jorgebucaran/fisher">fisher</a> is the plugin manager for fish. Fisher lets you install, update, and remove plugins like a boss.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-sL</span> https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish <span class="kw">|</span> <span class="bu">source</span> <span class="kw">&amp;&amp;</span> <span class="ex">fisher</span> install jorgebucaran/fisher</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="example-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-2">Example 2</h2>
+<ul>
+<li>Dirichlet problem</li>
+<li>Domain is unit square.</li>
+<li>Exact solution is given by</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}u &amp; =16x_{1}x_{2}\left(1-x_{1}\right)\left(1-x_{2}\right)\\
+&amp; =16\left(x_{1}-x_{1}^{2}\right)\left(x_{2}-x_{2}^{2}\right)
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\frac{\partial u}{\partial x_{1}}=16\left(1-2x_{1}\right)\left(x_{2}-x_{2}^{2}\right)
+\]</span></p>
+<p><span class="math display">\[
+\frac{\partial^{2}u}{\partial x_{1}\partial x_{1}}=-32\left(x_{2}-x_{2}^{2}\right)
+\]</span></p>
+<p><span class="math display">\[
+\frac{\partial u}{\partial x_{2}}=16\left(1-2x_{2}\right)\left(x_{1}-x_{1}^{2}\right)
+\]</span></p>
+<p><span class="math display">\[
+\frac{\partial^{2}u}{\partial x_{2}\partial x_{2}}=-32\left(x_{1}-x_{1}^{2}\right)
+\]</span></p>
+<p><span class="math display">\[
+f\left(x_{1},x_{2}\right)=32\left(x_{1}-x_{1}^{2}\right)+32\left(x_{2}-x_{2}^{2}\right)
+\]</span></p>
+<ul>
+<li>Boundary condition:
+<ul>
+<li>Bottom, u=0</li>
+<li>Right, <span class="math inline">\(u=0\)</span></li>
+<li>Top, <span class="math inline">\(u=0\)</span></li>
+<li>Left, <span class="math inline">\(u=0\)</span></li>
+</ul></li>
+</ul>
 </section>
-<section id="fzf-plugin-for-fish" class="level2">
-<h2 class="anchored" data-anchor-id="fzf-plugin-for-fish">fzf plugin for fish</h2>
-<p>Install using fisher.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fisher</span> install PatrickF1/fzf.fish</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Official site: https://github.com/PatrickF1/fzf.fish</p>
+<section id="example-3" class="level2">
+<h2 class="anchored" data-anchor-id="example-3">Example 3</h2>
+<ul>
+<li>Dirichlet-Neumann Problem</li>
+<li>Domain is unit square</li>
+<li>Exact solution is given by</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}u &amp; =16x_{1}x_{2}\left(1-x_{1}\right)\left(1-x_{2}\right)\\
+&amp; =16\left(x_{1}-x_{1}^{2}\right)\left(x_{2}-x_{2}^{2}\right)
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[\frac{\partial u}{\partial x_{1}}=16\left(1-2x_{1}\right)\left(x_{2}-x_{2}^{2}\right)\]</span></p>
+<p><span class="math display">\[\frac{\partial u}{\partial x_{2}}=16\left(1-2x_{2}\right)\left(x_{1}-x_{1}^{2}\right)\]</span></p>
+<p>Body force is given by:</p>
+<p><span class="math display">\[f\left(x_{1},x_{2}\right)=32\left(x_{1}-x_{1}^{2}\right)+32\left(x_{2}-x_{2}^{2}\right)\]</span></p>
+<ul>
+<li>Neumann boundary condition at left (x=0)</li>
+</ul>
+<p><span class="math display">\[h_{in}:=\mathbf{k}\nabla u\cdot\mathbf{n}=-16\left(x_{2}-x_{2}^{2}\right)\]</span></p>
+<ul>
+<li>Neumann boundary condition at bottom (y=0)</li>
+</ul>
+<p><span class="math display">\[h_{in}:=\mathbf{k}\nabla u\cdot\mathbf{n}=-\frac{\partial u}{\partial x_{2}}=-16\left(x_{1}-x_{1}^{2}\right)\]</span></p>
+</section>
+<section id="example-4" class="level2">
+<h2 class="anchored" data-anchor-id="example-4">Example 4</h2>
+<ul>
+<li>Dirichlet-Neumann Problem</li>
+<li>Domain is unit square</li>
+<li>Exact solution is given by</li>
+</ul>
+<p><span class="math display">\[\begin{aligned}u &amp; =16x_{1}x_{2}\left(1-x_{1}\right)\left(1-x_{2}\right)\\
+&amp; =16\left(x_{1}-x_{1}^{2}\right)\left(x_{2}-x_{2}^{2}\right)
+\end{aligned}\]</span></p>
+<p><span class="math display">\[\frac{\partial u}{\partial x_{1}}=16\left(1-2x_{1}\right)\left(x_{2}-x_{2}^{2}\right)\]</span></p>
+<p><span class="math display">\[\frac{\partial u}{\partial x_{2}}=16\left(1-2x_{2}\right)\left(x_{1}-x_{1}^{2}\right)\]</span></p>
+<p>Body force is given by:</p>
+<p><span class="math display">\[f\left(x_{1},x_{2}\right)=32\left(x_{1}-x_{1}^{2}\right)+32\left(x_{2}-x_{2}^{2}\right)\]</span> - Neumann boundary condition at left</p>
+<p><span class="math display">\[h_{in}:=\mathbf{k}\nabla u\cdot\mathbf{n}=-16\left(x_{2}-x_{2}^{2}\right)\]</span></p>
+<p>So the incoming flux on the left boundary is positive and varies along the vertical direction <span class="math inline">\(16x_{2}(1-x_{2})\)</span>.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -688,7 +777,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/archlinux/fish.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/archlinux/fish.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/markdown-notes/static-linear-diffusion.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/markdown-notes/static-linear-diffusion.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

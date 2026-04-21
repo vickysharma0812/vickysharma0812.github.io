@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Vikas Sharma, Ph.D.">
-<meta name="dcterms.date" content="2025-01-16">
 
-<title>Gmsh – Vikas Sharma</title>
+<title>linux-file-permission – Vikas Sharma</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -113,8 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </script>
 
 
-<meta name="twitter:title" content="Gmsh – Vikas Sharma">
-<meta name="twitter:description" content="">
+<meta name="twitter:title" content="Vikas Sharma">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -151,8 +113,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../archlinux.html"> 
-<span class="menu-text">Archlinux</span></a>
+    <a class="nav-link" href="../linux.html"> 
+<span class="menu-text">Linux</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../markdown-notes.html"> 
+<span class="menu-text">Quick Notes</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -173,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Gmsh</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -204,47 +170,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#file-permissions-in-linux" id="toc-file-permissions-in-linux" class="nav-link active" data-scroll-target="#file-permissions-in-linux">File permissions in Linux</a>
+  <ul class="collapse">
+  <li><a href="#reading-and-modifying-permissions" id="toc-reading-and-modifying-permissions" class="nav-link" data-scroll-target="#reading-and-modifying-permissions">Reading and modifying permissions</a></li>
+  <li><a href="#group-permissions" id="toc-group-permissions" class="nav-link" data-scroll-target="#group-permissions">Group permissions</a></li>
+  <li><a href="#changing-the-file-permissions" id="toc-changing-the-file-permissions" class="nav-link" data-scroll-target="#changing-the-file-permissions">Changing the file permissions</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/markdown-notes/linux-file-permission.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/markdown-notes/linux-file-permission.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Gmsh</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Vikas Sharma, Ph.D. </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 16, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
+<section id="file-permissions-in-linux" class="level1">
+<h1>File permissions in Linux</h1>
+<section id="reading-and-modifying-permissions" class="level2">
+<h2 class="anchored" data-anchor-id="reading-and-modifying-permissions">Reading and modifying permissions</h2>
+<ul>
+<li>Read: View a file or list directory contents</li>
+<li>Write: Create and modify a file or copy, move, and create files in a directory</li>
+<li>Execute: Execute or run a file or cd into a directory</li>
+</ul>
+<p>Note a file name does not determine whether it is executable. It depends on the file’s permissions.</p>
+<p>Numerical values for read, write amd execute are explained below:</p>
+<ul>
+<li>Read (r) = 4</li>
+<li>Write (w) = 2</li>
+<li>Execute (x) = 1</li>
+<li>No permission (-) = 0</li>
+</ul>
+<p>Permission value can range from 0 to 7 by adding the values above.</p>
+<ul>
+<li>Execute = 1</li>
+<li>Write = 2</li>
+<li>Write + Execute = 3</li>
+<li>Read = 4</li>
+<li>Read + Execute = 5</li>
+<li>Read + Write = 6</li>
+<li>Read + Write + Execute = 7</li>
+</ul>
+</section>
+<section id="group-permissions" class="level2">
+<h2 class="anchored" data-anchor-id="group-permissions">Group permissions</h2>
+<p>There are four permission groups:</p>
+<ul>
+<li>User (u): The file owner</li>
+<li>Group (g): Other users in the file’s group</li>
+<li>Others (o): All other users</li>
+<li>All (a): User, group, and others</li>
+</ul>
+<p>Each linux file and directory is assigned read, write, and execute permissions for each of these groups.</p>
+</section>
+<section id="changing-the-file-permissions" class="level2">
+<h2 class="anchored" data-anchor-id="changing-the-file-permissions">Changing the file permissions</h2>
+<p>You can change the file permissions by using <code>chmod</code> command.</p>
 
 
-</header>
-
-
-<p><a href="https://gmsh.info/">Gmsh</a> is a 3D finite element grid generator with a build-in CAD engine and post-processor. You can download it by using the following command.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">yay</span> <span class="at">-Sy</span> gmsh-bin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -654,7 +645,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/archlinux/gmsh.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/archlinux/gmsh.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/markdown-notes/linux-file-permission.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/markdown-notes/linux-file-permission.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

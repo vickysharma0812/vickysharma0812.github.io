@@ -2,158 +2,270 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://vikas.easifem.com/pages/fzf/fzf.html</loc>
-    <lastmod>2025-12-23T04:22:44.645Z</lastmod>
+    <lastmod>2025-12-23T04:22:44.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/pages/tmux/tmux.html</loc>
-    <lastmod>2025-12-23T04:22:44.646Z</lastmod>
+    <lastmod>2025-12-23T04:22:44.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/pages/github/github-cli.html</loc>
-    <lastmod>2025-12-23T04:22:44.646Z</lastmod>
+    <lastmod>2025-12-23T04:22:44.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/pages/pyvista/pyvista.html</loc>
-    <lastmod>2025-12-23T04:22:44.646Z</lastmod>
+    <lastmod>2025-12-23T04:22:44.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/pages/python/pypi.html</loc>
-    <lastmod>2025-12-23T04:22:44.646Z</lastmod>
+    <lastmod>2025-12-23T04:22:44.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/pages/fem/steady-stokes-kernel.html</loc>
-    <lastmod>2025-12-23T04:22:44.644Z</lastmod>
+    <lastmod>2025-12-23T04:22:44.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/pages/docker/docker.html</loc>
-    <lastmod>2025-12-23T04:22:44.644Z</lastmod>
+    <lastmod>2025-12-23T04:22:44.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/eza.html</loc>
-    <lastmod>2025-12-23T03:53:47.637Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/markdown-oxide.html</loc>
-    <lastmod>2025-12-23T03:53:47.638Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/gmsh.html</loc>
-    <lastmod>2025-12-23T03:53:47.637Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/fonts.html</loc>
-    <lastmod>2025-12-23T03:53:47.637Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/latex.html</loc>
-    <lastmod>2025-12-23T03:53:47.638Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/ssh.html</loc>
-    <lastmod>2025-12-23T03:53:47.638Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/fish.html</loc>
-    <lastmod>2025-12-23T03:53:47.637Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/python.html</loc>
-    <lastmod>2025-12-23T03:53:47.638Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/docusaurus.html</loc>
-    <lastmod>2025-12-23T03:53:47.637Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/index.html</loc>
-    <lastmod>2025-12-23T03:53:47.640Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
-    <loc>https://vikas.easifem.com/logseq/bak/blog/2025-12-23T04_15_05.567Z.Desktop.html</loc>
-    <lastmod>2025-12-23T04:15:05.568Z</lastmod>
+    <loc>https://vikas.easifem.com/markdown-notes/todo-rpm-packages.html</loc>
+    <lastmod>2025-12-22T23:14:36.000Z</lastmod>
   </url>
   <url>
-    <loc>https://vikas.easifem.com/logseq/bak/blog/2025-12-23T04_22_46.892Z.Desktop.html</loc>
-    <lastmod>2025-12-23T04:22:46.892Z</lastmod>
+    <loc>https://vikas.easifem.com/markdown-notes/todo-frequency-domain-elastodynamics.html</loc>
+    <lastmod>2025-12-22T23:14:31.000Z</lastmod>
   </url>
   <url>
-    <loc>https://vikas.easifem.com/publication.html</loc>
-    <lastmod>2025-12-23T03:53:47.643Z</lastmod>
+    <loc>https://vikas.easifem.com/markdown-notes/linux-setting-network.html</loc>
+    <lastmod>2025-12-23T04:14:07.000Z</lastmod>
   </url>
   <url>
-    <loc>https://vikas.easifem.com/archlinux.html</loc>
-    <lastmod>2025-12-23T03:53:47.556Z</lastmod>
+    <loc>https://vikas.easifem.com/markdown-notes/linux-file-permission.html</loc>
+    <lastmod>2025-12-21T23:48:12.000Z</lastmod>
   </url>
   <url>
-    <loc>https://vikas.easifem.com/logseq/bak/blog/2025-12-23T04_22_44.544Z.Desktop.html</loc>
-    <lastmod>2025-12-23T04:22:44.544Z</lastmod>
+    <loc>https://vikas.easifem.com/markdown-notes/linux-creating-user-account.html</loc>
+    <lastmod>2025-12-21T23:45:28.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/blog.html</loc>
-    <lastmod>2025-12-23T04:22:44.643Z</lastmod>
+    <lastmod>2025-12-23T04:22:44.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2023_sr_nakashima_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2019_ijnme_sharma_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2025_jaee_kimura_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2022_ijnme_sharma_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2025_jaee_tomobe_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2021_fead_sharma_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2024_cm_sharma_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2022_ijog_sharma_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2017_ijog_somenath_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2021_crst_lijith_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publication.html</loc>
+    <lastmod>2025-12-23T05:24:31.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/markdown-notes.html</loc>
+    <lastmod>2025-12-23T06:14:09.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2024_ijmsd_sharma_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2021_ijog_lijith_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2023_jsc_tomobe_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2016_gg_somenath_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2018_sf_sharma_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2017_gg_somenath_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2020_sdee_sharma_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2024_ijce_azhar_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2023_jsces_shimizu_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/publications/2023_ijnme_shimizu_et_al/index.html</loc>
+    <lastmod>2025-12-22T20:27:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/linux.html</loc>
+    <lastmod>2025-12-23T05:14:22.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/markdown-notes/static-linear-diffusion.html</loc>
+    <lastmod>2025-12-12T11:48:26.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/markdown-notes/linux-creating-groups.html</loc>
+    <lastmod>2025-12-22T01:52:57.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/markdown-notes/transient-linear-diffusion.html</loc>
+    <lastmod>2025-12-12T06:51:15.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/markdown-notes/warewulf-setup.html</loc>
+    <lastmod>2025-12-23T06:46:25.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vikas.easifem.com/markdown-notes/lecture-notes.html</loc>
+    <lastmod>2025-12-23T06:35:02.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/zoxide.html</loc>
-    <lastmod>2025-12-23T03:53:47.638Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/go.html</loc>
-    <lastmod>2025-12-23T03:53:47.638Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/lazygit.html</loc>
-    <lastmod>2025-12-23T03:53:47.638Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/rust.html</loc>
-    <lastmod>2025-12-23T03:53:47.638Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/node.html</loc>
-    <lastmod>2025-12-23T03:53:47.638Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/fortran.html</loc>
-    <lastmod>2025-12-23T03:53:47.637Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/alacritty.html</loc>
-    <lastmod>2025-12-23T03:53:47.637Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/mystmd.html</loc>
-    <lastmod>2025-12-23T03:53:47.638Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/tmux.html</loc>
-    <lastmod>2025-12-23T03:53:47.638Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/linux/fzf.html</loc>
-    <lastmod>2025-12-23T03:53:47.637Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/pages/plplot/plplot.html</loc>
-    <lastmod>2025-12-23T04:22:44.646Z</lastmod>
+    <lastmod>2025-12-23T04:22:44.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/pages/fem/stokes-flow-mixed-fem.html</loc>
-    <lastmod>2025-12-23T04:22:44.645Z</lastmod>
+    <lastmod>2025-12-23T04:22:44.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/pages/conda/conda.html</loc>
-    <lastmod>2025-12-23T04:22:44.644Z</lastmod>
+    <lastmod>2025-12-23T04:22:44.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/pages/ssh/ssh.html</loc>
-    <lastmod>2025-12-23T04:22:44.646Z</lastmod>
+    <lastmod>2025-12-23T04:22:44.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/pages/contents.html</loc>
-    <lastmod>2025-12-23T03:53:47.641Z</lastmod>
+    <lastmod>2025-12-23T03:53:47.000Z</lastmod>
   </url>
   <url>
     <loc>https://vikas.easifem.com/pages/ruby/install-ruby.html</loc>
-    <lastmod>2025-12-23T04:22:44.646Z</lastmod>
+    <lastmod>2025-12-23T04:22:44.000Z</lastmod>
   </url>
 </urlset>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Blog – Vikas Sharma</title>
+<title>Quick Notes – Vikas Sharma</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +23,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<link href="../../.././figures/favicon.png" rel="icon" type="image/png">
-<script src="../../../site_libs/quarto-listing/list.min.js"></script>
-<script src="../../../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-779e89185f188e5db664e11736df39ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="././figures/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-779e89185f188e5db664e11736df39ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,9 +80,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -136,7 +136,7 @@ window.Quarto = {
 };
 </script>
 
-<meta name="twitter:title" content="Blog – Vikas Sharma">
+<meta name="twitter:title" content="Quick Notes – Vikas Sharma">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -147,10 +147,10 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../.././figures/logo-wide.svg" alt="" class="navbar-logo">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="././figures/logo-wide.svg" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Vikas Sharma</span>
     </a>
   </div>
@@ -161,20 +161,24 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../publication.html"> 
+    <a class="nav-link" href="./publication.html"> 
 <span class="menu-text">Publication</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog.html"> 
+    <a class="nav-link" href="./blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../archlinux.html"> 
-<span class="menu-text">Archlinux</span></a>
+    <a class="nav-link" href="./linux.html"> 
+<span class="menu-text">Linux</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./markdown-notes.html" aria-current="page"> 
+<span class="menu-text">Quick Notes</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -195,7 +199,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
-      <h1 class="title">Blog</h1>
+      <h1 class="title">Quick Notes</h1>
                       </div>
   </div>
     
@@ -212,7 +216,7 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(10)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -226,13 +230,223 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-title" data-direction="asc">
+        Title
+      </option>
+      <option value="listing-author" data-direction="asc">
+        Author
+      </option>
+    </select>
+  </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
 <div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1766360728000" data-listing-reading-time-sort="2" data-listing-word-count-sort="261">
+<div class="thumbnail"><a href="./markdown-notes/linux-creating-user-account.html" class="no-external">
 
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./markdown-notes/linux-creating-user-account.html" class="no-external">Managing users in Linux</a>
+</h3>
+<div class="delink listing-description"><a href="./markdown-notes/linux-creating-user-account.html" class="no-external">
+We will look at two common commands used to create user accounts in linux:
+</a></div>
+</div>
+<div class="metadata">
+<a href="./markdown-notes/linux-creating-user-account.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1765540106000" data-listing-reading-time-sort="2" data-listing-word-count-sort="253">
+<div class="thumbnail"><a href="./markdown-notes/static-linear-diffusion.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./markdown-notes/static-linear-diffusion.html" class="no-external">Static Diffusion Problem</a>
+</h3>
+<div class="delink listing-description"><a href="./markdown-notes/static-linear-diffusion.html" class="no-external">
+Strong form in terms of <span class="math inline">\(u\)</span>, where <span class="math inline">\(f\)</span> is the source density.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./markdown-notes/static-linear-diffusion.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1766360892000" data-listing-reading-time-sort="1" data-listing-word-count-sort="183">
+<div class="thumbnail"><a href="./markdown-notes/linux-file-permission.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./markdown-notes/linux-file-permission.html" class="no-external">File permissions in Linux</a>
+</h3>
+<div class="delink listing-description"><a href="./markdown-notes/linux-file-permission.html" class="no-external">
+Note a file name does not determine whether it is executable. It depends on the file’s permissions.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./markdown-notes/linux-file-permission.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1766368377000" data-listing-reading-time-sort="1" data-listing-word-count-sort="131">
+<div class="thumbnail"><a href="./markdown-notes/linux-creating-groups.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./markdown-notes/linux-creating-groups.html" class="no-external">Managing Groups in Linux</a>
+</h3>
+<div class="delink listing-description"><a href="./markdown-notes/linux-creating-groups.html" class="no-external">
+We can create a group using the <code>groupadd</code> command as shown below:
+</a></div>
+</div>
+<div class="metadata">
+<a href="./markdown-notes/linux-creating-groups.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-listing-file-modified-sort="1766463247000" data-listing-reading-time-sort="2" data-listing-word-count-sort="389">
+<div class="thumbnail"><a href="./markdown-notes/linux-setting-network.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./markdown-notes/linux-setting-network.html" class="no-external">Configuring the Network</a>
+</h3>
+<div class="delink listing-description"><a href="./markdown-notes/linux-setting-network.html" class="no-external">
+To change the settings to use static IP address on a Linux system, you typically need to modify the network configuration files. The exact steps may vary depending on the…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./markdown-notes/linux-setting-network.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-listing-file-modified-sort="1765522275000" data-listing-reading-time-sort="2" data-listing-word-count-sort="238">
+<div class="thumbnail"><a href="./markdown-notes/transient-linear-diffusion.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./markdown-notes/transient-linear-diffusion.html" class="no-external">Transient diffusion</a>
+</h3>
+<div class="delink listing-description"><a href="./markdown-notes/transient-linear-diffusion.html" class="no-external">
+Variation form
+</a></div>
+</div>
+<div class="metadata">
+<a href="./markdown-notes/transient-linear-diffusion.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-listing-file-modified-sort="1766445271000" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="thumbnail"><a href="./markdown-notes/todo-frequency-domain-elastodynamics.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./markdown-notes/todo-frequency-domain-elastodynamics.html" class="no-external">Frequency domain elastodynamics</a>
+</h3>
+<div class="delink listing-description"><a href="./markdown-notes/todo-frequency-domain-elastodynamics.html" class="no-external">
+
+
+
+
+
+</a></div>
+</div>
+<div class="metadata">
+<a href="./markdown-notes/todo-frequency-domain-elastodynamics.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-listing-file-modified-sort="1766472385000" data-listing-reading-time-sort="5" data-listing-word-count-sort="919">
+<div class="thumbnail"><a href="./markdown-notes/warewulf-setup.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./markdown-notes/warewulf-setup.html" class="no-external">Warewulf Cluster Setup Guide - Rocky Linux 9</a>
+</h3>
+<div class="delink listing-description"><a href="./markdown-notes/warewulf-setup.html" class="no-external">
+<strong>Cluster Network</strong>: 10.0.0.0/22
+</a></div>
+</div>
+<div class="metadata">
+<a href="./markdown-notes/warewulf-setup.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-listing-file-modified-sort="1766445276000">
+<div class="thumbnail"><a href="./markdown-notes/todo-rpm-packages.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./markdown-notes/todo-rpm-packages.html" class="no-external">RPM packages</a>
+</h3>
+<div class="delink listing-description"><a href="./markdown-notes/todo-rpm-packages.html" class="no-external">
+
+
+
+
+
+</a></div>
+</div>
+<div class="metadata">
+<a href="./markdown-notes/todo-rpm-packages.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-listing-file-modified-sort="1766471702000" data-listing-reading-time-sort="2" data-listing-word-count-sort="265">
+<div class="thumbnail"><a href="./markdown-notes/lecture-notes.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./markdown-notes/lecture-notes.html" class="no-external">Lecture Notes Overview</a>
+</h3>
+<div class="delink listing-description"><a href="./markdown-notes/lecture-notes.html" class="no-external">
+This document contains an overview of various lecture notes.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./markdown-notes/lecture-notes.html" class="no-external">
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
@@ -643,7 +857,7 @@ window.Quarto = {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/logseq/bak/blog/2025-12-23T04_22_44.544Z.Desktop.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/logseq/bak/blog/2025-12-23T04_22_44.544Z.Desktop.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/markdown-notes.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/markdown-notes.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

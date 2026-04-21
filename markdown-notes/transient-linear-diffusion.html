@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Vikas Sharma, Ph.D.">
-<meta name="dcterms.date" content="2025-01-14">
 
-<title>Docusaurus – Vikas Sharma</title>
+<title>transient-linear-diffusion – Vikas Sharma</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -112,9 +75,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta name="twitter:title" content="Docusaurus – Vikas Sharma">
-<meta name="twitter:description" content="">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta name="twitter:title" content="Vikas Sharma">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -151,8 +142,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../archlinux.html"> 
-<span class="menu-text">Archlinux</span></a>
+    <a class="nav-link" href="../linux.html"> 
+<span class="menu-text">Linux</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../markdown-notes.html"> 
+<span class="menu-text">Quick Notes</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -173,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Docusaurus</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -204,62 +199,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#transient-diffusion" id="toc-transient-diffusion" class="nav-link active" data-scroll-target="#transient-diffusion">Transient diffusion</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/markdown-notes/transient-linear-diffusion.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/markdown-notes/transient-linear-diffusion.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Docusaurus</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Vikas Sharma, Ph.D. </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 14, 2025</p>
-    </div>
-  </div>
+<section id="transient-diffusion" class="level1">
+<h1>Transient diffusion</h1>
+<pre><code>- Strong form in terms of $u$, where $f$ is the source density.
+- $$\frac{\partial\rho u}{\partial t}-\nabla\cdot\mathbf{k}\nabla u=f\left(\mathbf{x},t\right)$$
+- The mixed form of the problem is given in the form of flux $\mathbf{q}$ and $u$.
+- $$\frac{\partial\rho u}{\partial t}+\nabla\cdot\mathbf{q}=f\left(\mathbf{x},t\right)$$
+- $$\mathbf{q}=-\mathbf{k}\nabla u$$
+- Dirichlet boundary condition is given as:
+    - $$u=u_{0}$$
+- Neumann boundary condition in terms of outgoing flux given in by
   
-    
-  </div>
+  $$\mathbf{q}\cdot\mathbf{n}=h_{out}$$
   
+  or
+  
+  $$-\mathbf{k}\nabla u\cdot\mathbf{n}=h_{out}$$
+  
+  Neumann boundary condition in terms of incoming flux is given by
+  
+  $$-\mathbf{q}\cdot\mathbf{n}=h_{in}$$
+  
+  or
+  
+  $$\mathbf{k}\nabla u\cdot\mathbf{n}=h_{in}$$</code></pre>
+<ul>
+<li></li>
+<li><h2 id="semi-discrete-fem" class="anchored" data-anchor-id="transient-diffusion">Semi discrete FEM</h2>
+<p>Variation form</p>
+<p><span class="math display">\[B\left(\delta u,u\right)=L\left(\delta u\right)\]</span></p>
+<p><span class="math display">\[B\left(\delta u,u\right)=a\left(\delta u,u\right)+\left(\delta u,\frac{\partial\rho u}{\partial t}\right)\]</span></p>
+<p><span class="math display">\[L\left(\delta u\right)=\left(\delta u,f\right)+\left\langle \delta u,h_{in}\right\rangle\]</span></p>
+<p><span class="math display">\[a\left(\delta u,u\right)=\int_{\Omega}\frac{\partial\delta u}{\partial x_{i}}k_{ij}\frac{\partial u}{\partial x_{j}}d\Omega\]</span></p>
+<p><span class="math display">\[\left(\delta u,\frac{\partial\rho u}{\partial t}\right)=\int_{\Omega}\delta u\frac{\partial\rho u}{\partial t}d\Omega\]</span></p>
+<p>Discrete form</p>
+<p><span class="math display">\[\begin{align*}
+\mathbf{M}\frac{d\mathbf{U}}{dt}+\mathbf{K}\mathbf{U} &amp; =\mathbf{F}\left(t\right)\\
+\end{align*}\]</span></p>
+<p>Semi-discrete finite element method</p>
+<p><span class="math display">\[MV_{n+1}+KU_{n+1}=F_{n+1}\]</span></p>
+<p><span class="math display">\[U_{n+1}=U_{n}+a_{1}\Delta tV_{n}+a_{2}\Delta tV_{n+1}\]</span></p>
+<p><span class="math display">\[a_{1}=\left(1-\alpha\right)\]</span></p>
+<p><span class="math display">\[a_{2}=\alpha\]</span></p></li>
+<li><p><span class="math inline">\(\alpha=0\)</span> Forward difference (forward Euler), first order accurate, explicit method, conditionally stable.</p></li>
+<li><p><span class="math inline">\(\alpha=1\)</span>, Backward difference (backward Euler), first order accurate, implicit method, unconditionally stable</p></li>
+<li><p><span class="math inline">\(\alpha=0.5\)</span>, Trapezoidal rule, midpoint rule, Crank-Nicolson, second order accurate, implicit method, unconditionally stable</p>
+<p><span class="math display">\[U_{n+1}=U_{n}+a_{1}\Delta tV_{n}+a_{2}\Delta tV_{n+1}\]</span></p>
+<p><span class="math display">\[V_{n+1}=-\frac{1}{a_{2}\Delta t}U_{n}-\frac{a_{1}}{a_{2}\Delta t}V_{n}\Delta t+\frac{1}{a_{2}\Delta t}U_{n+1}\]</span></p></li>
+</ul>
 
 
-</header>
-
-
-<p>Docusaurus will help you ship a beautiful documentation site in no time.</p>
-<p>To preview your changes as you edit the files, you can run a local development server that will serve your website and reflect the latest changes.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> my-website</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pnpm</span> run start</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Docusaurus is a modern static website generator so we need to build the website into a directory of static contents and put it on a web server so that it can be viewed. To build the website:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pnpm</span> run build</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>There are many ways to update your Docusaurus version. One guaranteed way is to manually change the version number in package.json to the desired version. Note that all <code>@docusaurus/-namespaced</code> packages should be using the same version.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># package.json</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"dependencies"</span><span class="ex">:</span> {</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"@docusaurus/core"</span><span class="ex">:</span> <span class="st">"3.7.0"</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"@docusaurus/preset-classic"</span><span class="ex">:</span> <span class="st">"3.7.0"</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">//</span> ...</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Then, in the directory containing package.json, run your package manager’s install command:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pnpm</span> install</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -669,7 +674,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/archlinux/docusaurus.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/archlinux/docusaurus.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/markdown-notes/transient-linear-diffusion.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/markdown-notes/transient-linear-diffusion.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

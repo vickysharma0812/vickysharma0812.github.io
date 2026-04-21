@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Vikas Sharma, Ph.D.">
-<meta name="dcterms.date" content="2025-01-17">
 
-<title>Latex – Vikas Sharma</title>
+<title>linux-creating-user-account – Vikas Sharma</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -113,8 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </script>
 
 
-<meta name="twitter:title" content="Latex – Vikas Sharma">
-<meta name="twitter:description" content="">
+<meta name="twitter:title" content="Vikas Sharma">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -151,8 +148,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../archlinux.html"> 
-<span class="menu-text">Archlinux</span></a>
+    <a class="nav-link" href="../linux.html"> 
+<span class="menu-text">Linux</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../markdown-notes.html"> 
+<span class="menu-text">Quick Notes</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -173,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Latex</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -209,162 +210,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#texlive" id="toc-texlive" class="nav-link active" data-scroll-target="#texlive">TexLive</a></li>
-  <li><a href="#lyx" id="toc-lyx" class="nav-link" data-scroll-target="#lyx">Lyx</a></li>
-  <li><a href="#lyx-look" id="toc-lyx-look" class="nav-link" data-scroll-target="#lyx-look">Lyx look</a></li>
+  <li><a href="#managing-users-in-linux" id="toc-managing-users-in-linux" class="nav-link active" data-scroll-target="#managing-users-in-linux">Managing users in Linux</a>
+  <ul class="collapse">
+  <li><a href="#creating-a-user-account" id="toc-creating-a-user-account" class="nav-link" data-scroll-target="#creating-a-user-account">Creating a user account</a></li>
+  <li><a href="#changing-user-information" id="toc-changing-user-information" class="nav-link" data-scroll-target="#changing-user-information">Changing user information</a></li>
+  <li><a href="#removing-a-user-account" id="toc-removing-a-user-account" class="nav-link" data-scroll-target="#removing-a-user-account">Removing a user account</a></li>
+  <li><a href="#changing-password-expiration-information" id="toc-changing-password-expiration-information" class="nav-link" data-scroll-target="#changing-password-expiration-information">Changing password expiration information</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/archlinux/latex.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/archlinux/latex.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/markdown-notes/linux-creating-user-account.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/markdown-notes/linux-creating-user-account.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Latex</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Vikas Sharma, Ph.D. </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 17, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="texlive" class="level2">
-<h2 class="anchored" data-anchor-id="texlive">TexLive</h2>
-<p>TeX Live is a free software distribution for the TeX typesetting system that includes major TeX-related programs, macro packages, and fonts.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> texlive</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="managing-users-in-linux" class="level1">
+<h1>Managing users in Linux</h1>
+<section id="creating-a-user-account" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-user-account">Creating a user account</h2>
+<p>We will look at two common commands used to create user accounts in linux:</p>
+<ul>
+<li>useradd</li>
+<li>adduser</li>
+</ul>
+<p>The useradd command is simple for adding a new user to the system.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> useradd vikas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can also specify the password for username using the <code>passwd</code> command.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> passwd vikas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>On some linux distribution <code>adduser</code> command is a symbolic link to <code>useradd</code> command. However, in some distributions it is an interactive perl script that guides you through the process of adding a user.</p>
+<p>The entries of a user lives in the <code>/etc/passwd</code> file.</p>
 </section>
-<section id="lyx" class="level2">
-<h2 class="anchored" data-anchor-id="lyx">Lyx</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">yay</span> <span class="at">-Sy</span> lyx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="changing-user-information" class="level2">
+<h2 class="anchored" data-anchor-id="changing-user-information">Changing user information</h2>
+<p>You can change user information using the <code>usermod</code> command.</p>
+<p>For example, we can add a user to a group using the following command:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> usermod <span class="at">-a</span> <span class="at">-G</span> groupname username</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It is important to use the <code>-a</code> option (append) along with <code>-G</code> option to avoid removing the user from other groups.</p>
+<ul>
+<li><code>-s</code> option is used to change the login shell of the user.</li>
+<li><code>-e</code> option is used to set the account expiration date.</li>
+<li><code>-d</code> option is used to change the home directory of the user.</li>
+</ul>
 </section>
-<section id="lyx-look" class="level2">
-<h2 class="anchored" data-anchor-id="lyx-look">Lyx look</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># LyX 2.4.1 generated this file. If you want to make your own</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># modifications you should do them from inside LyX and save.</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Format</span> 38</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># MISC SECTION ######################################</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># The time interval between auto-saves in seconds.</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="ex">\autosave</span> 0</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ex">\user_name</span> <span class="st">"Vikas Sharma"</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="ex">\user_email</span> <span class="st">"vickysharma0812@gmail.com"</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="ex">\user_initials</span> <span class="st">""</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># SCREEN &amp; FONTS SECTION ############################</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="ex">\screen_zoom</span> 400</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="ex">\paragraph_markers</span> true</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="ex">\screen_font_roman</span> <span class="st">"STIX Two Text"</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="ex">\screen_font_sans</span> <span class="st">"STIX Two Text"</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="ex">\screen_font_typewriter</span> <span class="st">"VictorMono Nerd Font"</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="ex">\screen_font_sizes</span> 5 7 8 9 10 12 14.4 17.26 20.74 24.88</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="ex">\open_buffers_in_tabs</span> true</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="ex">\single_instance</span> false</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="co"># COLOR SECTION ###################################</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"cursor"</span> <span class="st">"#cdd6f4"</span> <span class="st">"#cdd6f4"</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"background"</span> <span class="st">"#11111b"</span> <span class="st">"#11111b"</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"foreground"</span> <span class="st">"#cdd6f4"</span> <span class="st">"#cdd6f4"</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"selection"</span> <span class="st">"#313244"</span> <span class="st">"#313244"</span></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"selectiontext"</span> <span class="st">"#74c7ec"</span> <span class="st">"#74c7ec"</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"latex"</span> <span class="st">"#94e2d5"</span> <span class="st">"#94e2d5"</span></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"preview"</span> <span class="st">"#D8DEE9"</span> <span class="st">"#D8DEE9"</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"inlinecompletion"</span> <span class="st">"#cdd6f4"</span> <span class="st">"#cdd6f4"</span></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"note"</span> <span class="st">"#ECEFF4"</span> <span class="st">"#ECEFF4"</span></span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"notebg"</span> <span class="st">"#3B4252"</span> <span class="st">"#3B4252"</span></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"comment"</span> <span class="st">"#4C566A"</span> <span class="st">"#4C566A"</span></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"commentbg"</span> <span class="st">"#313244"</span> <span class="st">"#313244"</span></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"greyedout"</span> <span class="st">"#6c7086"</span> <span class="st">"#6c7086"</span></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"greyedouttext"</span> <span class="st">"#a6adc8"</span> <span class="st">"#a6adc8"</span></span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"greyedoutbg"</span> <span class="st">"#6c7086"</span> <span class="st">"#6c7086"</span></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"shaded"</span> <span class="st">"#11111b"</span> <span class="st">"#11111b"</span></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"listingsbg"</span> <span class="st">"#11111b"</span> <span class="st">"#11111b"</span></span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"branchlabel"</span> <span class="st">"#fab387"</span> <span class="st">"#fab387"</span></span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"footlabel"</span> <span class="st">"#b4befe"</span> <span class="st">"#b4befe"</span></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"indexlabel"</span> <span class="st">"#a6e3a1"</span> <span class="st">"#a6e3a1"</span></span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"marginlabel"</span> <span class="st">"#cba6f7"</span> <span class="st">"#cba6f7"</span></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"urllabel"</span> <span class="st">"#ebcb8b"</span> <span class="st">"#ebcb8b"</span></span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"urltext"</span> <span class="st">"#bf616a"</span> <span class="st">"#bf616a"</span></span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"depthbar"</span> <span class="st">"#ECEFF4"</span> <span class="st">"#ECEFF4"</span></span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"language"</span> <span class="st">"#ECEFF4"</span> <span class="st">"#ECEFF4"</span></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"command"</span> <span class="st">"#bac2de"</span> <span class="st">"#bac2de"</span></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"commandbg"</span> <span class="st">"#1e1e2e"</span> <span class="st">"#1e1e2e"</span></span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"commandframe"</span> <span class="st">"#1e1e2e"</span> <span class="st">"#1e1e2e"</span></span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"special"</span> <span class="st">"#ECEFF4"</span> <span class="st">"#ECEFF4"</span></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"graphicsbg"</span> <span class="st">"#313244"</span> <span class="st">"#313244"</span></span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"math"</span> <span class="st">"#b4befe"</span> <span class="st">"#b4befe"</span></span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"mathbg"</span> <span class="st">"#181825"</span> <span class="st">"#181825"</span></span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"mathmacrobg"</span> <span class="st">"#11111b"</span> <span class="st">"#11111b"</span></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"mathmacroblend"</span> <span class="st">"#181825"</span> <span class="st">"#181825"</span></span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"mathframe"</span> <span class="st">"#cba6f7"</span> <span class="st">"#cba6f7"</span></span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"mathcorners"</span> <span class="st">"#1e1e2e"</span> <span class="st">"#1e1e2e"</span></span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"mathline"</span> <span class="st">"#94e2d5"</span> <span class="st">"#94e2d5"</span></span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"collapsible"</span> <span class="st">"#cdd6f4"</span> <span class="st">"#cdd6f4"</span></span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"collapsibleframe"</span> <span class="st">"#313244"</span> <span class="st">"#313244"</span></span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"insetbg"</span> <span class="st">"#f5c2e7"</span> <span class="st">"#f5c2e7"</span></span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"insetframe"</span> <span class="st">"#f5c2e7"</span> <span class="st">"#f5c2e7"</span></span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"error"</span> <span class="st">"#f38ba8"</span> <span class="st">"#f38ba8"</span></span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"eolmarker"</span> <span class="st">"#f9e2af"</span> <span class="st">"#f9e2af"</span></span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"added_space"</span> <span class="st">"#f5e0dc"</span> <span class="st">"#f5e0dc"</span></span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"appendix"</span> <span class="st">"#74c7ec"</span> <span class="st">"#74c7ec"</span></span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"changebar"</span> <span class="st">"#88C0D0"</span> <span class="st">"#88C0D0"</span></span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"deletedtext"</span> <span class="st">"#eba0ac"</span> <span class="st">"#eba0ac"</span></span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"addedtext"</span> <span class="st">"#a3be8c"</span> <span class="st">"#a3be8c"</span></span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"changedtextauthor1"</span> <span class="st">"#bf616a"</span> <span class="st">"#bf616a"</span></span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"changedtextauthor2"</span> <span class="st">"#a3be8c"</span> <span class="st">"#a3be8c"</span></span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"changedtextauthor3"</span> <span class="st">"#f38ba8"</span> <span class="st">"#f38ba8"</span></span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"changedtextauthor4"</span> <span class="st">"#f2cdcd"</span> <span class="st">"#f2cdcd"</span></span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"changedtextauthor5"</span> <span class="st">"#cba6f7"</span> <span class="st">"#cba6f7"</span></span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"deletedtextmodifier"</span> <span class="st">"#f9e2af"</span> <span class="st">"#f9e2af"</span></span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"tabularline"</span> <span class="st">"#8fbcbb"</span> <span class="st">"#8fbcbb"</span></span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"tabularonoffline"</span> <span class="st">"#999999"</span> <span class="st">"#999999"</span></span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"bottomarea"</span> <span class="st">"#181825"</span> <span class="st">"#181825"</span></span>
-<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"newpage"</span> <span class="st">"#89b4fa"</span> <span class="st">"#89b4fa"</span></span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"pagebreak"</span> <span class="st">"#88C0D0"</span> <span class="st">"#88C0D0"</span></span>
-<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"buttonframe"</span> <span class="st">"#b4befe"</span> <span class="st">"#b4befe"</span></span>
-<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"buttonbg"</span> <span class="st">"#313244"</span> <span class="st">"#313244"</span></span>
-<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a><span class="ex">\set_color</span> <span class="st">"buttonhoverbg"</span> <span class="st">"#45475a"</span> <span class="st">"#45475a"</span></span>
-<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a><span class="ex">\completion_inline_text</span> true</span>
-<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a><span class="ex">\completion_popup_text</span> true</span>
-<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a><span class="ex">\make_backup</span> false</span>
-<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a><span class="ex">\language_custom_package</span> <span class="st">""</span></span>
-<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a><span class="ex">\default_view_format</span> <span class="dt">\s</span>pellcheck_continuously</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="removing-a-user-account" class="level2">
+<h2 class="anchored" data-anchor-id="removing-a-user-account">Removing a user account</h2>
+<p>You can remove a user account using the <code>userdel</code> command. The entry of the user will be removed from the <code>/etc/passwd</code> file. However, the home directory and files of the user will remain intact.</p>
+<p>You can delete the home directory and files of the user using the <code>-r</code> option as shown below:</p>
+</section>
+<section id="changing-password-expiration-information" class="level2">
+<h2 class="anchored" data-anchor-id="changing-password-expiration-information">Changing password expiration information</h2>
+<p>The chage command changes the number of days between password changes and the last password change date. The system uses this information to determine when users must change their passwords</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -775,7 +675,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/archlinux/latex.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/archlinux/latex.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/edit/main/markdown-notes/linux-creating-user-account.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/blob/main/markdown-notes/linux-creating-user-account.md" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/vickysharma0812/vickysharma0812.github.io/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
