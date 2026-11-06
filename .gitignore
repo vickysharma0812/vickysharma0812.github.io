@@ -10,3 +10,5 @@ _site
 /markdown-notes/journals/
 /markdown-notes/logseq/
 /markdown-notes/whiteboards/
+.iwe/app/
+.rumdl_cache/
