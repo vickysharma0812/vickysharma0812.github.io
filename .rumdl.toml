@@ -1,0 +1,37 @@
+# Global configuration options
+[global]
+# disable = ["MD013", "MD033"]
+# enable = ["MD001", "MD003", "MD004"]
+#
+# extend-enable = ["MD060", "MD063"]
+extend-disable = ["MD013"]
+
+# List of file/directory patterns to include for linting (if provided, only these will be linted)
+# include = [
+#    "docs/*.md",
+#    "src/**/*.md",
+#    "README.md"
+# ]
+
+# List of file/directory patterns to exclude from linting
+exclude = [
+  # Common directories to exclude
+  ".git",
+  ".iwe",
+  ".github",
+  "node_modules",
+  "vendor",
+  "dist",
+  "build",
+  # Specific files or patterns
+  "CHANGELOG.md",
+  "LICENSE.md",
+]
+
+# Respect .gitignore, .ignore and git exclude files when scanning directories
+# (default: true). .markdownlintignore applies regardless.
+respect-gitignore = true
+
+# Markdown flavor/dialect (uncomment to enable)
+# Options: standard (default), gfm, commonmark, mkdocs, mdx, pandoc, quarto, obsidian, kramdown, azure_devops, myst, hugo, mdg, gh-aw
+# flavor = "mkdocs"
